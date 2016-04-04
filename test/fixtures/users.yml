@@ -1,8 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  person_id: 1
-  person_type: MyString
   email: MyString
   password_digest: MyString
   first_name: MyString
@@ -13,8 +11,6 @@ one:
   login_token: MyString
 
 two:
-  person_id: 1
-  person_type: MyString
   email: MyString
   password_digest: MyString
   first_name: MyString
