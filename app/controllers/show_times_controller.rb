@@ -1,5 +1,6 @@
 class ShowTimesController < ApplicationController
   def create
+    @success = @show_time 
   end
 
   def edit

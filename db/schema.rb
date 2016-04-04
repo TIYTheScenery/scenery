@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20160404201931) do
   add_index "show_times", ["venue_id"], name: "index_show_times_on_venue_id"
 
   create_table "users", force: :cascade do |t|
+    t.integer  "person_id"
+    t.string   "person_type"
     t.string   "email"
     t.string   "password_digest"
     t.string   "first_name"
@@ -59,5 +61,7 @@ ActiveRecord::Schema.define(version: 20160404201931) do
   end
 
   add_index "users", ["login_token"], name: "index_users_on_login_token"
+  add_index "users", ["person_id"], name: "index_users_on_person_id"
+  add_index "users", ["person_type"], name: "index_users_on_person_type"
 
 end
