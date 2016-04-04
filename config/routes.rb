@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+  get 'user/show'
+
+  get 'user/create'
+
+  get 'user/update'
+
+  get 'user/delete'
+
+  get 'user/login'
+
+  get 'user/logout'
+=======
   get 'performance/create'
+>>>>>>> e7b80286b9f96413b885cdbb69e80bb67fdb5554
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
