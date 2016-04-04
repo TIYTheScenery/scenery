@@ -4,7 +4,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @success = @user.save
+    if @user.save
+      @success = true
+      @user.login_token = SecureRandom.urlsafe_base64(32)
+      @user.save
+    else
+      @success = false
+    end
   end
 
   def update
