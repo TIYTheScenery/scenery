@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'show_times/create'
+
+  get 'show_times/edit'
+
+  get 'show_times/show'
+
+  get 'show_times/destroy'
+
   get 'user/show'
 
   get 'user/create'
