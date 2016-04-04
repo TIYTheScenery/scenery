@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner_id: 1
+  company_id: 1
+  name: MyString
+  description: MyText
+  trailer_link: MyString
+  ticket_link: MyString
+
+two:
+  owner_id: 1
+  company_id: 1
+  name: MyString
+  description: MyText
+  trailer_link: MyString
+  ticket_link: MyString
