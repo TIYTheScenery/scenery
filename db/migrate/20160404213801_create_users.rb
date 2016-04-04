@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.text :description
-      t.boolean :professional
+      t.boolean :is_professional
       t.string :display_name
       t.string :login_token
 
