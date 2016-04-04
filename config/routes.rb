@@ -1,23 +1,11 @@
 Rails.application.routes.draw do
-  get 'show_times/create'
+  resources :show_times
 
-  get 'show_times/edit'
+  resources :users, except: [:index, :new, :edit]
 
-  get 'show_times/show'
+  post 'login' => 'users#login'
 
-  get 'show_times/destroy'
-
-  get 'user/show'
-
-  get 'user/create'
-
-  get 'user/update'
-
-  get 'user/delete'
-
-  get 'user/login'
-
-  get 'user/logout'
+  post 'logout' => 'users#logout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

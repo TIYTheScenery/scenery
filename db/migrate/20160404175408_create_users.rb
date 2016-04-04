@@ -1,8 +1,6 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.integer :person_id
-      t.string :person_type
       t.string :email
       t.string :password_digest
       t.string :first_name
@@ -14,8 +12,6 @@ class CreateUsers < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :users, :person_id
-    add_index :users, :person_type
     add_index :users, :login_token
   end
 end
