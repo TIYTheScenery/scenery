@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160404175902) do
+ActiveRecord::Schema.define(version: 20160404213801) do
 
   create_table "performances", force: :cascade do |t|
     t.integer  "owner_id"
@@ -27,9 +26,6 @@ ActiveRecord::Schema.define(version: 20160404175902) do
 
   add_index "performances", ["company_id"], name: "index_performances_on_company_id"
   add_index "performances", ["owner_id"], name: "index_performances_on_owner_id"
-=======
-ActiveRecord::Schema.define(version: 20160404213801) do
->>>>>>> 946d61e9f28a5b0411ccefcc2d487130c994ad37
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

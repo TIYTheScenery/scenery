@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   post 'logout' => 'users#logout'
 
-  get 'performance/create'
+  post 'performance/create'
 
 
 
