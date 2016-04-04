@@ -3,9 +3,9 @@ class PerformanceController < ApplicationController
     @performance = Performance.new(performance_params)
 
     if @performance.save
-      redirect_to performances_path, notice: "Performance was successfully created."
+      render json: @performance, notice: "Performance was successfully created."
     else
-      render :new
+      render :false, flash.now[:alert] = "Something went wrong. Please try again."
     end
   end
 
