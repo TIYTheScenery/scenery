@@ -2,12 +2,8 @@ class PerformanceController < ApplicationController
   def create
     @performance = Performance.new(performance_params)
 
-    if @performance.save
-      render json: @performance, notice: "Performance was successfully created."
-    else
-      flash.now[:alert] = "Something went wrong. Please try again."
-      render :false
-    end
+    @success = @performance.save
+
   end
 
   private
