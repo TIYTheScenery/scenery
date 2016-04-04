@@ -11,21 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404201931) do
-
-  create_table "performances", force: :cascade do |t|
-    t.integer  "owner_id"
-    t.integer  "company_id"
-    t.string   "name"
-    t.text     "description"
-    t.string   "trailer_link"
-    t.string   "ticket_link"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "performances", ["company_id"], name: "index_performances_on_company_id"
-  add_index "performances", ["owner_id"], name: "index_performances_on_owner_id"
+ActiveRecord::Schema.define(version: 20160404213801) do
 
   create_table "show_times", force: :cascade do |t|
     t.integer  "event_id"
@@ -46,14 +32,12 @@ ActiveRecord::Schema.define(version: 20160404201931) do
   add_index "show_times", ["venue_id"], name: "index_show_times_on_venue_id"
 
   create_table "users", force: :cascade do |t|
-    t.integer  "person_id"
-    t.string   "person_type"
     t.string   "email"
     t.string   "password_digest"
     t.string   "first_name"
     t.string   "last_name"
     t.text     "description"
-    t.boolean  "professional"
+    t.boolean  "is_professional"
     t.string   "display_name"
     t.string   "login_token"
     t.datetime "created_at",      null: false
@@ -61,7 +45,5 @@ ActiveRecord::Schema.define(version: 20160404201931) do
   end
 
   add_index "users", ["login_token"], name: "index_users_on_login_token"
-  add_index "users", ["person_id"], name: "index_users_on_person_id"
-  add_index "users", ["person_type"], name: "index_users_on_person_type"
 
 end

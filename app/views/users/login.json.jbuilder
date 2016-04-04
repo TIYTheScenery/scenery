@@ -10,5 +10,5 @@ if @success
     json.login_token @user.login_token
   end
 else
-  json.errors @user.errors.full_messages
+  json.errors @error
 end
