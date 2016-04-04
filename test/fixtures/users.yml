@@ -6,7 +6,7 @@ one:
   first_name: MyString
   last_name: MyString
   description: MyText
-  professional: false
+  is_professional: false
   display_name: MyString
   login_token: MyString
 
@@ -16,6 +16,6 @@ two:
   first_name: MyString
   last_name: MyString
   description: MyText
-  professional: false
+  is_professional: false
   display_name: MyString
   login_token: MyString
