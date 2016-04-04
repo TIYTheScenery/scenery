@@ -6,7 +6,6 @@ class PerformanceControllerTest < ActionController::TestCase
       post :create, performance: {name: 'Hamlet'}
     end
 
-    assert_redirected_to performance_path(assigns(:performance))
   end
 
 end

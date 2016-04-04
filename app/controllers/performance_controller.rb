@@ -5,7 +5,8 @@ class PerformanceController < ApplicationController
     if @performance.save
       render json: @performance, notice: "Performance was successfully created."
     else
-      render :false, flash.now[:alert] = "Something went wrong. Please try again."
+      flash.now[:alert] = "Something went wrong. Please try again."
+      render :false
     end
   end
 
