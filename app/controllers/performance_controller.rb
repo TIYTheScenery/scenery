@@ -1,4 +1,5 @@
 class PerformanceController < ApplicationController
+  
   def create
     @performance = Performance.new(performance_params)
 
