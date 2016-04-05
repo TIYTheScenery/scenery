@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
     return user
   end
 
+  def authenticate_professional(token)
+    user = User.find_by(login_token: token)
+    return user && user.is_professional
+  end
+
   before_filter :set_format
 
   def set_format
