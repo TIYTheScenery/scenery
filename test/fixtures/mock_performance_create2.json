@@ -6,5 +6,8 @@
     "description": "Everyone dies",
     "trailer_link": "www.youtube.com",
     "ticket_link": "www.eventbrite.com"
+  },
+  "user_info": {
+    "login_token": "igotagoldenticket"
   }
 }

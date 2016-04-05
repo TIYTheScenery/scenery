@@ -20,7 +20,31 @@ class PerformancesControllerTest < ActionController::TestCase
     post :create, test_input
     response = JSON.parse(@response.body)
     assert_equal test_input["performance"]["show_times_attributes"][0]["city"], "Durham"
-    assert_equal 3, ShowTime.count
-    assert_equal "Performance", ShowTime.last.event_type
+    assert_equal 2, ShowTime.count
+    assert_equal "performance", ShowTime.last.event_type
   end
+
+  test "performances may not be created unless the user is logged in" do
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create3.json")).merge(format: :json)
+    post :create, test_input
+    response = JSON.parse(@response.body)
+    assert_equal false, response["success"]
+
+  end
+
+  test "create performances will return errors if user creation failed" do
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create.json")).merge(format: :json)
+    post :create, test_input
+    assert_response :success
+    post :create, test_input
+    response = JSON.parse(@response.body)
+    assert_equal false, response["success"]
+  end
+
+  test "create will accept json and create a user" do
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create.json")).merge(format: :json)
+    post :create, test_input
+    assert_equal Performance.last.name, "Macbeth"
+  end
+
 end

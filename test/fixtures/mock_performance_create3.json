@@ -1,8 +1,9 @@
+/*This here fixture is for the express purpose of testing that performances may not be created unless the user is logged in.*/
 {
   "performance": {
     "owner_id": "1",
     "company_id": "1",
-    "name": "Macbeth",
+    "name": "",
     "description": "Everyone dies",
     "trailer_link": "www.youtube.com",
     "ticket_link": "www.eventbrite.com"
@@ -10,5 +11,4 @@
   "user_info": {
     "login_token": "igotagoldenticket"
   }
-
 }
