@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
     return user
   end
 
+  before_filter :set_format
+
+  def set_format
+    request.format = 'json'
+  end
+
 end
