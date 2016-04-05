@@ -8,12 +8,12 @@
     "ticket_link": "www.eventbrite.com",
     "show_times_attributes": [
       {
-        "begin_time": "Time.now",
+        "begin_time": "2016-04-04T18:01:02.567Z",
         "address": "114 south st",
         "city": "Durham",
         "state": "NC",
         "zip_code": "27703",
-        "date": "Date.new"
+        "date": "2016-04-04"
       }
     ]
   }

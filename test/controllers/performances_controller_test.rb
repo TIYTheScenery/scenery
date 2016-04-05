@@ -20,5 +20,6 @@ class PerformancesControllerTest < ActionController::TestCase
     response = JSON.parse(@response.body)
     assert_equal test_input["performance"]["show_times_attributes"][0]["city"], "Durham"
     assert_equal 3, ShowTime.count
+    assert_equal "Performance", ShowTime.last.event_type
   end
 end
