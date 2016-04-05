@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'search/index'
-
-  get 'genres/index'
-
   resources :users, except: [:index, :new, :edit]
 
   post 'login' => 'users#login'
@@ -11,6 +6,9 @@ Rails.application.routes.draw do
   post 'logout' => 'users#logout'
 
   post 'performance/create'
+
+  get 'search/index'
+  get 'genres' => 'genres#index'
 
 
 
