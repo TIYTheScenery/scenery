@@ -27,6 +27,24 @@ ActiveRecord::Schema.define(version: 20160404213801) do
   add_index "performances", ["company_id"], name: "index_performances_on_company_id"
   add_index "performances", ["owner_id"], name: "index_performances_on_owner_id"
 
+  create_table "show_times", force: :cascade do |t|
+    t.integer  "event_id"
+    t.string   "event_type"
+    t.time     "begin_time"
+    t.time     "end_time"
+    t.integer  "venue_id"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "show_times", ["event_id"], name: "index_show_times_on_event_id"
+  add_index "show_times", ["venue_id"], name: "index_show_times_on_venue_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
