@@ -20,10 +20,9 @@ class UsersController < ApplicationController
   end
 
   def login
-    user = User.find_by(email: user_params[:email])
-    if user && user.authenticate(user_params[:password])
+    @user = User.find_by(email: user_params[:email])
+    if @user && @user.authenticate(user_params[:password])
       @success = true
-      @user = user
       @user.login_token = SecureRandom.urlsafe_base64(32)
       @user.save
     else
@@ -33,6 +32,14 @@ class UsersController < ApplicationController
   end
 
   def logout
+    if authenticate_user(user_params[:login_token])
+      @user = User.find_by(login_token: user_params[:login_token])
+      @user.login_token = nil
+      @success = @user.save
+    else
+      data = File.read("#{Rails.root}/public/user_not_logged_in.json")
+      render :json => data
+    end
   end
 
   private def user_params

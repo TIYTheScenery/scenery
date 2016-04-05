@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'search/index'
 
-  get 'performances/create'
+  get 'genres/index'
 
   resources :users, except: [:index, :new, :edit]
 
