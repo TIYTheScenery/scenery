@@ -1,5 +1,5 @@
-class PerformanceController < ApplicationController
-  
+class PerformancesController < ApplicationController
+
   def create
     @performance = Performance.new(performance_params)
 

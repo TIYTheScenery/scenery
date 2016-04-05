@@ -13,7 +13,20 @@
 
 ActiveRecord::Schema.define(version: 20160404213801) do
 
-<<<<<<< HEAD
+  create_table "performances", force: :cascade do |t|
+    t.integer  "owner_id"
+    t.integer  "company_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "trailer_link"
+    t.string   "ticket_link"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "performances", ["company_id"], name: "index_performances_on_company_id"
+  add_index "performances", ["owner_id"], name: "index_performances_on_owner_id"
+
   create_table "show_times", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "event_type"
@@ -31,21 +44,6 @@ ActiveRecord::Schema.define(version: 20160404213801) do
 
   add_index "show_times", ["event_id"], name: "index_show_times_on_event_id"
   add_index "show_times", ["venue_id"], name: "index_show_times_on_venue_id"
-=======
-  create_table "performances", force: :cascade do |t|
-    t.integer  "owner_id"
-    t.integer  "company_id"
-    t.string   "name"
-    t.text     "description"
-    t.string   "trailer_link"
-    t.string   "ticket_link"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "performances", ["company_id"], name: "index_performances_on_company_id"
-  add_index "performances", ["owner_id"], name: "index_performances_on_owner_id"
->>>>>>> 607a3906d1b4bd3d8a6769bb9c8d458b4cc1294e
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

@@ -22,7 +22,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "create will return errors if user creation failed" do
-    test_input = test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_user_create.json")).merge(format: :json)
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_user_create.json")).merge(format: :json)
     post :create, test_input
     assert_response :success
     post :create, test_input

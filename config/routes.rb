@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :show_times
 
   resources :users, except: [:index, :new, :edit]
 
@@ -7,7 +6,7 @@ Rails.application.routes.draw do
 
   post 'logout' => 'users#logout'
 
-  post 'performance/create'
+  post 'performances/create'
 
 
 
