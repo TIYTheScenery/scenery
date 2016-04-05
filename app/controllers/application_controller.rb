@@ -3,13 +3,20 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
 
-  # For all responses in this controller, return the CORS access control headers.
-
-
-
   def authenticate_user(token)
     user = User.find_by(login_token: token)
     return user
+  end
+
+  def authenticate_professional(token)
+    user = User.find_by(login_token: token)
+    return user && user.is_professional
+  end
+
+  before_filter :set_format
+
+  def set_format
+    request.format = 'json'
   end
 
 end
