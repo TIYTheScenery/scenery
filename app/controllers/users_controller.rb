@@ -20,10 +20,9 @@ class UsersController < ApplicationController
   end
 
   def login
-    user = User.find_by(email: user_params[:email])
-    if user && user.authenticate(user_params[:password])
+    @user = User.find_by(email: user_params[:email])
+    if @user && @user.authenticate(user_params[:password])
       @success = true
-      @user = user
       @user.login_token = SecureRandom.urlsafe_base64(32)
       @user.save
     else
@@ -33,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   def logout
+
   end
 
   private def user_params
