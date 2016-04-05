@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_id: 1
+  event_type: "performance"
+  begin_time: 2016-04-04 16:19:32
+  end_time: 2016-04-04 18:19:32
+  venue_id: 1
+  address: "116 Ralph St."
+  city: "Durham"
+  state: "NC"
+  zip_code: "27703"
+  date: 2016-04-04
+
+two:
+  event_id: 1
+  event_type: "performance"
+  begin_time: 2016-04-04 16:19:32
+  end_time: 2016-04-04 18:19:32
+  venue_id: 1
+  address: "114 South st."
+  city: "Chapel Hill"
+  state: "NC"
+  zip_code: "27703"
+  date: 2016-04-04
