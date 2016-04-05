@@ -23,3 +23,27 @@ two:
   state: "NC"
   zip_code: "27703"
   date: 2016-04-04
+
+three:
+  event_id: 2
+  event_type: "performance"
+  begin_time: 2016-04-06 16:19:32
+  end_time: 2016-04-06 18:19:32
+  venue_id: 1
+  address: "114 South st."
+  city: "Durham"
+  state: "NC"
+  zip_code: "27713"
+  date: 2016-04-04
+
+four:
+  event_id: 2
+  event_type: "performance"
+  begin_time: 2016-04-07 16:19:32
+  end_time: 2016-04-07 18:19:32
+  venue_id: 1
+  address: "114 South st."
+  city: "Chapel Hill"
+  state: "NC"
+  zip_code: "27713"
+  date: 2016-04-04

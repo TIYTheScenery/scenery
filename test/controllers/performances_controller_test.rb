@@ -4,7 +4,7 @@ class PerformancesControllerTest < ActionController::TestCase
   test "create will accept json and create a performance" do
     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create.json")).merge(format: :json)
     post :create, test_input
-    assert_equal Performance.last.name, "Macbeth"
+    assert_equal Performance.last.name, "John Dies At The End"
   end
 
   test "create will return errors if performance creation failed" do
@@ -19,7 +19,7 @@ class PerformancesControllerTest < ActionController::TestCase
     post :create, test_input
     response = JSON.parse(@response.body)
     assert_equal test_input["performance"]["show_times_attributes"][0]["city"], "Durham"
-    assert_equal 3, ShowTime.count
+    assert_equal 5, ShowTime.count
     assert_equal "Performance", ShowTime.last.event_type
   end
 end
