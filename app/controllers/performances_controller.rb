@@ -1,5 +1,5 @@
-class PerformanceController < ApplicationController
-  
+class PerformancesController < ApplicationController
+  before_action :login_token?
   def create
     @performance = Performance.new(performance_params)
 

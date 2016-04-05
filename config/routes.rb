@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'performances/create'
+
   resources :users, except: [:index, :new, :edit]
 
   post 'login' => 'users#login'
