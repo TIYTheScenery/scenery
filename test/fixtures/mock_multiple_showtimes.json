@@ -24,5 +24,8 @@
         "date": "2016-04-05"
       }
     ]
+  },
+    "user_info": {
+      "login_token": "igotagoldenticket"
   }
 }
