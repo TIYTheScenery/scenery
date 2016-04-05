@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner_id: 1
+  company_id: 1
+  name: Macbeth
+  description: Witches, murder, and mayham
+  trailer_link: www.this@youtube.com
+  ticket_link: www.this@eventbrite.com
+
+two:
+  owner_id: 1
+  company_id: 1
+  name: Emotions of normal people
+  description: Existential romp
+  trailer_link: www.that@youtube.com
+  ticket_link: www.that@eventbrite.com

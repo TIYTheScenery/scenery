@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   post 'logout' => 'users#logout'
 
+  post 'performance/create'
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
