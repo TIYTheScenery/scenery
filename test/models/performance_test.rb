@@ -10,6 +10,11 @@ class PerformanceTest < ActiveSupport::TestCase
   end
 
   test "Name and description must be entered." do
-    show = Performance.create()
+    show = Performance.new()
+    refute show.save
+  end
+
+  test "Performance can create nested showtimes" do
+    test_unit = Performance.create()
   end
 end
