@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  get 'search/index'
 
-  get 'genres/index'
-
-=======
->>>>>>> c13d9485ebab5be1fed7e40a2d9368cb0a5d3c61
   resources :users, except: [:index, :new, :edit]
 
   post 'login' => 'users#login', :via => [:options]
