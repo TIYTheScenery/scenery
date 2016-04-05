@@ -14,4 +14,12 @@ class PerformancesControllerTest < ActionController::TestCase
     response = JSON.parse(@response.body)
     assert_equal false, response["success"]
   end
+
+  test "create performance allows for creation of nested showtimes" do
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_nested_showtimes.json")).merge(format: :json)
+    post :create, test_input
+    response = JSON.parse(@response.body)
+    assert_equal test_input["performance"]["show_times_attributes"][0]["city"], "Durham"
+    assert_equal 3, ShowTime.count
+  end
 end
