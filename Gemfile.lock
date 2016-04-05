@@ -81,6 +81,7 @@ GEM
     pg (0.18.4)
     puma (3.2.0)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5.1)
@@ -164,6 +165,7 @@ DEPENDENCIES
   json
   pg
   puma
+  rack-cors
   rails (= 4.2.5.1)
   rails-footnotes (~> 4.0)
   rails_12factor
