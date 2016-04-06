@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user, only: [:logout]
   def show
   end
 
@@ -32,14 +33,9 @@ class UsersController < ApplicationController
   end
 
   def logout
-    if authenticate_user(user_params[:login_token])
-      @user = User.find_by(login_token: user_params[:login_token])
-      @user.login_token = nil
-      @success = @user.save
-    else
-      data = File.read("#{Rails.root}/public/user_not_logged_in.json")
-      render :json => data
-    end
+    @user = User.find_by(login_token: user_params[:login_token])
+    @user.login_token = nil
+    @success = @user.save
   end
 
   private def user_params

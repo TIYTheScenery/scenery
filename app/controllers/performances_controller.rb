@@ -1,17 +1,13 @@
 class PerformancesController < ApplicationController
+  before_action :authenticate_user, only: [:create]
 
   def index
     render json: Performance.all
   end
-  
+
   def create
-    if authenticate_user(user_params[:login_token])
-      @performance = Performance.new(performance_params)
-      @success = @performance.save
-    else
-      data = File.read("#{Rails.root}/public/user_not_logged_in.json")
-      render :json => data
-    end
+    @performance = Performance.new(performance_params)
+    @success = @performance.save
   end
 
   private
