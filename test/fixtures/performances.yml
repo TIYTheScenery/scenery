@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   owner_id: 1
   company_id: 1
   name: Macbeth
@@ -9,6 +10,7 @@ one:
   ticket_link: www.this@eventbrite.com
 
 two:
+  id: 2
   owner_id: 1
   company_id: 1
   name: Emotions of normal people

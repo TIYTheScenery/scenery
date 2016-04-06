@@ -8,7 +8,7 @@ one:
   description: MyText
   is_professional: false
   display_name: MyString
-  login_token: MyString
+  login_token: igotagoldenticket
 
 two:
   email: MyString

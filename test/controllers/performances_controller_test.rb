@@ -5,7 +5,7 @@ class PerformancesControllerTest < ActionController::TestCase
   test "create will accept json and create a performance" do
     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create.json")).merge(format: :json)
     post :create, test_input
-    assert_equal Performance.last.name, "Macbeth"
+    assert_equal Performance.last.name, "John Dies At The End"
   end
 
   test "create will return errors if performance creation failed" do
@@ -34,7 +34,7 @@ class PerformancesControllerTest < ActionController::TestCase
   end
 
   test "create performances will return errors if user creation failed" do
-    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create.json")).merge(format: :json)
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create3.json")).merge(format: :json)
     post :create, test_input
     assert_response :success
     post :create, test_input
@@ -45,7 +45,7 @@ class PerformancesControllerTest < ActionController::TestCase
   test "create will accept json and create a user" do
     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create.json")).merge(format: :json)
     post :create, test_input
-    assert_equal Performance.last.name, "Macbeth"
+    assert_equal Performance.last.name, "John Dies At The End"
   end
 
   test "can create multiple showtimes for one performance" do
