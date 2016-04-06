@@ -42,12 +42,6 @@ class PerformancesControllerTest < ActionController::TestCase
     assert_equal false, response["success"]
   end
 
-  test "create will accept json and create a performance" do
-    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create.json")).merge(format: :json)
-    post :create, test_input
-    assert_equal Performance.last.name, "Macbeth"
-  end
-
   test "can create multiple showtimes for one performance" do
     num_shows = ShowTime.count
     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_multiple_showtimes.json")).merge(format: :json)
