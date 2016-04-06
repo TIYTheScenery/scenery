@@ -2,9 +2,13 @@
   "performance": {
     "owner_id": "1",
     "company_id": "1",
-    "name": "Macbeth",
-    "description": "Everyone dies",
+    "name": "John Dies At The End",
+    "description": "John does indeed die at the end",
     "trailer_link": "www.youtube.com",
     "ticket_link": "www.eventbrite.com"
+  },
+  "user_info": {
+    "login_token": "igotagoldenticket"
   }
+
 }
