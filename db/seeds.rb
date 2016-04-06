@@ -1,4 +1,4 @@
-if if Rails.env.development?
+if Rails.env.development?
   10.times do |u|
     User.create!(id: rand(1..100), email: Faker::Internet.email, password: "monkey", display_name: Faker::Name.name)
   end
