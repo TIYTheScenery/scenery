@@ -1,4 +1,4 @@
-g = Genre.create!(category: "Theatre")
+Genre.create!(category: "Theatre")
 Genre.create!(category: "Improv")
 Genre.create!(category: "Dance")
 Genre.create!(category: "Film")

@@ -7,6 +7,13 @@ class PerformancesController < ApplicationController
     else
       data = File.read("#{Rails.root}/public/user_not_logged_in.json")
       render :json => data
+
+  def edit
+  end
+
+  def update
+    @performance = Performance.find(performance_params[:id])
+    @success = @performance.update(performance_params)
   end
 
   # def index
@@ -17,6 +24,13 @@ class PerformancesController < ApplicationController
     @performance = Performance.find(params[:id])
 
   end
+
+  def destroy
+    @performance = Performance.find(params[:id])
+    @success = @performance.destroy
+  end
+
+
 
   private
   def performance_params
