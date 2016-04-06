@@ -1,6 +1,7 @@
 json.success @success
 if @success
   json.performance do
+    json.id @performance.id
     json.owner_id @performance.owner_id
     json.company_id @performance.company_id
     json.name @performance.name
