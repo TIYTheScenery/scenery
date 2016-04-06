@@ -14,6 +14,11 @@ class PerformancesController < ApplicationController
     @success = @performance.save
   end
 
+  def destroy
+    @performance = Performance.find(performance_params[:id])
+    @success = @performance.destroy
+  end
+
 
 
   private
