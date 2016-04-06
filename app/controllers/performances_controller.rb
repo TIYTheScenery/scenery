@@ -14,7 +14,7 @@ class PerformancesController < ApplicationController
   # end
 
   def show
-    @performance = Performance.find (params :id)
+    @performance = Performance.find(params[:id])
 
   end
 
