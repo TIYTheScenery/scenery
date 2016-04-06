@@ -3,9 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
 
-  def authenticate_user(token)
-    user = User.find_by(login_token: token)
-    return user
+  def authenticate_user
+    render json: File.read("#{Rails.root}/public/user_not_logged_in.json") unless params[:user_info][:login_token] && User.find_by(login_token: params[:user_info][:login_token])
   end
 
   def authenticate_professional(token)

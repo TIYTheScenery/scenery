@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   post 'logout' => 'users#logout'
 
-  post 'performances/create'
+  resources :performances
 
   get 'search/index'
   get 'genres' => 'genres#index'
