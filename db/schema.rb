@@ -13,21 +13,21 @@
 
 ActiveRecord::Schema.define(version: 20160405151419) do
 
-  create_table "genres", force: :cascade do |t|
-    t.string   "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "genres_performances", force: :cascade do |t|
+  create_table "genre_performances", force: :cascade do |t|
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "genre_id"
     t.integer  "performance_id"
   end
 
-  add_index "genres_performances", ["genre_id"], name: "index_genres_performances_on_genre_id"
-  add_index "genres_performances", ["performance_id"], name: "index_genres_performances_on_performance_id"
+  add_index "genre_performances", ["genre_id"], name: "index_genre_performances_on_genre_id"
+  add_index "genre_performances", ["performance_id"], name: "index_genre_performances_on_performance_id"
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "performances", force: :cascade do |t|
     t.integer  "owner_id"
