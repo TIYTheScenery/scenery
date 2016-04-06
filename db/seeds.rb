@@ -8,6 +8,10 @@ show = Performance.create!(owner_id: 1, name: "THE PIANO HAS BEEN DRINKING: A TO
 show2 = Performance.create!(owner_id: 1, name: "THE NEW COLOSSUS", description: "An original adaption of Anton Chekhov’s The Sea Gull by Tamara Kissane")
 show.genres << g
 show2.genres << g
+st= ShowTime.create!(begin_time: Time.now, date: Date.new, address: "33 south st.", city: "Durham", state: "NC", zip_code: "27703")
+st1= ShowTime.create!(begin_time: Time.now, date: Date.new, address: "33 south st.", city: "Durham", state: "NC", zip_code: "27703")
+show.show_times << st
+show2.show_times << st1
 
 if Rails.env.development?
   10.times do |u|
