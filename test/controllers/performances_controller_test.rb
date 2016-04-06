@@ -57,11 +57,12 @@ class PerformancesControllerTest < ActionController::TestCase
   end
 
   test "can delete Performance and the nested ShowTimes" do
-    num_shows = ShowTime.count
-    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_multiple_showtimes.json/id=3")).merge(format: :json)
-    delete :destroy, test_input
+    num_shows = Performance.count
+    num_times = ShowTime.count
+    delete :destroy, id: 1
     response = JSON.parse(@response.body)
-    assert_equal num_shows -2, ShowTime.count
+    assert_equal num_shows -1, Performance.count
+    assert_equal num_times -2, ShowTime.count
   end
 
 end
