@@ -12,7 +12,6 @@ class SearchController < ApplicationController
               "(LOWER(performances.name) LIKE LOWER(?) OR LOWER(performances.description) LIKE LOWER(?) )",
             "%#{location[0]}%", "%#{location[0]}%", "%#{location[1]}%", "%#{location[0]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%" )
 
-    byebug
   end
 
   private def search_params
