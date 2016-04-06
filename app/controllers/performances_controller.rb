@@ -1,10 +1,6 @@
 class PerformancesController < ApplicationController
   before_action :authenticate_user, only: [:create]
 
-  def index
-    render json: Performance.all
-  end
-
   def create
       @performance = Performance.new(performance_params)
       @success = @performance.save
@@ -13,13 +9,13 @@ class PerformancesController < ApplicationController
       render :json => data
   end
 
-  def index
-      @performances = Performance.all
-  end
+  # def index
+  #     @performances = Performance.all
+  # end
 
   def show
-    @performance = Performance.new(performance_params)
-    @success = @performance.save
+    @performance = Performance.find (params :id)
+
   end
 
   private
