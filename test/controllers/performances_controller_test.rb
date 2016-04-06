@@ -58,9 +58,8 @@ class PerformancesControllerTest < ActionController::TestCase
   end
 
   test "Users can view one performance and all of its nested showtimes" do
-     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_view_performance_showtimes.json")).merge(format: :json)
-     get performances :show, test_input
+     get :show, id: 1
      response = JSON.parse(@response.body)
-     assert_equal "Macbeth", Performance.first
+     assert_equal "Macbeth", Performance.first.name
    end
 end
