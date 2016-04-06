@@ -6,11 +6,7 @@ Rails.application.routes.draw do
 
   post 'logout' => 'users#logout'
 
-<<<<<<< HEAD
-  resources 'performances'
-=======
   resources :performances
->>>>>>> 2ad5955ba74ab64a8e36f9892fed72fc33e283f3
 
   get 'search/index'
   get 'genres' => 'genres#index'

@@ -8,11 +8,7 @@ one:
   description: MyText
   is_professional: false
   display_name: MyString
-<<<<<<< HEAD
   login_token: "igotagoldenticket"
-=======
-  login_token: igotagoldenticket
->>>>>>> 2ad5955ba74ab64a8e36f9892fed72fc33e283f3
 
 two:
   email: MyString
