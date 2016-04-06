@@ -1,5 +1,9 @@
 class PerformancesController < ApplicationController
 
+  def index
+    render json: Performance.all
+  end
+  
   def create
     @performance = Performance.new(performance_params)
     @success = @performance.save
