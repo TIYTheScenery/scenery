@@ -2,9 +2,11 @@ require 'test_helper'
 
 class SearchControllerTest < ActionController::TestCase
   test "find performances based on name" do
-    Performance.first.genres << genres(:one)
-    Performance.last.genres << genres(:two)
-    Performance.last.genres << genres(:one)
+    temp = Performance.first
+    temp.genres << genres(:one)
+    temp = Performance.last
+    temp.genres << genres(:two)
+    temp.genres << genres(:one)
     get :index, format: :json, search_info: {search_term: "Macbeth", genre_id: 1, location: "Durham, NC"}
     response = JSON.parse(@response.body)
     assert_equal 1, response["performances"].length
