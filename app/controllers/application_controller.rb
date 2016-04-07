@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
     render json: File.read("#{Rails.root}/public/user_not_logged_in.json") unless params[:user_info][:login_token] && User.find_by(login_token: params[:user_info][:login_token])
   end
 
-  def authenticate_professional(token)
-    user = User.find_by(login_token: token)
-    return user && user.is_professional
+  def authenticate_professional
+    user = User.find_by(login_token: params[:user_info][:login_token])
+    render json: File.read("#{Rails.root}/public/user_not_professional.json") unless user.is_professional
   end
 
   before_filter :set_format
