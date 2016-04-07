@@ -42,4 +42,14 @@ class UsersControllerTest < ActionController::TestCase
     response = JSON.parse(@response.body)
     assert_equal false, response["success"]
   end
+
+  test "User should not see attributes are exclusive to Professionals on with show action" do
+    get(:show, {'id' => "1"})
+    assert_equal "youtube.com", users(:Bill).facebook_link
+    get(:show, {'id' => "3"})
+    refute_equal "", users(:Jim).facebook_link
+  end
+
+  test "User not authenticated as Professional can't update Professional exclusive material" do
+  end
 end
