@@ -25,7 +25,8 @@
       }
     ]
   },
-  "user_info": {
-    "login_token": "igotagoldenticket"
+    "user_info": {
+      "login_token": "igotagoldenticket"
+
   }
 }

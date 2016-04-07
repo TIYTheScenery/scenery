@@ -33,14 +33,15 @@ class PerformancesControllerTest < ActionController::TestCase
 
   end
 
-  test "create performances will return errors if user creation failed" do
-    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create3.json")).merge(format: :json)
+  test "create performances will return errors if performance creation failed" do
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create2.json")).merge(format: :json)
     post :create, test_input
     assert_response :success
     post :create, test_input
     response = JSON.parse(@response.body)
     assert_equal false, response["success"]
   end
+
 
   test "create will accept json and create a user" do
     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create.json")).merge(format: :json)
@@ -54,6 +55,15 @@ class PerformancesControllerTest < ActionController::TestCase
     post :create, test_input
     response = JSON.parse(@response.body)
     assert_equal num_shows + 2, ShowTime.count
+  end
+
+  test "can delete Performance and the nested ShowTimes" do
+    num_shows = Performance.count
+    num_times = ShowTime.count
+    delete :destroy, id: 1
+    response = JSON.parse(@response.body)
+    assert_equal num_shows -1, Performance.count
+    assert_equal num_times -2, ShowTime.count
   end
 
 end
