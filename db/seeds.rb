@@ -3,7 +3,7 @@ Genre.create!(category: "Improv")
 Genre.create!(category: "Dance")
 Genre.create!(category: "Film")
 
-User.create!(email: "littlegreenpig@gmail.com", display_name: "Jay Oberski", password: "monkey")
+User.create!(email: "littlegreenpig@gmail.com", display_name: "Jay Oberski", password: "monkey", is_professional: true, facebook_link: "jay.com", twitter_link: "jaybird", description: "Creates stuff", youtube_link: "youtube.link")
 show = Performance.create!(owner_id: 1, name: "THE PIANO HAS BEEN DRINKING: A TOM WAITS CABARET", description: "A benefit fundraiser for Little Green Pig. Two nights only, $20 suggested donation at the door. Featuring Germain Choffart, Hugh Crumley, Jessica Flemming, Trevor Johnson, Jessi Knight, Louis Landry, Anastasia Maddox, Dana Marks, Bart Matthews, Jaybird O'Berski, Liam O'Neill, Madeleine Pabis, Samantha Rahn, Rob Sharer & Tim Smith)")
 show2 = Performance.create!(owner_id: 1, name: "THE NEW COLOSSUS", description: "An original adaption of Anton Chekhov’s The Sea Gull by Tamara Kissane")
 show3 = Performance.create!(owner_id: 1, name: "Grounded, by George Brant", description: "From the award-winning playwright of Elephant's Graveyard, George Brant, comes the story of an ace fighter pilot whose career in the sky is ended early due to an unexpected pregnancy. Reassigned to operate military drones from a windowless trailer outside Las Vegas, she hunts terrorists by day and returns to her family each night. As the pressure to track a high-profile target mounts, the boundaries begin to blur between the desert in which she lives and the one she patrols half a world away.")

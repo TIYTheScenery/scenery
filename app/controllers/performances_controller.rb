@@ -21,7 +21,7 @@ class PerformancesController < ApplicationController
 
   def show
     @performance = Performance.new(performance_params)
-    @success = @performance.save
+    @success = @performance
   end
 
   def destroy
