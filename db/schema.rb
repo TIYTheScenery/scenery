@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405151419) do
+ActiveRecord::Schema.define(version: 20160407175558) do
 
   create_table "genre_performances", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20160405151419) do
   add_index "performances", ["company_id"], name: "index_performances_on_company_id"
   add_index "performances", ["owner_id"], name: "index_performances_on_owner_id"
 
+  create_table "professionals_titles", force: :cascade do |t|
+    t.integer  "professional_id"
+    t.integer  "title_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "professionals_titles", ["professional_id"], name: "index_professionals_titles_on_professional_id"
+  add_index "professionals_titles", ["title_id"], name: "index_professionals_titles_on_title_id"
+
   create_table "show_times", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "event_type"
@@ -60,6 +70,12 @@ ActiveRecord::Schema.define(version: 20160405151419) do
 
   add_index "show_times", ["event_id"], name: "index_show_times_on_event_id"
   add_index "show_times", ["venue_id"], name: "index_show_times_on_venue_id"
+
+  create_table "titles", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

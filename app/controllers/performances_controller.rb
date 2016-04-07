@@ -3,18 +3,17 @@ class PerformancesController < ApplicationController
   before_action :authenticate_professional, only: [:create, :edit, :update, :delete]
 
   def create
-<<<<<<< HEAD
       @performance = Performance.new(performance_params)
       @success = @performance.save
     else
       data = File.read("#{Rails.root}/public/user_not_logged_in.json")
       render :json => data
+    end
+  end
 
   def edit
-=======
     @performance = Performance.new(performance_params)
     @success = @performance.save
->>>>>>> aeb642c2c97f758b460b36447a271b3e8c0f5ae9
   end
 
   def update

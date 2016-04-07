@@ -42,4 +42,18 @@ class UsersControllerTest < ActionController::TestCase
     response = JSON.parse(@response.body)
     assert_equal false, response["success"]
   end
+
+  test "Users create will accept json and create a title" do
+     get :show, id: 1
+     response = JSON.parse(@response.body)
+     assert_equal "Macbeth", Performance.first.name
+   end
+
+
+  test "You can view a user's profile and all of its nested titles" do
+     get :show, id: 1
+     response = JSON.parse(@response.body)
+     assert_equal "Macbeth", Performance.first.name
+   end
+
 end
