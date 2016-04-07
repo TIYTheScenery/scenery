@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   post 'logout' => 'users#logout'
 
-  resources :performances
+  resources :performances, except: [:update]
+  patch 'performances' => 'performances#update'
 
   get 'search/index'
   get 'genres' => 'genres#index'
