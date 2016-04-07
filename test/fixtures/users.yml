@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  password_digest: MyString
+  email: "bill@bill.com"
+  password_digest: "monkey"
   first_name: MyString
   last_name: MyString
   description: MyText
-  is_professional: false
+  is_professional: true
   display_name: MyString
   login_token: "igotagoldenticket"
 
@@ -16,6 +16,16 @@ two:
   first_name: MyString
   last_name: MyString
   description: MyText
-  is_professional: false
+  is_professional: true
   display_name: MyString
-  login_token: "igotagoldenticket"
+  login_token: "ibeproffesional"
+
+three:
+  email: MyString
+  password_digest: MyString
+  first_name: MyString
+  last_name: MyString
+  description: MyText
+  is_professional: false
+  display_name: "user"
+  login_token: "ibeauser"
