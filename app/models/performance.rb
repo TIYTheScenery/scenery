@@ -6,6 +6,7 @@ class Performance < ActiveRecord::Base
   validates :description, presence: true
   has_many :show_times, as: :event, dependent: :destroy
 
+  accepts_nested_attributes_for :genre_performances
   accepts_nested_attributes_for :show_times,
       reject_if: :all_blank,
       allow_destroy: true
