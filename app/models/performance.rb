@@ -1,6 +1,7 @@
 class Performance < ActiveRecord::Base
   has_many :genre_performances
   has_many :genres, through: :genre_performances
+  belongs_to :user
 
   validates :name, presence: true
   validates :description, presence: true
