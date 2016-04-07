@@ -57,13 +57,12 @@ class PerformancesControllerTest < ActionController::TestCase
     assert_equal num_shows + 2, ShowTime.count
   end
 
-<<<<<<< HEAD
   test "Users can view one performance and all of its nested showtimes" do
      get :show, id: 1
      response = JSON.parse(@response.body)
      assert_equal "Macbeth", Performance.first.name
    end
-=======
+
   test "can delete Performance and the nested ShowTimes" do
     num_shows = Performance.count
     num_times = ShowTime.count
@@ -73,5 +72,4 @@ class PerformancesControllerTest < ActionController::TestCase
     assert_equal num_times -2, ShowTime.count
   end
 
->>>>>>> dfc2048d743cbe7ceff176b8474ea3edeb4ae0fc
 end
