@@ -1,0 +1,24 @@
+{
+  "performance": {
+    "owner_id": "1",
+    "company_id": "1",
+    "name": "Macbeth",
+    "description": "Everyone dies",
+    "trailer_link": "www.youtube.com",
+    "ticket_link": "www.eventbrite.com",
+    "show_times_attributes": [
+      {
+        "begin_time": "2016-04-04T18:01:02.567Z",
+        "address": "114 south st",
+        "city": "Durham",
+        "state": "NC",
+        "zip_code": "27703",
+        "date": "2016-04-04"
+      }
+    ]
+  },
+  "user_info": {
+    "login_token": "ibeproffesional"
+  }
+
+}

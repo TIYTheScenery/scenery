@@ -1,4 +1,4 @@
 {
   "success": false,
-  "error": "User Token does not match.  User is not logged in."
+  "error": "You are not logged in."
 }
