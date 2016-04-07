@@ -33,14 +33,15 @@ class PerformancesControllerTest < ActionController::TestCase
 
   end
 
-  test "create performances will return errors if user creation failed" do
-    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create3.json")).merge(format: :json)
+  test "create performances will return errors if performance creation failed" do
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create2.json")).merge(format: :json)
     post :create, test_input
     assert_response :success
     post :create, test_input
     response = JSON.parse(@response.body)
     assert_equal false, response["success"]
   end
+
 
   test "create will accept json and create a user" do
     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performance_create.json")).merge(format: :json)
