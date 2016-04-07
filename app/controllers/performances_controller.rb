@@ -10,11 +10,8 @@ class PerformancesController < ApplicationController
   end
 
   def create
-      @performance = Performance.new(performance_params)
-      @success = @performance.save
-    else
-      data = File.read("#{Rails.root}/public/user_not_logged_in.json")
-      render :json => data
+    @performance = Performance.new(performance_params)
+    @success = @performance.save
   end
 
   def index
@@ -37,6 +34,6 @@ class PerformancesController < ApplicationController
   def performance_params
     params.require(:performance).permit(:id, :name, :description, :owner_id, :company_id, :trailer_link, :ticket_link,
     show_times_attributes: [:id, :event_id, :begin_time, :end_time, :venue_id, :address, :city, :state, :zip_code, :date, :_destroy],
-    genre_performances_attributes: [:id, :performance_id, :genre_id, genres_attributes: [:id]])
+    genre_performances_attributes: [:id, :performance_id, :genre_id])
   end
 end
