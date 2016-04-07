@@ -57,5 +57,13 @@ class PerformancesControllerTest < ActionController::TestCase
     assert_equal num_shows + 2, ShowTime.count
   end
 
+  test "can delete Performance and the nested ShowTimes" do
+    num_shows = Performance.count
+    num_times = ShowTime.count
+    delete :destroy, id: 1
+    response = JSON.parse(@response.body)
+    assert_equal num_shows -1, Performance.count
+    assert_equal num_times -2, ShowTime.count
+  end
 
 end
