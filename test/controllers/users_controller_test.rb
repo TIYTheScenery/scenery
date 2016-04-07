@@ -42,4 +42,5 @@ class UsersControllerTest < ActionController::TestCase
     response = JSON.parse(@response.body)
     assert_equal false, response["success"]
   end
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405151419) do
+ActiveRecord::Schema.define(version: 20160407163049) do
 
   create_table "genre_performances", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -72,6 +72,10 @@ ActiveRecord::Schema.define(version: 20160405151419) do
     t.string   "login_token"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "facebook_link"
+    t.string   "twitter_link"
+    t.string   "instagram_link"
+    t.string   "youtube_link"
   end
 
   add_index "users", ["login_token"], name: "index_users_on_login_token"
