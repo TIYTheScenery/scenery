@@ -1,14 +1,20 @@
 class PerformancesController < ApplicationController
   before_action :authenticate_user, only: [:create]
 
-  def index
-    render json: Performance.all
+  def edit
+  end
+
+  def update
+    @performance = Performance.find(performance_params[:id])
+    @success = @performance.update(performance_params)
   end
 
   def create
     @performance = Performance.new(performance_params)
     @success = @performance.save
   end
+
+
 
   private
   def performance_params

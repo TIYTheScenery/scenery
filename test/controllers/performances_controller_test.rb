@@ -56,4 +56,5 @@ class PerformancesControllerTest < ActionController::TestCase
     assert_equal num_shows + 2, ShowTime.count
   end
 
+
 end
