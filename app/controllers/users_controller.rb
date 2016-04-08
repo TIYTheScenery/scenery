@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.new(user_params)
+    @user = User.where(id: user_params[:id])
     @success = @user.update(user_params)
   end
 
