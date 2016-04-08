@@ -43,10 +43,5 @@ class UsersControllerTest < ActionController::TestCase
     assert_equal false, response["success"]
   end
 
-  test "Users update will accept json and create a title" do
-    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_user_create.json")).merge(format: :json)
-    patch :update, test_input
-    assert_equal User.last.title, "Lighting Director"
-  end
 
 end

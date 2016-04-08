@@ -43,16 +43,6 @@ ActiveRecord::Schema.define(version: 20160408131852) do
   add_index "performances", ["company_id"], name: "index_performances_on_company_id"
   add_index "performances", ["owner_id"], name: "index_performances_on_owner_id"
 
-  create_table "professionals_titles", force: :cascade do |t|
-    t.integer  "professional_id"
-    t.integer  "title_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "professionals_titles", ["professional_id"], name: "index_professionals_titles_on_professional_id"
-  add_index "professionals_titles", ["title_id"], name: "index_professionals_titles_on_title_id"
-
   create_table "show_times", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "event_type"
@@ -77,6 +67,16 @@ ActiveRecord::Schema.define(version: 20160408131852) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_titles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "title_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_titles", ["title_id"], name: "index_user_titles_on_title_id"
+  add_index "user_titles", ["user_id"], name: "index_user_titles_on_user_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
@@ -95,15 +95,5 @@ ActiveRecord::Schema.define(version: 20160408131852) do
   end
 
   add_index "users", ["login_token"], name: "index_users_on_login_token"
-
-  create_table "users_titles", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "title_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "users_titles", ["title_id"], name: "index_users_titles_on_title_id"
-  add_index "users_titles", ["user_id"], name: "index_users_titles_on_user_id"
 
 end
