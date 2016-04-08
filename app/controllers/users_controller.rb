@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, only: [:logout]
+
   def show
+    @user = User.find_by(id: params[:id])
   end
 
   def create
@@ -15,6 +17,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find_by(login_token: user_params[:login_token])
+    if @user.update(user_params)
+      @success = true
+    else
+      @success = false
+    end
   end
 
   def destroy
@@ -38,7 +46,8 @@ class UsersController < ApplicationController
     @success = @user.save
   end
 
-  private def user_params
-    params.require(:user_info).permit(:email, :password, :first_name, :last_name, :description, :is_professional, :display_name, :login_token, professionals_titles_attributes: [:id, :professional_id, :title_id])
-  end
+  private
+    def user_params
+      params.require(:user_info).permit(:email, :password, :first_name, :last_name, :description, :is_professional, :display_name, :login_token, :facebook_link, :twitter_link, :instagram_link, :youtube_link, users_titles_attributes: [:id, :user_id, :title_id])
+    end
 end

@@ -27,7 +27,7 @@ class PerformancesController < ApplicationController
 
   def show
     @performance = Performance.find(params[:id])
-
+    @success = @performance
   end
 
   def destroy

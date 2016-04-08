@@ -1,4 +1,4 @@
 class Title < ActiveRecord::Base
-  has_many :professionals_titles
-  has_many :titles, through: :professionals_titles
+  has_many :users_titles
+  has_many :users, through: :users_titles
 end
