@@ -9,10 +9,6 @@ if @success
     json.is_professional @user.is_professional
     json.display_name @user.display_name
     json.login_token @user.login_token
-    json.created_at @user.created_at
-  end
-    json.titles @user.titles.each do |u|
-      json.title u.title
   end
 else
   json.errors @error
