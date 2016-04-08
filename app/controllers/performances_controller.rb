@@ -6,7 +6,7 @@ class PerformancesController < ApplicationController
   end
 
   def update
-    if @performance = Performance.find(performance_params)
+    if @performance = Performance.find_by(id: performance_params[:id])
       @success = @performance.update(performance_params)
     else
       @success = false
@@ -26,12 +26,7 @@ class PerformancesController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
-    @performance = Performance.find_by(id: performance_params[:id])
-    @success = @performance
-=======
     @performance = Performance.where(id: params[:id]).first
->>>>>>> c853c1f361a9f43892590f8e9a7890b7e55f98a4
   end
 
   def destroy
