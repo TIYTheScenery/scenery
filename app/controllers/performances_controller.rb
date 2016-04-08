@@ -21,7 +21,7 @@ class PerformancesController < ApplicationController
 
   def show
     @performance = Performance.where(id: params[:id]).first
-    logger.debug @performance.inspect
+    
   end
 
   def destroy
