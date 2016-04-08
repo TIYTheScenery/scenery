@@ -1,2 +1,5 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+json.user do
+  json.name @message.creator.name.familiar
+  json.email_address @message.creator.email_address_with_name
+  json.url url_for(@message.creator, format: :json)
+end
