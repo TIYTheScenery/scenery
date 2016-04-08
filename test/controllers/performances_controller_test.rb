@@ -58,9 +58,10 @@ class PerformancesControllerTest < ActionController::TestCase
   end
 
   test "Users can view one performance and all of its nested showtimes" do
-     get :show, id: 1
-     response = JSON.parse(@response.body)
-     assert_equal "Macbeth", Performance.first.name
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_multiple_showtimes.json")).merge(format: :json)
+    get :show, id: 1
+    response = JSON.parse(@response.body)
+    assert_equal "Macbeth", Performance.first.name
    end
 
   test "can delete Performance and the nested ShowTimes" do
