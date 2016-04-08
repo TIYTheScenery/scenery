@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :users, except: [:index, :new, :edit]
-
+  resources :users, except: [:index, :new, :edit, :update]
+  patch 'users' => 'users#update'
   post 'login' => 'users#login', :via => [:options]
-
   post 'logout' => 'users#logout'
 
   resources :performances, except: [:update]

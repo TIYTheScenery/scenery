@@ -43,4 +43,11 @@ class UsersControllerTest < ActionController::TestCase
     assert_equal false, response["success"]
   end
 
+  test "User can update their information" do
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_users_update.json")).merge(format: :json)
+    patch :update, test_input
+    assert_response :success
+    response = JSON.parse(@response.body)
+    assert_equal "I am a professional", test_input.description
+  end
 end
