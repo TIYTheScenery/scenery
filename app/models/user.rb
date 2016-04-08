@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :performances
   has_many :user_titles
-  has_many :titles, through: :user_titles
+  has_many :titles, through: :user_titles, dependent: :destroy
 
   accepts_nested_attributes_for :titles,
     allow_destroy: true

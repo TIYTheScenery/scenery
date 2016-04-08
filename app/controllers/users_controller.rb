@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user, only: [:logout]
 
   def show
-    @user = User.find_by(id: params[:id])
+      @user = User.find_by(id: params[:id])
   end
 
   def create
@@ -14,6 +14,9 @@ class UsersController < ApplicationController
     else
       @success = false
     end
+  end
+
+  def edit
   end
 
   def update

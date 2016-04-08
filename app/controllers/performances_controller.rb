@@ -6,13 +6,19 @@ class PerformancesController < ApplicationController
   end
 
   def update
-    @performance = Performance.find(performance_params[:id])
-    @success = @performance.update(performance_params)
+    if @performance = Performance.find_by(id: performance_params[:id])
+      @success = @performance.update(performance_params)
+    else
+      @success = false
+    end
   end
 
   def create
-    @performance = Performance.new(performance_params)
-    @success = @performance.save
+    if @performance = Performance.new(performance_params)
+      @success = @performance.save
+    else
+      @success = false
+    end
   end
 
   def index
@@ -24,14 +30,18 @@ class PerformancesController < ApplicationController
   end
 
   def destroy
-    @performance = Performance.find(params[:id])
-    @success = @performance.destroy
+    if @performance = Performance.find(params[:id])
+      @success = @performance.destroy
+    else
+      @success = false
+    end
   end
 
   private
   def performance_params
     params.require(:performance).permit(:id, :name, :description, :owner_id, :company_id, :trailer_link, :ticket_link,
     show_times_attributes: [:id, :event_id, :begin_time, :end_time, :venue_id, :address, :city, :state, :zip_code, :date, :_destroy],
-    genre_performances_attributes: [:id, :performance_id, :genre_id])
+    genre_performances_attributes: [:id, :performance_id, :genre_id],
+    cast_members_attributes: [:id, :name, :role, :show_time_id, :_destroy])
   end
 end
