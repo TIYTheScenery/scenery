@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :users, except: [:index, :new, :edit]
+  resources :users, except: [:index, :new, :edit, :update]
+  patch 'users/update' => 'users#update'
 
   post 'login' => 'users#login', :via => [:options]
 

@@ -21,15 +21,12 @@ class PerformancesController < ApplicationController
 
   def show
     @performance = Performance.where(id: params[:id]).first
-    
   end
 
   def destroy
     @performance = Performance.find(params[:id])
     @success = @performance.destroy
   end
-
-
 
   private
   def performance_params
