@@ -14,6 +14,9 @@ if @success
     json.instagram_link @user.instagram_link
     json.youtube_link @user.youtube_link
   end
+    json.titles @user.titles.each do |u|
+      json.title u.title
+    end
 else
-  json.errors @performance.errors.full_messages
+  json.errors @user.errors.full_messages
 end
