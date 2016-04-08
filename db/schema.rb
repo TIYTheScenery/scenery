@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407163049) do
+ActiveRecord::Schema.define(version: 20160408131852) do
 
   create_table "genre_performances", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -60,6 +60,22 @@ ActiveRecord::Schema.define(version: 20160407163049) do
 
   add_index "show_times", ["event_id"], name: "index_show_times_on_event_id"
   add_index "show_times", ["venue_id"], name: "index_show_times_on_venue_id"
+
+  create_table "titles", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_titles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "title_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_titles", ["title_id"], name: "index_user_titles_on_title_id"
+  add_index "user_titles", ["user_id"], name: "index_user_titles_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

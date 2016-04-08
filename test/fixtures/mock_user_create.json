@@ -6,6 +6,11 @@
     "last_name": "Doe",
     "description": "I am a professional",
     "is_professional": true,
-    "display_name": "TheDoe"
+    "display_name": "TheDoe",
+    "title_attributes": [
+      {
+        "title": "Lighting Director"
+      }
+    ]
   }
 }
