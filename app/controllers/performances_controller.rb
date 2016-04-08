@@ -20,8 +20,8 @@ class PerformancesController < ApplicationController
   end
 
   def show
-    @performance = Performance.new(performance_params)
-    @success = @performance
+    @performance = Performance.where(id: params[:id]).first
+    
   end
 
   def destroy
