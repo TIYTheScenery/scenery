@@ -1,21 +1,40 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  password_digest: MyString
-  first_name: MyString
+  email: "bill@bill.com"
+  password_digest: "monkey"
+  first_name: Bill
   last_name: MyString
   description: MyText
-  is_professional: false
+  is_professional: true
   display_name: MyString
   login_token: "igotagoldenticket"
+  facebook_link: "youtube.com"
+  twitter_link: "twitter.com"
+  instagram_link: "instagram"
 
 two:
   email: MyString
   password_digest: MyString
-  first_name: MyString
+  first_name: Ralph
+  last_name: MyString
+  description: MyText
+  is_professional: true
+  display_name: MyString
+  login_token: "ibeproffesional"
+  facebook_link: "youtube.com"
+  twitter_link: "twitter.com"
+  instagram_link: "instagram"
+
+three:
+  email: MyString
+  password_digest: MyString
+  first_name: Jim
   last_name: MyString
   description: MyText
   is_professional: false
-  display_name: MyString
-  login_token: "igotagoldenticket"
+  display_name: "user"
+  login_token: "ibeauser"
+  facebook_link:
+  twitter_link:
+  instagram_link:

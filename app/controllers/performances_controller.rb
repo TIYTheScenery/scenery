@@ -1,5 +1,6 @@
 class PerformancesController < ApplicationController
-  before_action :authenticate_user, only: [:create]
+  before_action :authenticate_user, only: [:create, :edit, :update, :delete]
+  before_action :authenticate_professional, only: [:create, :edit, :update, :delete]
 
   def edit
   end
@@ -20,7 +21,7 @@ class PerformancesController < ApplicationController
 
   def show
     @performance = Performance.new(performance_params)
-    @success = @performance.save
+    @success = @performance
   end
 
   def destroy

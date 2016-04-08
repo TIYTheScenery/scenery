@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, only: [:logout]
+
   def show
+    @user = User.find_by(id: params[:id])
   end
 
   def create
@@ -45,7 +47,8 @@ class UsersController < ApplicationController
     end
   end
 
-  private def user_params
-    params.require(:user_info).permit(:email, :password, :first_name, :last_name, :description, :is_professional, :display_name, :login_token)
-  end
+  private
+    def user_params
+      params.require(:user_info).permit(:email, :password, :first_name, :last_name, :description, :is_professional, :display_name, :login_token, :facebook_link, :twitter_link, :instagram_link, :youtube_link)
+    end
 end
