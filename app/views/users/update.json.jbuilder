@@ -9,10 +9,14 @@ if @success
     json.is_professional @user.is_professional
     json.display_name @user.display_name
     json.login_token @user.login_token
+    json.facebook_link @user.facebook_link
+    json.twitter_link @user.twitter_link
+    json.instagram_link @user.instagram_link
+    json.youtube_link @user.youtube_link
+  end
     json.titles @user.titles.each do |u|
       json.title u.title
     end
-  end
 else
   json.errors @user.errors.full_messages
 end

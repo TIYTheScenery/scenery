@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   patch 'users/update' => 'users#update'
 
   post 'login' => 'users#login', :via => [:options]
-
   post 'logout' => 'users#logout'
 
-  resources :performances, except: [:update]
+  resources :performances, except: [:update, :show]
   patch 'performances' => 'performances#update'
+  get 'performances/show' => 'performances#show'
 
   get 'search/index'
   get 'genres' => 'genres#index'
