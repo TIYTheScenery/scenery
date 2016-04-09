@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   user_id: 1
   name: MyString
   description: MyText
@@ -15,8 +16,9 @@ one:
   zip_code: MyString
 
 two:
+  id: 2
   user_id: 1
-  name: MyString
+  name: "Burning Coal"
   description: MyText
   website_link: MyString
   facebook_link: MyString

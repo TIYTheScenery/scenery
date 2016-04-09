@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  performer: MyString
+  # performer: MyString
   role: MyString
   show_time_id: 1
 
 two:
-  performer: MyString
+  # performer: MyString
   role: MyString
   show_time_id: 1

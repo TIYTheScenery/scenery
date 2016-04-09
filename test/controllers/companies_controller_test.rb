@@ -4,7 +4,7 @@ class CompaniesControllerTest < ActionController::TestCase
   test "create will accept json and create a company" do
     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_company_create.json")).merge(format: :json)
     post :create, test_input
-    assert_equal Company.name, "Burning Coal"
+    assert_equal Company.last.name, "Burning Coal"
   end
 
   test "create will return errors if company creation failed" do
@@ -35,15 +35,15 @@ class CompaniesControllerTest < ActionController::TestCase
     response = JSON.parse(@response.body)
     post :create, test_input2
     response = JSON.parse(@response.body)
-    assert_equal "Ravenscroft", Company.name
-    refute_equal "Cardinal Gibbons", Company.name
+    assert_equal "Ravenscroft", Company.last.name
+    refute_equal "Cardinal Gibbons", Company.last.name
   end
 
   test "users can view a company" do
     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_company_create.json")).merge(format: :json)
-    get :show, id: 1
+    get :show, id: 2
     response = JSON.parse(@response.body)
-    assert_equal "Burning Coal", Company.name
+    assert_equal "Burning Coal", Company.last.name
   end
 
 end
