@@ -1,16 +1,13 @@
 {
   "user_info": {
-    "email": "test@test.com",
     "password": "monkey",
     "first_name": "John",
     "last_name": "Doe",
     "description": "I am a professional",
     "is_professional": true,
     "display_name": "TheDoe",
-    "title_attributes": [
-      {
-        "title": "Lighting Director"
-      }
-    ]
+    "facebook_link": "www.facebook.com",
+    "twitter_link": "www.twitter.com",
+    "youtube_link": "www.youtube.com"
   }
 }
