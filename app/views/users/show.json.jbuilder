@@ -1,3 +1,4 @@
+
 json.user_info do
   json.email @user.email
   json.first_name @user.first_name
