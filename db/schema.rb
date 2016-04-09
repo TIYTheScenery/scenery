@@ -11,17 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408133737) do
+ActiveRecord::Schema.define(version: 20160409171234) do
 
   create_table "cast_members", force: :cascade do |t|
-    t.string   "name"
     t.string   "role"
     t.integer  "show_time_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "performer"
   end
 
   add_index "cast_members", ["show_time_id"], name: "index_cast_members_on_show_time_id"
+
+  create_table "companies", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "website_link"
+    t.string   "facebook_link"
+    t.string   "twitter_link"
+    t.string   "instagram_link"
+    t.string   "youtube_link"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "companies", ["user_id"], name: "index_companies_on_user_id"
+
+  create_table "company_users", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "company_users", ["company_id"], name: "index_company_users_on_company_id"
+  add_index "company_users", ["user_id"], name: "index_company_users_on_user_id"
 
   create_table "genre_performances", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -52,6 +81,16 @@ ActiveRecord::Schema.define(version: 20160408133737) do
 
   add_index "performances", ["company_id"], name: "index_performances_on_company_id"
   add_index "performances", ["owner_id"], name: "index_performances_on_owner_id"
+
+  create_table "show_casts", force: :cascade do |t|
+    t.integer  "show_time_id"
+    t.integer  "cast_member_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "show_casts", ["cast_member_id"], name: "index_show_casts_on_cast_member_id"
+  add_index "show_casts", ["show_time_id"], name: "index_show_casts_on_show_time_id"
 
   create_table "show_times", force: :cascade do |t|
     t.integer  "event_id"
