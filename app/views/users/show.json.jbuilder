@@ -1,3 +1,4 @@
+
 json.user_info do
   json.email @user.email
   json.first_name @user.first_name
@@ -10,4 +11,8 @@ json.user_info do
   json.twitter_link @user.twitter_link
   json.instagram_link @user.instagram_link
   json.youtube_link @user.youtube_link
+  json.created_at @user.created_at
+end
+  json.titles @user.titles.each do |u|
+    json.title u.title
 end
