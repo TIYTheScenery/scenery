@@ -11,17 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409171234) do
+ActiveRecord::Schema.define(version: 20160409222515) do
 
   create_table "cast_members", force: :cascade do |t|
     t.string   "role"
-    t.integer  "show_time_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "performer"
   end
-
-  add_index "cast_members", ["show_time_id"], name: "index_cast_members_on_show_time_id"
 
   create_table "companies", force: :cascade do |t|
     t.integer  "user_id"
