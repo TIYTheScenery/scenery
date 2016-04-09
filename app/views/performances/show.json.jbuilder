@@ -7,7 +7,7 @@ json.performance do
   json.trailer_link @performance.trailer_link
   json.ticket_link @performance.ticket_link
   json.genre_id @performance.genre_performances.each do |g|
-    json.genre_id g.genre_id
+    json.category g.genre.category
   end
   json.show_times @performance.show_times.each do |s|
     json.event_id s.event_id
