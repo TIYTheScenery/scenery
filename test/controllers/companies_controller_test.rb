@@ -1,9 +1,10 @@
 require 'test_helper'
 
 class CompaniesControllerTest < ActionController::TestCase
-  test "should get create" do
-    get :create
-    assert_response :success
+  test "create will accept json and create a performance" do
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_company_create.json")).merge(format: :json)
+    post :create, test_input
+    assert_equal Company.last.name, "Little Green Pig"
   end
 
   test "should get show" do
