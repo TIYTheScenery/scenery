@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'companies/create'
-
-  get 'companies/show'
-
-  get 'companies/update'
-
-  get 'companies/destroy'
-
+  resources :companies
   resources :users, except: [:index, :new, :edit, :update]
   patch 'users/update' => 'users#update'
 
