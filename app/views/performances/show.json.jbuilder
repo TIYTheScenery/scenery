@@ -8,6 +8,7 @@ json.performance do
   json.ticket_link @performance.ticket_link
   json.genre_id @performance.genre_performances.each do |g|
     json.category g.genre.category
+    json.genre_id g.genre_id
   end
   json.show_times @performance.show_times.each do |s|
     json.event_id s.event_id
