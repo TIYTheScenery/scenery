@@ -13,7 +13,8 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.where(id: params[:id]).first
     performances = Performance.where(id: params[:company_id])
-    @peformances = performances.select {|per| per.past_production?}  
+    @peformances = performances.select {|per| per.past_production?}
+    @performance = performances.select {|per| per.upcoming_production} 
   end
 
   def update
