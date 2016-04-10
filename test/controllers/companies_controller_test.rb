@@ -21,7 +21,7 @@ class CompaniesControllerTest < ActionController::TestCase
     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_company_create3.json")).merge(format: :json)
     post :create, test_input
     response = JSON.parse(@response.body)
-    assert_equal nil, response["successs"]
+    assert_equal nil, response["success"]
   end
 
   test "can delete company" do

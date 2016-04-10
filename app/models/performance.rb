@@ -2,6 +2,7 @@ class Performance < ActiveRecord::Base
   has_many :genre_performances
   has_many :genres, through: :genre_performances
   belongs_to :company
+  has_many :reviews, as: :reviewee, dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true

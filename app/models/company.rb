@@ -4,5 +4,6 @@ class Company < ActiveRecord::Base
   has_many :performances
   has_many :company_users
   has_many :users, through: :company_users
+  has_many :reviews, as: :reviewee, dependent: :destroy
 
 end
