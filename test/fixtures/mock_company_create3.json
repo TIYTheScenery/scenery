@@ -1,6 +1,7 @@
 {
   "company": {
-    "user_id": "1",
+    "id": "3",
+    "user_id": "4",
     "name": "Burning Coal",
     "description": "Theatre company located in downtown Raleigh, NC",
     "website_link": "burningcoal.com",
@@ -14,6 +15,6 @@
     "zip_code": "27604"
   },
   "user_info": {
-    "login_token": "igotagoldenticket"
+    "login_token": "theticketiswrong"
   }
 }
