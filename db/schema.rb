@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160409125031) do
 
   create_table "cast_members", force: :cascade do |t|
@@ -20,8 +21,6 @@ ActiveRecord::Schema.define(version: 20160409125031) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
-
-  add_index "cast_members", ["show_time_id"], name: "index_cast_members_on_show_time_id"
 
   create_table "companies", force: :cascade do |t|
     t.integer  "user_id"
