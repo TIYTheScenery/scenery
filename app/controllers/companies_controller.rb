@@ -12,7 +12,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.where(id: params[:id]).first
-    @performances = Performance.where(id: params[:company_id])
+    @performances = Performance.where(id: params[:company_id]) 
   end
 
   def update
