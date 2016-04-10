@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  include HTTParty
   before_action :authenticate_user, only: [:logout]
+  before_filter :set_format, only: [:facebook_login]
 
   def show
     @user = User.find_by(id: params[:id])
@@ -41,14 +43,26 @@ class UsersController < ApplicationController
   end
 
   def facebook_login
-    user_info, access_token = Omniauth::Facebook.authenticate(params['code'])
-    if user_info['email'].blank?
-      Omniauth::Facebook.deauthorize(access_token)
-    end
+    session_code = params[:code]
+    redirect = 'http://localhost:3000/auth/facebook'
+
+    query =  "?client_id=#{ENV["FACEBOOK_APP_ID"]}&redirect_uri=#{redirect}&client_secret=#{ENV["FACEBOOK_SECRET"]}&code=#{session_code}"
+    query = 'https://graph.facebook.com/v2.5/oauth/access_token' + query
+    response = HTTParty.get(query)
+    access_token = response["access_token"]
+
+    @user = HTTParty.get('https://graph.facebook.com/v2.5/me/?fields=id,name,first_name,last_name,email&access_token=' + access_token)
+    # render json: user_info
+    render content_type: 'text/javascript'
   end
 
   private
     def user_params
       params.require(:user_info).permit(:email, :password, :first_name, :last_name, :description, :is_professional, :display_name, :login_token, :facebook_link, :twitter_link, :instagram_link, :youtube_link)
     end
+
+    def set_format
+      request.format = 'html'
+    end
+
 end

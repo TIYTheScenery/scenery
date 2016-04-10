@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :new, :edit]
 
   post 'login' => 'users#login', :via => [:options]
-
   post 'logout' => 'users#logout'
+  get 'auth/facebook' => 'users#facebook_login', :via => [:options]
 
   resources :performances, except: [:update]
   patch 'performances' => 'performances#update'
