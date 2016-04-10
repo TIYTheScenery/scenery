@@ -11,6 +11,7 @@ json.performance do
     json.genre_id g.genre_id
   end
   json.show_times @performance.show_times.each do |s|
+    json.id s.id
     json.event_id s.event_id
     json.event_type s.event_type
     json.begin_time s.begin_time
