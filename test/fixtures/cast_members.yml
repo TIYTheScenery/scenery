@@ -3,9 +3,8 @@
 one:
   name: MyString
   role: MyString
-  show_time_id: 1
+
 
 two:
   name: MyString
   role: MyString
-  show_time_id: 1
