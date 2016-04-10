@@ -6,13 +6,19 @@ class PerformancesController < ApplicationController
   end
 
   def update
-    @performance = Performance.find(performance_params[:id])
-    @success = @performance.update(performance_params)
+    if @performance = Performance.find_by(id: performance_params[:id])
+      @success = @performance.update(performance_params)
+    else
+      @success = false
+    end
   end
 
   def create
-    @performance = Performance.new(performance_params)
-    @success = @performance.save
+    if @performance = Performance.new(performance_params)
+      @success = @performance.save
+    else
+      @success = false
+    end
   end
 
   def index
@@ -20,16 +26,16 @@ class PerformancesController < ApplicationController
   end
 
   def show
-    @performance = Performance.new(performance_params)
-    @success = @performance
+    @performance = Performance.where(id: params[:id]).first
   end
 
   def destroy
-    @performance = Performance.find(params[:id])
-    @success = @performance.destroy
+    if @performance = Performance.find(params[:id])
+      @success = @performance.destroy
+    else
+      @success = false
+    end
   end
-
-
 
   private
   def performance_params
