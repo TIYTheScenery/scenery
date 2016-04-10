@@ -1,0 +1,19 @@
+{
+  "company": {
+    "user_id": "1",
+    "name": "Ravenscroft",
+    "description": "High School Theatre company located in North Raleigh, NC",
+    "website_link": "ravenscroft.edu",
+    "facebook_link": "facebook.com/ravenscroft",
+    "twitter_link": "twitter.com/ravenscroft",
+    "instagram_link": "instagram.com/ravenscroft",
+    "youtube_link": "youtube.com/ravenscroft",
+    "address": "7409 Falls of Neuse Rd.",
+    "city": "Raleigh",
+    "state": "NC",
+    "zip_code": "27615"
+  },
+  "user_info": {
+    "login_token": "ibeproffesional"
+  }
+}
