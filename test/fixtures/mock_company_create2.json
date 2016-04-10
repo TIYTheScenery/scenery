@@ -1,0 +1,19 @@
+{
+  "company": {
+    "user_id": "1",
+    "name": "Burning Coal",
+    "description": "Theatre company located in downtown Raleigh, NC",
+    "website_link": "burningcoal.com",
+    "facebook_link": "facebook.com/burningcoal",
+    "twitter_link": "twitter.com/burningcoal",
+    "instagram_link": "instagram.com/burningcoal",
+    "youtube_link": "youtube.com/burningcoal",
+    "address": "224 Polk St.",
+    "city": "Raleigh",
+    "state": "NC",
+    "zip_code": "27604"
+  },
+  "user_info": {
+    "login_token": "igotagoldenticket"
+  }
+}
