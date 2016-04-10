@@ -10,5 +10,12 @@ class Performance < ActiveRecord::Base
   accepts_nested_attributes_for :genre_performances
   accepts_nested_attributes_for :show_times,
       reject_if: :all_blank,
-      allow_destroy: true
+      allow_destroy: true,
+      update_only: true
+
+
+  def past_production?
+    show_times.last.date < DateTime.now
+  end
+
 end

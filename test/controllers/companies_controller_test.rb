@@ -8,21 +8,21 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_equal Company.last.name, "Burning Coal"
   end
 
-  # test "create will return errors if company creation failed" do
-  #   test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_company_create2.json")).merge(format: :json)
-  #   post :create, test_input
-  #   assert_response :success
-  #   post :create, test_input
-  #   response = JSON.parse(@response.body)
-  #   assert_equal false, response["success"]
-  # end
+  test "create will return errors if company creation failed" do
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_company_create2.json")).merge(format: :json)
+    post :create, test_input
+    assert_response :success
+    post :create, test_input
+    response = JSON.parse(@response.body)
+    assert_equal nil, response["success"]
+  end
 
-  # test "company may not be created unless the user is logged in" do
-  #   test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_company_create3.json")).merge(format: :json)
-  #   post :create, test_input
-  #   response = JSON.parse(@response.body)
-  #   assert_equal false, response["successs"]
-  # end
+  test "company may not be created unless the user is logged in" do
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_company_create3.json")).merge(format: :json)
+    post :create, test_input
+    response = JSON.parse(@response.body)
+    assert_equal nil, response["successs"]
+  end
 
   test "can delete company" do
     num_companies = Company.count
