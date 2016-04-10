@@ -13,6 +13,7 @@ if @success
       json.genre_id g.genre_id
     end
     json.show_times @performance.show_times.each do |s|
+      json.id s.id
       json.begin_time s.begin_time
       json.end_time s.end_time
       json.venue_id s.venue_id
