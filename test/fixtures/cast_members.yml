@@ -1,10 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  performer: MyString
+  name: MyString
   role: MyString
 
 
 two:
-  performer: MyString
+  name: MyString
   role: MyString
