@@ -13,7 +13,7 @@ if @success
     json.twitter_link @user.twitter_link
     json.instagram_link @user.instagram_link
     json.youtube_link @user.youtube_link
-    json.created_at @user.created_at
+    json.created_at @user.created_at.to_date.strftime("%m/%d/%Y")
     json.titles @user.titles.each do |u|
       json.title u.title
     end
