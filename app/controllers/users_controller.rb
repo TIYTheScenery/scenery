@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user, only: [:logout, :update]
 
   def show
-      @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
+    @companies = Company.where(user_id: params[:id]) if @user.is_professional
   end
 
   def create
@@ -14,6 +15,10 @@ class UsersController < ApplicationController
     else
       @success = false
     end
+  end
+
+  def index
+    @users = User.all
   end
 
   def edit
