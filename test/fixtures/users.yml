@@ -38,3 +38,16 @@ three:
   facebook_link:
   twitter_link:
   instagram_link:
+
+four:
+  email: MyString
+  password_digest: MyString
+  first_name: Jim
+  last_name: MyString
+  description: MyText
+  is_professional: false
+  display_name: "user"
+  login_token: "ibeauser"
+  facebook_link:
+  twitter_link:
+  instagram_link:

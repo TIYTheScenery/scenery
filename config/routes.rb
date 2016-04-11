@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :users, except: [:index, :new, :edit]
-
+  resources :companies
+  resources :users, except: [:index, :new]
   post 'login' => 'users#login', :via => [:options]
-
   post 'logout' => 'users#logout'
 
-  resources :performances, except: [:update]
-  patch 'performances' => 'performances#update'
+  resources :performances
+
 
   get 'search/index'
   get 'genres' => 'genres#index'

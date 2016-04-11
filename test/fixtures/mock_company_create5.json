@@ -1,0 +1,19 @@
+{
+  "company": {
+    "user_id": "1",
+    "name": "Cardinal Gibbons",
+    "description": "High School Theatre company located in downtown Raleigh, NC",
+    "website_link": "cardinalgibbons.edu",
+    "facebook_link": "facebook.com/cardinalgibbons",
+    "twitter_link": "twitter.com/cardinalgibbons",
+    "instagram_link": "instagram.com/cardinalgibbons",
+    "youtube_link": "youtube.com/cardinalgibbons",
+    "address": "1401 Edwards Mill Rd.",
+    "city": "Raleigh",
+    "state": "NC",
+    "zip_code": "27607"
+  },
+  "user_info": {
+    "login_token": "ibeauser"
+  }
+}
