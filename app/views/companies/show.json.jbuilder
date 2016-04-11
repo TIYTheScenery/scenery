@@ -12,13 +12,13 @@ json.company do
   json.city @company.city
   json.state @company.state
   json.zip_code @company.zip_code
-  json.performances @company.performances.each do |c|
-    json.id c.id
-    json.company_id c.company_id
-    json.owner_id c.owner_id
-    json.name c.name
-    json.description c.description
-    json.trailer_link c.trailer_link
-    json.ticket_link c.ticket_link
+  json.upcoming_performance do
+    json.id @performance.id
+    json.company_id @performance.company_id
+    json.owner_id @performance.owner_id
+    json.name @performance.name
+    json.description @performance.description
+    json.trailer_link @performance.trailer_link
+    json.ticket_link @performance.ticket_link
   end
 end
