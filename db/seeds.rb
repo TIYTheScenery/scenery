@@ -16,12 +16,12 @@ show3.genres << g
 show4.genres << g
 show5.genres << g
 show6.genres << g
-st= ShowTime.create!(begin_time: Time.now, date: Date.new, address: "33 south st.", city: "Durham", state: "NC", zip_code: "27703")
-st1= ShowTime.create!(begin_time: Time.now, date: Date.new, address: "33 south st.", city: "Durham", state: "NC", zip_code: "27703")
-st3= ShowTime.create!(begin_time: Time.now, date: Date.new, address: "33 north Ave.", city: "Raliegh", state: "NC", zip_code: "27703")
-st4 = ShowTime.create!(begin_time: Time.now, date: Date.new, address: "33 west Ave.", city: "Chapel Hill", state: "NC", zip_code: "27703")
-st5 = ShowTime.create!(begin_time: Time.now, date: Date.new, address: "33 west Ave.", city: "Chapel Hill", state: "NC", zip_code: "27703")
-st6 = ShowTime.create!(begin_time: Time.now, date: Date.new, address: "33 west Ave.", city: "Chapel Hill", state: "NC", zip_code: "27703")
+st= ShowTime.create!(begin_time: Time.now, show_date: DateTime.new(2016,4,21), address: "33 south st.", city: "Durham", state: "NC", zip_code: "27703")
+st1= ShowTime.create!(begin_time: Time.now, show_date: DateTime.new(2016,4,22), address: "33 south st.", city: "Durham", state: "NC", zip_code: "27703")
+st3= ShowTime.create!(begin_time: Time.now, show_date: DateTime.new(2016,4,23), address: "33 north Ave.", city: "Raliegh", state: "NC", zip_code: "27703")
+st4 = ShowTime.create!(begin_time: Time.now, show_date: DateTime.new(2016,4,3), address: "33 west Ave.", city: "Chapel Hill", state: "NC", zip_code: "27703")
+st5 = ShowTime.create!(begin_time: Time.now, show_date: DateTime.new(2016,4,2), address: "33 west Ave.", city: "Chapel Hill", state: "NC", zip_code: "27703")
+st6 = ShowTime.create!(begin_time: Time.now, show_date: DateTime.new(2016,4,1), address: "33 west Ave.", city: "Chapel Hill", state: "NC", zip_code: "27703")
 show.show_times << st
 show.show_times << st
 show2.show_times << st1
@@ -39,9 +39,9 @@ if Rails.env.development?
     temp = Performance.create!(owner_id: t + 1, company_id: rand(1..100), name: Faker::Book.title, description: Faker::Hipster.paragraph, trailer_link: "www.youtube.com", ticket_link: "www.eventbrite.com")
     temp.genres << g
   end
-  temp = Performance.create!(owner_id: 1, company_id: rand(1..100), name: Faker::Book.title, description: Faker::Hipster.paragraph, trailer_link: "www.youtube.com", ticket_link: "www.eventbrite.com")
 
+  temp = Performance.create!(owner_id: 1, company_id: rand(1..100), name: Faker::Book.title, description: Faker::Hipster.paragraph, trailer_link: "www.youtube.com", ticket_link: "www.eventbrite.com")
   5.times do |s|
-    temp.show_times << ShowTime.create!( begin_time: Faker::Time.forward(23, :evening), address: Faker::Address.street_address, city: Faker::Address.city, state: "NC", zip_code: Faker::Address.zip_code, date: Faker::Date.forward(23))
+    temp.show_times << ShowTime.create!( begin_time: Faker::Time.forward(23, :evening), address: Faker::Address.street_address, city: Faker::Address.city, state: "NC", zip_code: Faker::Address.zip_code, show_date: Faker::Date.forward(23))
   end
 end

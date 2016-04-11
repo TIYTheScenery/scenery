@@ -21,8 +21,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(login_token: user_params[:login_token])
-    if @user.update(user_params)
-      @success = true
+    if @success = @user.update(user_params)
     else
       @success = false
     end

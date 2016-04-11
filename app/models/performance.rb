@@ -15,7 +15,7 @@ class Performance < ActiveRecord::Base
 
 
   def past_production?
-    show_times.last.date < DateTime.now
+    show_times.last.show_date < DateTime.now
   end
 
 end

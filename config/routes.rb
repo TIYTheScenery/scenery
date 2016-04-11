@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :new]
   post 'login' => 'users#login', :via => [:options]
   post 'logout' => 'users#logout'
-  match '/users/:id' => 'users#options', :constraints => {:method => 'OPTIONS'}, via: [:options] 
+  match '/users/:id' => 'users#options', via: [:options] 
 
   resources :performances
 
