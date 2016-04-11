@@ -4,7 +4,6 @@ class Company < ActiveRecord::Base
   belongs_to :user, inverse_of: :ownerships
   has_many :performances
   has_many :company_users
-  belongs_to :user
 
   def upcoming_performances
     upcoming = performances.joins("JOIN show_times ON show_times.event_id = performances.id AND show_times.event_type = 'Performance'").
