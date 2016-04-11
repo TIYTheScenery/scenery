@@ -57,9 +57,21 @@ class UsersController < ApplicationController
     end
   end
 
+  # def options
+  #   set_access_control_headers
+  #   head :ok
+  # end
+
   private
     def user_params
       params.require(:user_info).permit(:id, :email, :password, :first_name, :last_name, :description, :is_professional, :display_name, :login_token, :facebook_link, :twitter_link, :instagram_link, :youtube_link,
       titles_attributes: [:id, :title, :_destroy])
     end
+
+    # def set_access_control_headers
+    #   headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    #   headers['Access-Control-Allow-Methods'] = 'POST, GET, PATCH, OPTIONS'
+    #   headers['Access-Control-Max-Age'] = '1000'
+    #   headers['Access-Control-Allow-Headers'] = '*,content-type,cache-control'
+    # end
 end

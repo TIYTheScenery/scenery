@@ -21,6 +21,6 @@ json.performance do
     json.city s.city
     json.state s.state
     json.zip_code s.zip_code
-    json.date s.date
+    json.show_date s.show_date
   end
 end

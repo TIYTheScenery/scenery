@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410202127) do
+ActiveRecord::Schema.define(version: 20160411144636) do
 
   create_table "cast_members", force: :cascade do |t|
     t.string   "name"
@@ -105,9 +105,9 @@ ActiveRecord::Schema.define(version: 20160410202127) do
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
-    t.date     "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "show_date"
   end
 
   add_index "show_times", ["event_id"], name: "index_show_times_on_event_id"
