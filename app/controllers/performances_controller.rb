@@ -31,7 +31,7 @@ class PerformancesController < ApplicationController
   private
   def performance_params
     params.require(:performance).permit(:id, :name, :description, :owner_id, :company_id, :trailer_link, :ticket_link,
-    show_times_attributes: [:id, :event_id, :begin_time, :end_time, :venue_id, :address, :city, :state, :zip_code, :date, :_destroy],
+    show_times_attributes: [:id, :event_id, :begin_time, :end_time, :venue_id, :address, :city, :state, :zip_code, :show_date, :_destroy],
     genre_performances_attributes: [:id, :performance_id, :genre_id])
   end
 end

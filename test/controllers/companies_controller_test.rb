@@ -14,7 +14,7 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_response :success
     post :create, test_input
     response = JSON.parse(@response.body)
-    assert_equal nil, response["success"]
+    assert_equal false, response["success"]
   end
 
   test "company may not be created unless the user is logged in" do
@@ -42,11 +42,6 @@ class CompaniesControllerTest < ActionController::TestCase
     refute_equal "Cardinal Gibbons", Company.last.name
   end
 
-  test "users can view a company" do
-    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_company_create.json")).merge(format: :json)
-    get :show, id: 2
-    response = JSON.parse(@response.body)
-    assert_equal "Burning Coal", Company.last.name
-  end
+
 
 end

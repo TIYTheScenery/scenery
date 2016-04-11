@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :new, :update], via: [:options]
   post 'login' => 'users#login', :via => [:options]
   post 'logout' => 'users#logout'
-  patch 'users' => 'users#update'
+
+  match '/users/:id' => 'users#options', via: [:options]
 
   resources :performances
 
