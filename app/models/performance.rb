@@ -14,8 +14,5 @@ class Performance < ActiveRecord::Base
       update_only: true
 
 
-  def past_production?
-    show_times.last.show_date < DateTime.now
-  end
 
 end

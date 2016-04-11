@@ -7,8 +7,14 @@ class Company < ActiveRecord::Base
   has_many :users, through: :company_users
 
   def upcoming_performance
-    upcoming_show = performances.select {|c| c.show_times.last.show_date > DateTime.now}
-    upcoming_show[0]
+    upcoming = performances.joins("JOIN show_times ON show_times.event_id = performances.id AND show_times.event_type = 'Performance'").
+        where("show_times.show_date >= ? ", DateTime.now )
+    upcoming[0]
+  end
+
+  def past_performance
+    performances.joins("JOIN show_times ON show_times.event_id = performances.id AND show_times.event_type = 'Performance'").
+        where("show_times.show_date =< ? ", DateTime.now )
   end
 
 end
