@@ -3,33 +3,24 @@ class CompaniesController < ApplicationController
   before_action :authenticate_professional, only: [:create, :edit, :update, :delete]
 
   def create
-    if @company = Company.new(company_params)
-      @success = @company.save
-    else
-      @success = false
-    end
+    @company = Company.new(company_params)
+    @success = @company.save
   end
 
   def show
     @company = Company.where(id: params[:id]).first
     performances = Performance.where(id: params[:company_id])
-    @peformances = performances.select {|per| per.past_production?}  
+    @peformances = performances.select {|per| per.past_production?}
   end
 
   def update
-    if @company = Company.find_by(id: company_params[:id])
-      @success = @company.update(company_params)
-    else
-      @success = false
-    end
+    @company = Company.find_by(id: company_params[:id])
+    @success = @company.update(company_params)
   end
 
   def destroy
-    if @company = Company.find(params[:id])
-      @success = @company.destroy
-    else
-      @success = false
-    end
+    @company = Company.find(params[:id])
+    @success = @company.destroy
   end
 
   private
