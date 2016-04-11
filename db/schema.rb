@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20160411144636) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "cast_members", ["show_time_id"], name: "index_cast_members_on_show_time_id"
+
   create_table "companies", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"

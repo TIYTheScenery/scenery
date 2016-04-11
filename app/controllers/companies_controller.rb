@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.where(id: params[:id]).first
+    @company = Company.find_by(id: params[:id])
     performances = Performance.where(id: params[:company_id])
     @peformances = performances.select {|per| per.past_production?}
   end
