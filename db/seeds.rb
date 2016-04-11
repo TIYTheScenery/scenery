@@ -3,9 +3,10 @@ Genre.create!(category: "Improv")
 Genre.create!(category: "Dance")
 Genre.create!(category: "Film")
 
-User.create!(email: "littlegreenpig@gmail.com", display_name: "Jay Oberski", password: "monkey", is_professional: true, facebook_link: "jay.com", twitter_link: "jaybird", description: "Creates stuff", youtube_link: "youtube.link")
+u = User.create!(email: "littlegreenpig@gmail.com", display_name: "Jay Oberski", password: "monkey", is_professional: true, facebook_link: "jay.com", twitter_link: "jaybird", description: "Creates stuff", youtube_link: "youtube.link")
 
 company = Company.create!(name: "Little Green Pig", description: "We create stuff", youtube_link: "youtube@link", facebook_link: "facebook_link", instagram_link: "instagram_link", twitter_link: "twitter_link", address: "", city: "Durham", state: "NC", zip_code: "")
+u.ownerships << company
 
 show = Performance.create!(owner_id: 1, name: "THE PIANO HAS BEEN DRINKING: A TOM WAITS CABARET", description: "A benefit fundraiser for Little Green Pig. Two nights only, $20 suggested donation at the door. Featuring Germain Choffart, Hugh Crumley, Jessica Flemming, Trevor Johnson, Jessi Knight, Louis Landry, Anastasia Maddox, Dana Marks, Bart Matthews, Jaybird O'Berski, Liam O'Neill, Madeleine Pabis, Samantha Rahn, Rob Sharer & Tim Smith)")
 show2 = Performance.create!(owner_id: 1, name: "THE NEW COLOSSUS", description: "An original adaption of Anton Chekhov’s The Sea Gull by Tamara Kissane")
