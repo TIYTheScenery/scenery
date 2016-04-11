@@ -12,7 +12,7 @@ json.user_info do
   json.instagram_link @user.instagram_link
   json.youtube_link @user.youtube_link
   json.created_at @user.created_at
-end
   json.titles @user.titles.each do |u|
     json.title u.title
+  end
 end
