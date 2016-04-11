@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    logger.debug params
     @user = User.find_by(login_token: user_params[:login_token])
     if @user.update(user_params)
       @success = true
@@ -49,6 +50,11 @@ class UsersController < ApplicationController
     @success = @user.save
   end
 
+  def options
+    set_access_control_headers
+    head :ok
+  end
+
   def facebook_login
     user_info, access_token = Omniauth::Facebook.authenticate(params['code'])
     if user_info['email'].blank?
@@ -60,5 +66,12 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user_info).permit(:email, :password, :first_name, :last_name, :description, :is_professional, :display_name, :login_token, :facebook_link, :twitter_link, :instagram_link, :youtube_link,
       titles_attributes: [:id, :title, :_destroy])
+    end
+
+    def set_access_control_headers
+      headers['Access-Control-Allow-Origin'] = "http://localhost:4000"
+      headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PATCH'
+      headers['Access-Control-Max-Age'] = '1000'
+      headers['Access-Control-Allow-Headers'] = '*,content-type'
     end
 end
