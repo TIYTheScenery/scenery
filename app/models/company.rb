@@ -7,17 +7,14 @@ class Company < ActiveRecord::Base
   has_many :company_users
   has_many :users, through: :company_users
 
-  def upcoming_performance
+  def upcoming_performances
     upcoming = performances.joins("JOIN show_times ON show_times.event_id = performances.id AND show_times.event_type = 'Performance'").
         where("show_times.show_date >= ? ", DateTime.now )
-    upcoming[0]
   end
 
-  def past_performance
+  def past_performances
     past = performances.joins("JOIN show_times ON show_times.event_id = performances.id AND show_times.event_type = 'Performance'").
-        where("show_times.show_date =< ? ", DateTime.now )
-    byebug
-    past
+        where("show_times.show_date <= ? ", DateTime.now )
   end
 
 end
