@@ -2,11 +2,8 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user, only: [:create, :edit, :update, :delete]
 
   def create
-    if @review = Review.new(review_params)
-      @success = @review.save
-    else
-      @success = false
-    end
+    @review = Review.new(review_params)
+    @success = @review.save
   end
 
   def show
@@ -14,22 +11,17 @@ class ReviewsController < ApplicationController
   end
 
   def index
+    @reviews = Review.all
   end
 
   def update
-    if @review = Review.find_by(id: review_params[:id])
-      @success = @review.update(review_params)
-    else
-      @success = false
-    end
+    @review = Review.find_by(id: review_params[:id])
+    @success = @review.update(review_params)
   end
 
-  def delete
-    if @review = Review.find(params[:id])
-      @success = @review.destroy
-    else
-      @success = false
-    end
+  def destroy
+    @review = Review.find(params[:id])
+    @success = @review.destroy
   end
 
   private
