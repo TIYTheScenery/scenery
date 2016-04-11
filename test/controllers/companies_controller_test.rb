@@ -43,7 +43,6 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "users can view a company" do
-    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/company/mock_company_create.json")).merge(format: :json)
     get :show, id: 2
     response = JSON.parse(@response.body)
     assert_equal "Burning Coal", Company.last.name

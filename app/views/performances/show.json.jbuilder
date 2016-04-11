@@ -23,4 +23,12 @@ json.performance do
     json.zip_code s.zip_code
     json.show_date s.show_date
   end
+  json.reviews @performance.reviews.each do |r|
+    json.id r.id
+    json.opinion s.opinion
+    json.rating s.rating
+    json.user_id s.user_id
+    json.reviewee_id s.reviewee_id
+    json.reviewee_type s.reviewee_type
+  end
 end
