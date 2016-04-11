@@ -13,11 +13,4 @@ class PerformanceTest < ActiveSupport::TestCase
     show = Performance.new()
     refute show.save
   end
-
-  test "Can verify past performance" do
-    test_unit = Performance.create!(name: "This thing", description: "This thing happens")
-    test_date = ShowTime.create!(zip_code: "27703", state: "NC", city: "Durham", address: "344 here st.", date: "2016-04-04", begin_time: "2016-04-04T18:01:02.567Z")
-    test_unit.show_times << test_date
-    assert_equal true, test_unit.past_production?
-  end
 end
