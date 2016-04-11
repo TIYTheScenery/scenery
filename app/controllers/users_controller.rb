@@ -58,6 +58,13 @@ class UsersController < ApplicationController
     @success = @user.save
   end
 
+  def facebook_login
+    user_info, access_token = Omniauth::Facebook.authenticate(params['code'])
+    if user_info['email'].blank?
+      Omniauth::Facebook.deauthorize(access_token)
+    end
+  end
+
   private
     def user_params
       params.require(:user_info).permit(:email, :password, :first_name, :last_name, :description, :is_professional, :display_name, :login_token, :facebook_link, :twitter_link, :instagram_link, :youtube_link,
