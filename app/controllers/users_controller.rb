@@ -52,8 +52,6 @@ class UsersController < ApplicationController
     access_token = response["access_token"]
 
     @user = HTTParty.get('https://graph.facebook.com/v2.5/me/?fields=id,name,first_name,last_name,email&access_token=' + access_token)
-    # render json: user_info
-    render content_type: 'text/javascript'
   end
 
   private
@@ -62,7 +60,7 @@ class UsersController < ApplicationController
     end
 
     def set_format
-      request.format = 'html'
+
     end
 
 end
