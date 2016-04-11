@@ -26,11 +26,7 @@ class UsersController < ApplicationController
 
   def options
     @user = User.find_by(login_token: user_params[:login_token])
-    if @user.update(user_params)
-      @success = true
-    else
-      @success = false
-    end
+    @success = @user.update(user_params)
   end
 
   def destroy
