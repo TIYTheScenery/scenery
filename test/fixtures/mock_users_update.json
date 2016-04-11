@@ -3,11 +3,14 @@
     "password": "monkey",
     "first_name": "John",
     "last_name": "Doe",
-    "description": "I am a professional",
+    "description": "I am a professional, kind of",
+    "email": "test@test.com",
+    "password": "monkey",
     "is_professional": true,
     "display_name": "TheDoe",
     "facebook_link": "www.facebook.com",
     "twitter_link": "www.twitter.com",
-    "youtube_link": "www.youtube.com"
+    "youtube_link": "www.youtube.com",
+    "login_token": "igotagoldenticket"
   }
 }
