@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   patch 'users' => 'users#update'
   # match 'users(/:id)' => 'users#options', via: [:options]
 
-  match '/users/:id' => 'users#options', via: [:options]
 
   resources :performances
 
