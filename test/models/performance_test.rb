@@ -13,8 +13,4 @@ class PerformanceTest < ActiveSupport::TestCase
     show = Performance.new()
     refute show.save
   end
-
-  test "Performance can create nested showtimes" do
-    test_unit = Performance.create()
-  end
 end

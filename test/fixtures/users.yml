@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   email: "bill@bill.com"
   password_digest: "monkey"
   first_name: Bill
@@ -27,6 +28,19 @@ two:
   instagram_link: "instagram"
 
 three:
+  email: MyString
+  password_digest: MyString
+  first_name: Jim
+  last_name: MyString
+  description: MyText
+  is_professional: false
+  display_name: "user"
+  login_token: "ibeauser"
+  facebook_link:
+  twitter_link:
+  instagram_link:
+
+four:
   email: MyString
   password_digest: MyString
   first_name: Jim

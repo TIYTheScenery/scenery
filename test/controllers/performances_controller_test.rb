@@ -57,6 +57,13 @@ class PerformancesControllerTest < ActionController::TestCase
     assert_equal num_shows + 2, ShowTime.count
   end
 
+  test "Users can view one performance and all of its nested showtimes" do
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_multiple_showtimes.json")).merge(format: :json)
+    get :show, id: 1
+    response = JSON.parse(@response.body)
+    assert_equal "Macbeth", Performance.first.name
+   end
+
   test "can delete Performance and the nested ShowTimes" do
     num_shows = Performance.count
     num_times = ShowTime.count
@@ -66,14 +73,14 @@ class PerformancesControllerTest < ActionController::TestCase
     assert_equal num_times -2, ShowTime.count
   end
 
-  test "You have to be a professional to create a performance" do
-    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performer_create_performance.json")).merge(format: :json)
-    test_input2 = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_user_create_performance.json")).merge(format: :json)
-    post :create, test_input
-    response = JSON.parse(@response.body)
-    post :create, test_input2
-    response = JSON.parse(@response.body)
-    assert_equal "Macbeth", Performance.last.name
-    refute_equal "Burber", Performance.last.name
-  end
+  # test "You have to be a professional to create a performance" do
+  #   test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_performer_create_performance.json")).merge(format: :json)
+  #   test_input2 = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_user_create_performance.json")).merge(format: :json)
+  #   post :create, test_input
+  #   response = JSON.parse(@response.body)
+  #   post :create, test_input2
+  #   response = JSON.parse(@response.body)
+  #   assert_equal "Macbeth", Performance.last.name
+  #   refute_equal "Burber", Performance.last.name
+  # end
 end
