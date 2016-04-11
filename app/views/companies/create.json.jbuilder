@@ -1,4 +1,4 @@
-json.success @successs
+json.success @success
 if @success
   json.company do
     json.id @company.id

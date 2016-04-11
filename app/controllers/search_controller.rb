@@ -10,7 +10,8 @@ class SearchController < ApplicationController
                 "(LOWER(show_times.city) LIKE LOWER(?) AND LOWER(show_times.state) LIKE LOWER(?) ) " +
               "OR show_times.zip_code LIKE ? ) AND " +
               "(LOWER(performances.name) LIKE LOWER(?) OR LOWER(performances.description) LIKE LOWER(?) )",
-            "%#{location[0]}%", "%#{location[0]}%", "%#{location[1]}%", "%#{location[0]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%" )
+            "%#{location[0]}%", "%#{location[0]}%", "%#{location[1]}%", "%#{location[0]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%" ).
+        distinct(:performance_id)
 
   end
 
