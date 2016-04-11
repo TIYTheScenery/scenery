@@ -26,7 +26,7 @@ class CompaniesControllerTest < ActionController::TestCase
 
   test "can delete company" do
     num_companies = Company.count
-    delete :destroy, id: 1
+    delete :destroy, id: 1, user_id: 1
     response = JSON.parse(@response.body)
     assert_equal num_companies -1, Company.count
   end
@@ -41,7 +41,4 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_equal "Ravenscroft", Company.last.name
     refute_equal "Cardinal Gibbons", Company.last.name
   end
-
-
-
 end
