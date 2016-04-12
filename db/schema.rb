@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412165257) do
+ActiveRecord::Schema.define(version: 20160412174453) do
 
   create_table "cast_members", force: :cascade do |t|
     t.string   "name"
@@ -151,12 +151,16 @@ ActiveRecord::Schema.define(version: 20160412165257) do
     t.boolean  "is_professional"
     t.string   "display_name"
     t.string   "login_token"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "facebook_link"
     t.string   "twitter_link"
     t.string   "instagram_link"
     t.string   "youtube_link"
+    t.string   "profile_pic_file_name"
+    t.string   "profile_pic_content_type"
+    t.integer  "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
   end
 
   add_index "users", ["login_token"], name: "index_users_on_login_token"
