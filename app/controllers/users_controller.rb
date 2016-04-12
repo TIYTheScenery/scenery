@@ -68,12 +68,11 @@ class UsersController < ApplicationController
     # access_token = response["access_token"]
     #
     # @user = HTTParty.get('https://graph.facebook.com/v2.5/me/?fields=id,name,first_name,last_name,email&access_token=' + access_token)
-    user_info, access_token = Omniauth::Facebook.authenticate(params['code'])
+    @user_info, access_token = Omniauth::Facebook.authenticate(params['code'])
     if user_info['email'].blank?
       Omniauth::Facebook.deauthorize(access_token)
     end
-    logger.debug user_info
-    # render json: user_info.to_json
+    Rails.logger.debug @user_info
   end
 
   # def options
