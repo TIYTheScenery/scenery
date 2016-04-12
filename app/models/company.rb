@@ -1,5 +1,4 @@
 class Company < ActiveRecord::Base
-  # include Time
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   belongs_to :user, inverse_of: :ownerships

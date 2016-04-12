@@ -26,7 +26,8 @@ class CompaniesControllerTest < ActionController::TestCase
 
   test "can delete company" do
     num_companies = Company.count
-    delete :destroy, id: 1
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_company_delete.json")).merge(format: :json)
+    delete :destroy, id: 1, user_info: {login_token: "igotagoldenticket"}
     response = JSON.parse(@response.body)
     assert_equal num_companies -1, Company.count
   end
@@ -41,6 +42,7 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_equal "Ravenscroft", Company.last.name
     refute_equal "Cardinal Gibbons", Company.last.name
   end
+<<<<<<< HEAD
 
   test "users can view a company" do
     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/company/mock_company_create.json")).merge(format: :json)
@@ -60,4 +62,6 @@ class CompaniesControllerTest < ActionController::TestCase
   #   assert_equal num_shows + 2, ShowTime.count
   # end
 
+=======
+>>>>>>> a2b54638b36431be8b572119632a82618ca290d0
 end

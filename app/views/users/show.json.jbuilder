@@ -16,4 +16,20 @@ json.user_info do
     json.id u.id
     json.title u.title
   end
+  json.companies @companies.each do |c|
+    json.id c.id
+    json.user_id c.user_id
+    json.name c.name
+    json.description c.description
+    json.website_link c.website_link
+    json.facebook_link c.facebook_link
+    json.twitter_link c.twitter_link
+    json.instagram_link c.instagram_link
+    json.youtube_link c.youtube_link
+    json.address c.address
+    json.city c.city
+    json.state c.state
+    json.zip_code c.zip_code
+    json.created_at c.created_at.to_date.strftime("%m/%d/%Y")
+  end
 end
