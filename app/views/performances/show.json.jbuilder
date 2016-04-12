@@ -25,10 +25,10 @@ json.performance do
   end
   json.reviews @performance.reviews.each do |r|
     json.id r.id
-    json.opinion s.opinion
-    json.rating s.rating
-    json.user_id s.user_id
-    json.reviewee_id s.reviewee_id
-    json.reviewee_type s.reviewee_type
+    json.opinion r.opinion
+    json.rating r.rating
+    json.user_id r.user_id
+    json.reviewee_id r.reviewee_id
+    json.reviewee_type r.reviewee_type
   end
 end

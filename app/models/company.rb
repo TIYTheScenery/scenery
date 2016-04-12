@@ -8,6 +8,9 @@ class Company < ActiveRecord::Base
   has_many :users, through: :company_users
   has_many :reviews, as: :reviewee, dependent: :destroy
 
+  accepts_nested_attributes_for :reviews,
+    allow_destroy: true
+
   def upcoming_performances
     upcoming = performances.joins("JOIN show_times ON show_times.event_id = performances.id AND show_times.event_type = 'Performance'").
         where("show_times.show_date >= ? ", DateTime.now )
