@@ -1,0 +1,12 @@
+{
+  "review": {
+    "id": "1",
+    "opinion": "",
+    "user_id": "1",
+    "reviewee_id": "1",
+    "reviewee_type": "performance"
+  },
+  "user_info": {
+    "login_token": "igotagoldenticket"
+  }
+}

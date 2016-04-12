@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 gem 'rack-cors', :require => 'rack/cors'
-gem 'puma'
+gem 'puma', '~> 3.3.0'
 gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
@@ -39,7 +39,7 @@ gem 'rails_12factor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', '~> 8.2.2'
   gem 'rails-footnotes', '~> 4.0'
   gem 'sqlite3'
   gem 'faker'
@@ -50,7 +50,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 1.7.1'
 end
 
 group :production do

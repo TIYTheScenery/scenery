@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
     @company = Company.find_by(id: params[:id])
     @upcoming_performances = @company.upcoming_performances
     @past_performances = @company.past_performances
+    @reviews = Review.find_by(reviewee_id: params[:id])
   end
 
   def update
@@ -26,6 +27,7 @@ class CompaniesController < ApplicationController
 
   private
   def company_params
-    params.require(:company).permit(:id, :user_id, :name, :description, :website_link, :facebook_link, :twitter_link, :instagram_link, :youtube_link, :address, :city, :state, :zip_code)
+    params.require(:company).permit(:id, :user_id, :name, :description, :website_link, :facebook_link, :twitter_link, :instagram_link, :youtube_link, :address, :city, :state, :zip_code,
+    reviews_attributes: [:id, :opinion, :user_id, :rating, :reviewee_id, :reviewee_type, :_destroy])
   end
 end

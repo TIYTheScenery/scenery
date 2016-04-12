@@ -82,6 +82,19 @@ ActiveRecord::Schema.define(version: 20160411144636) do
   add_index "performances", ["company_id"], name: "index_performances_on_company_id"
   add_index "performances", ["owner_id"], name: "index_performances_on_owner_id"
 
+  create_table "reviews", force: :cascade do |t|
+    t.text     "opinion"
+    t.integer  "rating"
+    t.integer  "user_id"
+    t.integer  "reviewee_id"
+    t.string   "reviewee_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "reviews", ["reviewee_id"], name: "index_reviews_on_reviewee_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+
   create_table "show_times", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "event_type"

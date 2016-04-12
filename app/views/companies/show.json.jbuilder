@@ -12,6 +12,14 @@ json.company do
   json.city @company.city
   json.state @company.state
   json.zip_code @company.zip_code
+  json.reviews @company.reviews.each do |r|
+    json.id r.id
+    json.opinion s.opinion
+    json.rating s.rating
+    json.user_id s.user_id
+    json.reviewee_id s.reviewee_id
+    json.reviewee_type s.reviewee_type
+  end
   json.upcoming_performances @upcoming_performances do |up|
     json.id up.id
     json.company_id up.company_id

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  opinion: "Stupendous!"
+  rating: "5"
+  user_id: 1
+  reviewee_id: 1
+  reviewee_type: "Company"
+
+two:
+  id: 2
+  opinion: "Merde!"
+  rating: "0"
+  user_id: "2"
+  reviewee_id: "3"
+  reviewee_type: "Performance"

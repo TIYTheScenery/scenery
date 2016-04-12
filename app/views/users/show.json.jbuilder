@@ -16,6 +16,13 @@ json.user_info do
     json.id u.id
     json.title u.title
   end
+  json.reviews @user.reviews.each do |r|
+    json.id r.id
+    json.opinion r.opinion
+    json.rating r.rating
+    json.user_id r.user_id
+    json.reviewee_id r.reviewee_id
+    json.reviewee_type r.reviewee_type
   json.companies @companies.each do |c|
     json.id c.id
     json.user_id c.user_id
