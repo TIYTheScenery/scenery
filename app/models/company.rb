@@ -6,6 +6,7 @@ class Company < ActiveRecord::Base
   has_many :company_users
   has_many :users, through: :company_users
   has_many :reviews, as: :reviewee, dependent: :destroy
+  has_many :opportunities
 
   accepts_nested_attributes_for :reviews,
     allow_destroy: true
