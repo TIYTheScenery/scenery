@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :opportunities
   resources :reviews
   resources :companies
   resources :users, except: [:new, :update], via: [:options]
