@@ -1,5 +1,13 @@
 class SearchController < ApplicationController
   def index
+    if params[:type] == "1" then
+      @performances = Search.performances(params)
+    elsif params[:type] == "2" then
+      @professionals = Search.professionals(params)
+    elsif params[:type] == "3" then
+      @companies = Search.companies(params)
+    end
+
     location = params[:location].split(',').map(&:strip)
     location << 0 if location.length == 1
     @performances = Performance.joins("JOIN genre_performances on genre_performances.performance_id = performances.id").
@@ -13,9 +21,5 @@ class SearchController < ApplicationController
             "%#{location[0]}%", "%#{location[0]}%", "%#{location[1]}%", "%#{location[0]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%" ).
         distinct(:performance_id)
 
-  end
-
-  private def search_params
-    params.require(:search_info).permit(:search_term, :genre_id, :location)
   end
 end
