@@ -15,6 +15,7 @@ one:
   instagram_link: "instagram"
 
 two:
+  id: 2
   email: MyString
   password_digest: MyString
   first_name: Ralph
@@ -28,6 +29,7 @@ two:
   instagram_link: "instagram"
 
 three:
+  id: 3
   email: MyString
   password_digest: MyString
   first_name: Jim

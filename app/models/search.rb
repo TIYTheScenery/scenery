@@ -37,9 +37,11 @@ class Search
   end
 
   def self.professionals(params)
-    results = User.includes(:user_titles, :titles).where('(LOWER(users.first_name) LIKE ? OR LOWER(user.last_name) LIKE ? OR LOWER(titles.title) LIKE ? OR LOWER(user.display_name) LIKE ?) AND user.is_professional',
-        "%#{params[:search_term].downcase}%", "%#{params[:search_term].downcase}%", "%#{params[:search_term].downcase}%", "%#{params[:search_term].downcase}%")
-
+    results = User.joins("JOIN user_titles ON user_titles.user_id = users.id").
+        joins("JOIN titles on titles.id = user_titles.title_id").
+        where('(LOWER(users.first_name) LIKE LOWER(?) OR LOWER(users.last_name) LIKE LOWER(?) OR LOWER(titles.title) LIKE LOWER(?) OR LOWER(users.display_name) LIKE LOWER(?)) AND users.is_professional != 0',
+          "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%").
+        distinct(:user_id)
 
     # save for when users finally have a location
     # if params[:state] == "ZIP" then
@@ -51,11 +53,11 @@ class Search
 
   def self.companies(params)
     if params[:state] == "ZIP" then
-      results = Company.where("(LOWER(name) LIKE ? OR LOWER(description) LIKE ?) AND zip_code == ? ",
-          "%#{params[:search_term].downcase}%", "%#{params[:search_term].downcase}%", "#{params[:city]}")
+      results = Company.where("(LOWER(name) LIKE LOWER(?) OR LOWER(description) LIKE LOWER(?)) AND zip_code == ? ",
+          "%#{params[:search_term]}%", "%#{params[:search_term]}%", "#{params[:city]}")
     else
-      results = Company.where("(LOWER(name) LIKE ? OR LOWER(description) LIKE ?) AND LOWER(city) LIKE ?  AND LOWER(state) LIKE ?",
-          "%#{params[:search_term].downcase}%", "%#{params[:search_term].downcase}%", "%#{params[:city].downcase}%", "%#{params[:state].downcase}%")
+      results = Company.where("(LOWER(name) LIKE LOWER(?) OR LOWER(description) LIKE LOWER(?)) AND LOWER(city) LIKE LOWER(?)  AND LOWER(state) LIKE LOWER(?)",
+          "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:city]}%", "%#{params[:state]}%")
     end
   end
 

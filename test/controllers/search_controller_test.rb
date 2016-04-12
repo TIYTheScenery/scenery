@@ -25,4 +25,11 @@ class SearchControllerTest < ActionController::TestCase
     assert_equal performances(:two).id, response["performances"][1]["id"]
   end
 
+  test "find professional by name" do
+    get :index, format: :json, search_term: "Bill", type: "2"
+    response = JSON.parse(@response.body)
+    assert_equal 1, response["professionals"].length
+    assert_equal users(:one).login_token, response["professionals"][0]["login_token"]
+  end
+
 end
