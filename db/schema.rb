@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411144636) do
+ActiveRecord::Schema.define(version: 20160412170439) do
 
   create_table "cast_members", force: :cascade do |t|
     t.string   "name"
@@ -64,6 +64,12 @@ ActiveRecord::Schema.define(version: 20160411144636) do
 
   create_table "genres", force: :cascade do |t|
     t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "letsencrypt_plugin_challenges", force: :cascade do |t|
+    t.text     "response"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
