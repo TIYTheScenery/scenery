@@ -12,7 +12,6 @@ class CompaniesController < ApplicationController
     @company = Company.find_by(id: params[:id])
     @upcoming_performances = @company.upcoming_performances
     @past_performances = @company.past_performances
-    @reviews = Review.find_by(reviewee_id: params[:id])
   end
 
   def update
