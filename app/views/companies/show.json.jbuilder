@@ -20,6 +20,15 @@ json.company do
     json.reviewee_id s.reviewee_id
     json.reviewee_type s.reviewee_type
   end
+  json.opportunities @company.opportunities.each do |o|
+    json.id o.id
+    json.company_id o.company_id
+    json.venue_id o.venue_id
+    json.name o.name
+    json.description o.description
+    json.contact_info o.contact_info
+    json.created_at o.created_at
+  end
   json.upcoming_performances @upcoming_performances do |up|
     json.id up.id
     json.company_id up.company_id
