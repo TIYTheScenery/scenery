@@ -73,7 +73,7 @@ class UsersController < ApplicationController
       Omniauth::Facebook.deauthorize(access_token)
     end
     logger.debug user_info
-    render json: user_info.to_json
+    # render json: user_info.to_json
   end
 
   # def options
