@@ -2,13 +2,12 @@ Rails.application.routes.draw do
 
   resources :reviews
   resources :companies
-  resources :users, except: [:index, :new, :update], via: [:options]
+  resources :users, except: [:new, :update], via: [:options]
   post 'login' => 'users#login', :via => [:options]
   post 'logout' => 'users#logout'
+  post 'auth/facebook' => 'users#facebook_login', :via => [:options]
   patch 'users' => 'users#update'
   # match 'users(/:id)' => 'users#options', via: [:options]
-
-
   resources :performances
 
 

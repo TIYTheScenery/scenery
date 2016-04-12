@@ -1,8 +1,12 @@
+# require 'oauth.rb'
+
 class UsersController < ApplicationController
+  include Omniauth
   before_action :authenticate_user, only: [:logout, :update]
 
   def show
-      @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
+    @companies = Company.where(user_id: params[:id]) if @user.is_professional
   end
 
   def create
@@ -14,6 +18,10 @@ class UsersController < ApplicationController
     else
       @success = false
     end
+  end
+
+  def index
+    @users = User.all
   end
 
   def edit
@@ -51,10 +59,21 @@ class UsersController < ApplicationController
   end
 
   def facebook_login
+    # session_code = params[:code]
+    # redirect = 'http://localhost:3000/auth/facebook'
+    #
+    # query =  "?client_id=#{ENV["FACEBOOK_APP_ID"]}&redirect_uri=#{redirect}&client_secret=#{ENV["FACEBOOK_SECRET"]}&code=#{session_code}"
+    # query = 'https://graph.facebook.com/v2.5/oauth/access_token' + query
+    # response = HTTParty.get(query)
+    # access_token = response["access_token"]
+    #
+    # @user = HTTParty.get('https://graph.facebook.com/v2.5/me/?fields=id,name,first_name,last_name,email&access_token=' + access_token)
     user_info, access_token = Omniauth::Facebook.authenticate(params['code'])
     if user_info['email'].blank?
       Omniauth::Facebook.deauthorize(access_token)
     end
+    logger.debug user_info
+    render json: user_info.to_json
   end
 
   # def options

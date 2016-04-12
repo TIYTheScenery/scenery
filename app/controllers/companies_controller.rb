@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_user, only: [:create, :edit, :update, :delete]
-  before_action :authenticate_professional, only: [:create, :edit, :update, :delete]
+  before_action :authenticate_user, only: [:create, :edit, :update, :destroy]
+  before_action :authenticate_professional, only: [:create, :edit, :update, :destroy]
+  before_action :company_authorized_user, only: [:update, :destroy]
 
   def create
     @company = Company.new(company_params)
