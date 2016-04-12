@@ -42,6 +42,7 @@ module Omniauth
     def get_access_token(code)
       response = self.class.get('/oauth/access_token', query(code))
 
+      Rails.logger.debug response
       # Something went wrong either wrong configuration or connection
       unless response.success?
         Rails.logger.error 'Omniauth::Facebook.get_access_token Failed'
@@ -75,9 +76,9 @@ module Omniauth
           # This must match the redirectUrl registerd in the facebook app.
           # You can save it to ENV['WEB_APP_URL'] if you have multiple facebook apps for development and testing
           # so you can support testing app on development and production app on production env.
-          redirect_uri: "http://localhost:9000/",
-          client_id: ENV['FB_APP_ID'], # Facebook appId
-          client_secret: ENV['FB_APP_SECRET'], # Facebook app secret (must not exist on front-end app for security)
+          redirect_uri: "https://api.the-scenery.com",
+          client_id: ENV['FACEBOOK_APP_ID'], # Facebook appId
+          client_secret: ENV['FACEBOOK_SECRET'], # Facebook app secret (must not exist on front-end app for security)
         }
       }
     end
