@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  owner_id:
+  company_id: 1
+  name: "Being John Malkovich: Beginner Class on Vocal Techniques for Impressions"
+  description: MyText
+  number_of_seats: 1
+  ticket_link: MyString
+
+two:
+  id: 2
+  owner_id:
+  company_id: 1
+  name: "Being John Malkovich: Beginner Class on Vocal Techniques for Impressions"
+  description: MyText
+  number_of_seats: 1
+  ticket_link: MyString
