@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :lessons
   resources :opportunities
   resources :reviews
   resources :companies

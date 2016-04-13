@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160413143742) do
 
   create_table "cast_members", force: :cascade do |t|
@@ -52,6 +53,16 @@ ActiveRecord::Schema.define(version: 20160413143742) do
   add_index "company_users", ["company_id"], name: "index_company_users_on_company_id"
   add_index "company_users", ["user_id"], name: "index_company_users_on_user_id"
 
+  create_table "genre_lessons", force: :cascade do |t|
+    t.integer  "genre_id"
+    t.integer  "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "genre_lessons", ["genre_id"], name: "index_genre_lessons_on_genre_id"
+  add_index "genre_lessons", ["lesson_id"], name: "index_genre_lessons_on_lesson_id"
+
   create_table "genre_performances", force: :cascade do |t|
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
@@ -67,6 +78,19 @@ ActiveRecord::Schema.define(version: 20160413143742) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "lessons", force: :cascade do |t|
+    t.integer  "company_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "number_of_seats"
+    t.string   "ticket_link"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "owner_id"
+  end
+
+  add_index "lessons", ["company_id"], name: "index_lessons_on_company_id"
 
   create_table "opportunities", force: :cascade do |t|
     t.integer  "company_id"
