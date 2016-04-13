@@ -113,11 +113,16 @@ ActiveRecord::Schema.define(version: 20160413170538) do
     t.text     "description"
     t.string   "trailer_link"
     t.string   "ticket_link"
+<<<<<<< HEAD
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "production_image_url"
     t.string   "profile_image_url"
     t.string   "hero_image_url"
+=======
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+>>>>>>> 0612efde4b12faab93bafda6db9d81b4a929a2d1
   end
 
   add_index "performances", ["company_id"], name: "index_performances_on_company_id"
@@ -186,7 +191,10 @@ ActiveRecord::Schema.define(version: 20160413170538) do
     t.string   "twitter_link"
     t.string   "instagram_link"
     t.string   "youtube_link"
+<<<<<<< HEAD
     t.string   "image_url"
+=======
+>>>>>>> 0612efde4b12faab93bafda6db9d81b4a929a2d1
   end
 
   add_index "users", ["login_token"], name: "index_users_on_login_token"

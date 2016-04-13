@@ -1,6 +1,6 @@
 class Search
   def self.performances(params)
-    if params[:city].nil? && params[:search_term].nil? then
+    if params[:city] == "" && params[:search_term] == "" && params[:state].downcase == "null" then
       results = Performance.joins("JOIN genre_performances on genre_performances.performance_id = performances.id").
           where("genre_performances.genre_id = ? ", params[:genre_id]).
           distinct(:performance_id)
