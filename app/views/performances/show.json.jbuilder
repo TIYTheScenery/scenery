@@ -2,6 +2,7 @@ json.performance do
   json.id @performance.id
   json.owner_id @performance.owner_id
   json.company_id @performance.company_id
+  json.company_name @performance.company.name
   json.name @performance.name
   json.description @performance.description
   json.trailer_link @performance.trailer_link
