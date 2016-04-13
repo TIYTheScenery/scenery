@@ -1,6 +1,7 @@
 class PerformancesController < ApplicationController
   before_action :authenticate_user, only: [:create, :edit, :update, :delete]
   before_action :authenticate_professional, only: [:create, :edit, :update, :delete]
+  before_action :performance_authorized_user, only: [:edit, :update, :delete]
 
   def edit
   end

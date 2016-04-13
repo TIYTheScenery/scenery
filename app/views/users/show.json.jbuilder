@@ -1,5 +1,6 @@
 
 json.user_info do
+  json.id @user.id
   json.email @user.email
   json.first_name @user.first_name
   json.last_name @user.last_name
@@ -23,6 +24,7 @@ json.user_info do
     json.user_id r.user_id
     json.reviewee_id r.reviewee_id
     json.reviewee_type r.reviewee_type
+  end
   json.companies @companies.each do |c|
     json.id c.id
     json.user_id c.user_id

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412170439) do
+ActiveRecord::Schema.define(version: 20160413143742) do
 
   create_table "cast_members", force: :cascade do |t|
     t.string   "name"
@@ -68,12 +68,6 @@ ActiveRecord::Schema.define(version: 20160412170439) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "letsencrypt_plugin_challenges", force: :cascade do |t|
-    t.text     "response"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "opportunities", force: :cascade do |t|
     t.integer  "company_id"
     t.integer  "venue_id"
@@ -109,6 +103,7 @@ ActiveRecord::Schema.define(version: 20160412170439) do
     t.string   "reviewee_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "display_name"
   end
 
   add_index "reviews", ["reviewee_id"], name: "index_reviews_on_reviewee_id"
