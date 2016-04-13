@@ -22,6 +22,11 @@ json.performance do
     json.state s.state
     json.zip_code s.zip_code
     json.show_date s.show_date
+    json.cast_members s.cast_members.each do |cm|
+      json.id cm.id
+      json.name cm.name
+      json.role cm.role
+    end
   end
   json.reviews @performance.reviews.each do |r|
     json.id r.id
@@ -30,5 +35,7 @@ json.performance do
     json.user_id r.user_id
     json.reviewee_id r.reviewee_id
     json.reviewee_type r.reviewee_type
+    json.created_at r.created_at.to_date.strftime("%m/%d/%Y")
+    json.display_name r.display_name
   end
 end

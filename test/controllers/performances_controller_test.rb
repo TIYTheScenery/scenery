@@ -73,6 +73,18 @@ class PerformancesControllerTest < ActionController::TestCase
     assert_equal num_times -2, ShowTime.count
   end
 
+  test "performances can accept showtimes which can have cast members" do
+    num_cast_members = CastMember.count
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/performance/mock_showtimes_with_cast_members.json")).merge(format: :json)
+    post :create, test_input
+    response = JSON.parse(@response.body)
+    assert_equal num_cast_members + 16, CastMember.count
+    assert_equal "John Doe", response["performance"]["show_times"][0]["cast_members"][0]["name"]
+    assert_equal "Macbeth", response["performance"]["show_times"][0]["cast_members"][0]["role"]
+    assert_equal "John Doe", response["performance"]["show_times"][1]["cast_members"][0]["name"]
+    assert_equal "Macbeth", response["performance"]["show_times"][1]["cast_members"][0]["role"]
+  end
+
   # test "You have to be a company to create a performance" do
   #   test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/performance/mock_performer_create_performance.json")).merge(format: :json)
   #   test_input2 = JSON.parse(File.read("#{Rails.root}/test/fixtures/performance/mock_user_create_performance.json")).merge(format: :json)

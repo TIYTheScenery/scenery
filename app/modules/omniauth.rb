@@ -76,7 +76,7 @@ module Omniauth
           # This must match the redirectUrl registerd in the facebook app.
           # You can save it to ENV['WEB_APP_URL'] if you have multiple facebook apps for development and testing
           # so you can support testing app on development and production app on production env.
-          redirect_uri: "https://api.the-scenery.com",
+          redirect_uri: "https://api.the-scenery.com/",
           client_id: ENV['FACEBOOK_APP_ID'], # Facebook appId
           client_secret: ENV['FACEBOOK_SECRET'], # Facebook app secret (must not exist on front-end app for security)
         }

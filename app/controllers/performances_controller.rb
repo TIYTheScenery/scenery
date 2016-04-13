@@ -1,6 +1,7 @@
 class PerformancesController < ApplicationController
   before_action :authenticate_user, only: [:create, :edit, :update, :delete]
   before_action :authenticate_professional, only: [:create, :edit, :update, :delete]
+  before_action :performance_authorized_user, only: [:edit, :update, :delete]
 
   def edit
   end
@@ -31,7 +32,7 @@ class PerformancesController < ApplicationController
   private
   def performance_params
     params.require(:performance).permit(:id, :name, :description, :owner_id, :company_id, :trailer_link, :ticket_link,
-    show_times_attributes: [:id, :event_id, :begin_time, :end_time, :venue_id, :address, :city, :state, :zip_code, :show_date, :_destroy],
+    show_times_attributes: [:id, :event_id, :begin_time, :end_time, :venue_id, :address, :city, :state, :zip_code, :show_date, :_destroy, cast_members_attributes: [:id, :name, :role, :_destroy]],
     genre_performances_attributes: [:id, :performance_id, :genre_id],
     reviews_attributes: [:id, :opinion, :user_id, :rating, :reviewee_id, :reviewee_type, :_destroy])
   end
