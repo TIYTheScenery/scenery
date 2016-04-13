@@ -7,9 +7,10 @@ class ShowTime < ActiveRecord::Base
   validates :zip_code, presence: true
 
   belongs_to :event, polymorphic: true
-  
+
   has_many :cast_members, dependent: :destroy
   accepts_nested_attributes_for :cast_members,
-    allow_destroy: true
+      reject_if: :all_blank,
+      allow_destroy: true
 
 end

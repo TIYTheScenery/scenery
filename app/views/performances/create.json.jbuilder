@@ -26,6 +26,11 @@ if @success
       json.name s.cast_members.name
       json.role s.cast_members.role
       json.show_id s.cast_members.show_id
+      # json.cast_members s.cast_members.each do |cm|
+      #   json.id cm.id
+      #   json.name cm.role
+      #   json.role cm.role
+      # end
     end
   end
 else
