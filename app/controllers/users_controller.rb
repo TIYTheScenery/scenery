@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   include Omniauth
-  before_action :authenticate_user, only: [:logout, :update]
+  before_action :authenticate_user, only: [:logout, :update, :delete]
 
   def show
     @user = User.find_by(id: params[:id])
