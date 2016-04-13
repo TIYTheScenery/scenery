@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160412170439) do
+=======
+ActiveRecord::Schema.define(version: 20160412174453) do
+>>>>>>> 6ce9b83eaf7bb33c9576b6628f358b03977c9d17
 
   create_table "cast_members", force: :cascade do |t|
     t.string   "name"
@@ -68,11 +72,18 @@ ActiveRecord::Schema.define(version: 20160412170439) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "letsencrypt_plugin_challenges", force: :cascade do |t|
-    t.text     "response"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "opportunities", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "venue_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "contact_info"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
+
+  add_index "opportunities", ["company_id"], name: "index_opportunities_on_company_id"
+  add_index "opportunities", ["venue_id"], name: "index_opportunities_on_venue_id"
 
   create_table "performances", force: :cascade do |t|
     t.integer  "owner_id"
@@ -144,12 +155,16 @@ ActiveRecord::Schema.define(version: 20160412170439) do
     t.boolean  "is_professional"
     t.string   "display_name"
     t.string   "login_token"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "facebook_link"
     t.string   "twitter_link"
     t.string   "instagram_link"
     t.string   "youtube_link"
+    t.string   "profile_pic_file_name"
+    t.string   "profile_pic_content_type"
+    t.integer  "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
   end
 
   add_index "users", ["login_token"], name: "index_users_on_login_token"
