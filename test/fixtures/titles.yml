@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
+  id: 1
+  title: The King
 
 two:
-  title: MyString
+  id: 2
+  title: The Sucker
+
+three:
+  id: 3
+  title: At Large
