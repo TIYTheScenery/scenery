@@ -27,7 +27,7 @@ if @success
       json.reviewee_id r.reviewee_id
       json.reviewee_type r.reviewee_type
     end
-    json.companies @companies.each do |c|
+    json.companies @user.ownerships.each do |c|
       json.id c.id
       json.user_id c.user_id
       json.name c.name
@@ -44,6 +44,7 @@ if @success
       json.state c.state
       json.zip_code c.zip_code
       json.created_at c.created_at.to_date.strftime("%m/%d/%Y")
+    end
   end
 else
   json.errors @error

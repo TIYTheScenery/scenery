@@ -1,6 +1,6 @@
 class Search
   def self.performances(params)
-    if params[:city].nil? && params[:search_term].nil? then
+    if params[:city] == "" && params[:search_term] == "" && params[:state].downcase == "null" then
       results = Performance.joins("JOIN genre_performances on genre_performances.performance_id = performances.id").
           where("genre_performances.genre_id = ? ", params[:genre_id]).
           distinct(:performance_id)
@@ -47,8 +47,8 @@ class Search
       results = Company.where("(LOWER(name) LIKE LOWER(?) OR LOWER(description) LIKE LOWER(?)) AND zip_code == ? ",
           "%#{params[:search_term]}%", "%#{params[:search_term]}%", "#{params[:city]}")
     else
-      results = Company.where("(LOWER(name) LIKE LOWER(?) OR LOWER(description) LIKE LOWER(?)) AND LOWER(city) LIKE LOWER(?)  AND LOWER(state) LIKE LOWER(?)",
-          "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:city]}%", "%#{params[:state]}%")
+      results = Company.where("((? != '%%' AND (LOWER(name) LIKE LOWER(?) OR LOWER(description) LIKE LOWER(?))) OR ((LOWER(?) != '%%' AND LOWER(city) LIKE LOWER(?)) AND LOWER(state) LIKE LOWER(?)))",
+          "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:city]}%", "%#{params[:city]}%", "%#{params[:state]}%")
     end
   end
 
