@@ -8,19 +8,18 @@ class Search
       if params[:state] == "ZIP" then
         results = Performance.joins("JOIN genre_performances on genre_performances.performance_id = performances.id").
             where("genre_performances.genre_id = ? ", params[:genre_id]).
-            joins("JOIN show_times ON performances.id = show_times.event_id").
+            joins("LEFT JOIN show_times ON performances.id = show_times.event_id").
             where("show_times.event_type = 'Performance' AND " +
-                  "(? != '%%' AND ? show_times.zip_code)  OR " +
-                  "((LOWER(?) != '%%' AND LOWER(?) LIKE LOWER(performances.name)) OR (LOWER(?) != '%%' AND LOWER(?) LIKE LOWER(performances.description)))",
+                  "((? != '%%' AND show_times.zip_code LIKE ?)  OR " +
+                  "((LOWER(?) != '%%' AND LOWER(performances.name) LIKE LOWER(?)) OR (LOWER(?) != '%%' AND LOWER(performances.description) LIKE LOWER(?))))",
                   "#{params[:city]}", "#{params[:city]}", "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%").
             distinct(:performance_id)
       else
         results = Performance.joins("JOIN genre_performances on genre_performances.performance_id = performances.id").
             where("genre_performances.genre_id = ? ", params[:genre_id]).
-            joins("JOIN show_times ON performances.id = show_times.event_id").
+            joins("LEFT JOIN show_times ON performances.id = show_times.event_id").
             where("show_times.event_type = 'Performance' AND " +
-                  "(
-                  (
+                  "((
                     (LOWER(?) != '%%' AND LOWER(show_times.city) LIKE LOWER(?)) AND
                     (LOWER(?) != '%%' AND LOWER(show_times.state) LIKE LOWER(?))
                     )
@@ -28,8 +27,7 @@ class Search
                   "(
                   (LOWER(?) != '%%' AND LOWER(performances.name) LIKE LOWER(?)) OR
                    (LOWER(?) != '%%' AND LOWER(performances.description) LIKE LOWER(?))
-                   )
-                   )" ,
+                   ))" ,
                   "%#{params[:city]}%",  "%#{params[:city]}%", "%#{params[:state]}%", "%#{params[:state]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%").
             distinct(:performance_id)
       end
