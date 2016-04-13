@@ -22,6 +22,11 @@ if @success
       json.state s.state
       json.zip_code s.zip_code
       json.show_date s.show_date
+      json.cast_members s.cast_members.each do |cm|
+        json.id cm.id
+        json.name cm.name
+        json.role cm.role
+      end
     end
   end
 else
