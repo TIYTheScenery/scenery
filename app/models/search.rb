@@ -47,8 +47,8 @@ class Search
       results = Company.where("(LOWER(name) LIKE LOWER(?) OR LOWER(description) LIKE LOWER(?)) AND zip_code == ? ",
           "%#{params[:search_term]}%", "%#{params[:search_term]}%", "#{params[:city]}")
     else
-      results = Company.where("(LOWER(name) LIKE LOWER(?) OR LOWER(description) LIKE LOWER(?)) AND LOWER(city) LIKE LOWER(?)  AND LOWER(state) LIKE LOWER(?)",
-          "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:city]}%", "%#{params[:state]}%")
+      results = Company.where("((? != '%%' AND (LOWER(name) LIKE LOWER(?) OR LOWER(description) LIKE LOWER(?))) OR ((LOWER(?) != '%%' AND LOWER(city) LIKE LOWER(?)) AND LOWER(state) LIKE LOWER(?)))",
+          "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:city]}%", "%#{params[:city]}%", "%#{params[:state]}%")
     end
   end
 
