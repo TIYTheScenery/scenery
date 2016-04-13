@@ -15,7 +15,7 @@ class OpportunitiesControllerTest < ActionController::TestCase
     assert_equal false, response["success"]
   end
 
-  test "opportunitys may not be created unless the user is logged in" do
+  test "opportunities may not be created unless the user is logged in" do
     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/opportunity/mock_opportunity_create3.json")).merge(format: :json)
     post :create, test_input
     response = JSON.parse(@response.body)
