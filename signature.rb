@@ -4,7 +4,7 @@ require 'digest/sha1'
 
 policy_document = '{"expiration": "2019-01-01T00:00:00Z",
  "conditions": [
-   {"bucket": "thescenery-attachments"},
+   {"bucket": "thescenery"},
    ["starts-with", "$key", "uploads/${filename}"],
    {"acl": "private"},
    ["starts-with", "$Content-Type", ""]
