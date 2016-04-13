@@ -20,6 +20,7 @@ json.company do
     json.reviewee_id s.reviewee_id
     json.reviewee_type s.reviewee_type
     json.created_at s.created_at.to_date.strftime("%m/%d/%Y")
+    json.display_name s.display_name
   end
   json.opportunities @company.opportunities.each do |o|
     json.id o.id
