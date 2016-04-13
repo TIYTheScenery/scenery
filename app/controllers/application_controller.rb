@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
     render json: File.read("#{Rails.root}/public/user_not_authorized.json") unless Company.find_by(user_id: user.id)
   end
 
+  def performance_authorized_user
+    user = User.find_by(login_token: params[:user_info][:login_token])
+  end
+
   before_filter :set_format
 
   def set_format
