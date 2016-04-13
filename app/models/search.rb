@@ -37,18 +37,11 @@ class Search
   end
 
   def self.professionals(params)
-    results = User.joins("JOIN user_titles ON user_titles.user_id = users.id").
-        joins("JOIN titles on titles.id = user_titles.title_id").
+    results = User.joins("LEFT JOIN user_titles ON user_titles.user_id = users.id").
+        joins("LEFT JOIN titles on titles.id = user_titles.title_id").
         where('(LOWER(users.first_name) LIKE LOWER(?) OR LOWER(users.last_name) LIKE LOWER(?) OR LOWER(titles.title) LIKE LOWER(?) OR LOWER(users.display_name) LIKE LOWER(?)) AND users.is_professional != 0',
           "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%", "%#{params[:search_term]}%").
         distinct(:user_id)
-
-    # save for when users finally have a location
-    # if params[:state] == "ZIP" then
-    #
-    # else
-    #
-    # end
   end
 
   def self.companies(params)
