@@ -30,7 +30,7 @@ json.performance do
     json.user_id r.user_id
     json.reviewee_id r.reviewee_id
     json.reviewee_type r.reviewee_type
-    json.created r.created_at.to_date.strftime("%m/%d/%Y")
+    json.created_at r.created_at.to_date.strftime("%m/%d/%Y")
     json.display_name r.display_name
   end
 end
