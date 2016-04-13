@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160413143742) do
+ActiveRecord::Schema.define(version: 20160413170538) do
 
   create_table "cast_members", force: :cascade do |t|
     t.string   "name"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20160413143742) do
     t.string   "hero_image_content_type"
     t.integer  "hero_image_file_size"
     t.datetime "hero_image_updated_at"
+    t.string   "profile_image_url"
+    t.string   "hero_image_url"
   end
 
   add_index "companies", ["user_id"], name: "index_companies_on_user_id"
@@ -133,6 +135,9 @@ ActiveRecord::Schema.define(version: 20160413143742) do
     t.string   "production_image_content_type"
     t.integer  "production_image_file_size"
     t.datetime "production_image_updated_at"
+    t.string   "production_image_url"
+    t.string   "profile_image_url"
+    t.string   "hero_image_url"
   end
 
   add_index "performances", ["company_id"], name: "index_performances_on_company_id"
@@ -205,6 +210,7 @@ ActiveRecord::Schema.define(version: 20160413143742) do
     t.string   "profile_pic_content_type"
     t.integer  "profile_pic_file_size"
     t.datetime "profile_pic_updated_at"
+    t.string   "image_url"
   end
 
   add_index "users", ["login_token"], name: "index_users_on_login_token"
