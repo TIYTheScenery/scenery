@@ -79,7 +79,9 @@ class PerformancesControllerTest < ActionController::TestCase
     post :create, test_input
     response = JSON.parse(@response.body)
     assert_equal num_cast_members + 16, CastMember.count
+    assert_equal "John Doe", response["performance"]["show_times"][0]["cast_members"][0]["name"]
     assert_equal "Macbeth", response["performance"]["show_times"][0]["cast_members"][0]["role"]
+    assert_equal "John Doe", response["performance"]["show_times"][1]["cast_members"][0]["name"]
     assert_equal "Macbeth", response["performance"]["show_times"][1]["cast_members"][0]["role"]
   end
 
