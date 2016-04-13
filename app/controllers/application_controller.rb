@@ -14,11 +14,12 @@ class ApplicationController < ActionController::Base
 
   def company_authorized_user
     user = User.find_by(login_token: params[:user_info][:login_token])
-    render json: File.read("#{Rails.root}/public/user_not_authorized.json") unless Company.find_by(user_id: user.id)
+    render json: File.read("#{Rails.root}/public/user_not_authorized_company.json") unless Company.find_by(user_id: user.id)
   end
 
   def performance_authorized_user
     user = User.find_by(login_token: params[:user_info][:login_token])
+    render json: File.read("#{Rails.root}/public/user_not_authorized_performance.json") unless Performance.find_by(company_id: performance_params[:company_id]) && Performance.find_by(owner_id: user.id)
   end
 
   before_filter :set_format
