@@ -10,15 +10,15 @@ one:
   twitter_link: MyString
   instagram_link: MyString
   youtube_link: MyString
-  address: MyString
-  city: MyString
-  state: MyString
-  zip_code: MyString
+  address: 123 Main St
+  city: Durham
+  state: NC
+  zip_code: 27703
 
 two:
   id: 2
   user_id: 1
-  name: "Burning Coal"
+  name: Burning Coal
   description: MyText
   website_link: MyString
   facebook_link: MyString
