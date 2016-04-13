@@ -22,6 +22,10 @@ if @success
       json.state s.state
       json.zip_code s.zip_code
       json.show_date s.show_date
+      json.id s.cast_members.id
+      json.name s.cast_members.name
+      json.role s.cast_members.role
+      json.show_id s.cast_members.show_id
     end
   end
 else
