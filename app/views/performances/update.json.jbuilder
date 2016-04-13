@@ -6,6 +6,9 @@ if @success
     json.company_id @performance.company_id
     json.name @performance.name
     json.description @performance.description
+    json.hero_image_url @performance.hero_image_url
+    json.profile_image_url @performance.profile_image_url
+    json.production_image_url @performance.production_image_url
     json.trailer_link @performance.trailer_link
     json.ticket_link @performance.ticket_link
     json.genre @performance.genre_performances.each do |g|

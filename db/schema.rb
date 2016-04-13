@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160413143742) do
+ActiveRecord::Schema.define(version: 20160413170538) do
 
   create_table "cast_members", force: :cascade do |t|
     t.string   "name"
@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 20160413143742) do
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "profile_image_url"
+    t.string   "hero_image_url"
   end
 
   add_index "companies", ["user_id"], name: "index_companies_on_user_id"
@@ -111,8 +113,11 @@ ActiveRecord::Schema.define(version: 20160413143742) do
     t.text     "description"
     t.string   "trailer_link"
     t.string   "ticket_link"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "production_image_url"
+    t.string   "profile_image_url"
+    t.string   "hero_image_url"
   end
 
   add_index "performances", ["company_id"], name: "index_performances_on_company_id"
@@ -181,6 +186,7 @@ ActiveRecord::Schema.define(version: 20160413143742) do
     t.string   "twitter_link"
     t.string   "instagram_link"
     t.string   "youtube_link"
+    t.string   "image_url"
   end
 
   add_index "users", ["login_token"], name: "index_users_on_login_token"
