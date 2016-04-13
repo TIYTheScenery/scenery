@@ -7,6 +7,7 @@ one:
   user_id: 1
   reviewee_id: 1
   reviewee_type: "Company"
+  display_name: "Dude"
 
 two:
   id: 2
@@ -15,3 +16,4 @@ two:
   user_id: "2"
   reviewee_id: "3"
   reviewee_type: "Performance"
+  display_name: "Boss"
