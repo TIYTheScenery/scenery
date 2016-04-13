@@ -15,6 +15,7 @@ one:
   instagram_link: "instagram"
 
 two:
+  id: 2
   email: MyString
   password_digest: MyString
   first_name: Ralph
@@ -28,13 +29,14 @@ two:
   instagram_link: "instagram"
 
 three:
+  id: 3
   email: MyString
   password_digest: MyString
   first_name: Jim
   last_name: MyString
   description: MyText
   is_professional: false
-  display_name: "user"
+  display_name: User
   login_token: "ibeauser"
   facebook_link:
   twitter_link:
@@ -47,7 +49,7 @@ four:
   last_name: MyString
   description: MyText
   is_professional: false
-  display_name: "user"
+  display_name: user2
   login_token: "ibeauser"
   facebook_link:
   twitter_link:
