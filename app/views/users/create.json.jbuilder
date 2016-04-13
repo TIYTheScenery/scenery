@@ -8,6 +8,7 @@ if @success
     json.description @user.description
     json.is_professional @user.is_professional
     json.display_name @user.display_name
+    json.image_url @user.image_url
     json.login_token @user.login_token
     json.created_at @user.created_at
     json.titles @user.titles.each do |u|
