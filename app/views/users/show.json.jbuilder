@@ -7,6 +7,7 @@ json.user_info do
   json.description @user.description
   json.is_professional @user.is_professional
   json.display_name @user.display_name
+  json.image_url @user.image_url
   json.login_token @user.login_token
   json.facebook_link @user.facebook_link
   json.twitter_link @user.twitter_link
@@ -29,6 +30,8 @@ json.user_info do
     json.id c.id
     json.user_id c.user_id
     json.name c.name
+    json.hero_image_url c.hero_image_url
+    json.profile_image_url c.hero_image_url
     json.description c.description
     json.website_link c.website_link
     json.facebook_link c.facebook_link
