@@ -19,6 +19,7 @@ json.company do
     json.user_id s.user_id
     json.reviewee_id s.reviewee_id
     json.reviewee_type s.reviewee_type
+    json.created_at s.created_at.to_date.strftime("%m/%d/%Y")
   end
   json.opportunities @company.opportunities.each do |o|
     json.id o.id
@@ -27,7 +28,7 @@ json.company do
     json.name o.name
     json.description o.description
     json.contact_info o.contact_info
-    json.created_at o.created_at
+    json.created_at o.created_at.to_date.strftime("%m/%d/%Y")
   end
   json.upcoming_performances @upcoming_performances do |up|
     json.id up.id
