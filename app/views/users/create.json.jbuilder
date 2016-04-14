@@ -10,7 +10,7 @@ if @success
     json.display_name @user.display_name
     json.image_url @user.image_url
     json.login_token @user.login_token
-    json.created_at @user.created_at
+    json.created_at @user.created_at.to_date.strftime("%m/%d/%Y")
     json.titles @user.titles.each do |u|
       json.title u.title
     end

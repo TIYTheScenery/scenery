@@ -50,8 +50,8 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   # test "users can view a company's past performances" do
-  #   test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_company_create.json")).merge(format: :json)
-  #   test_input2 = JSON.parse(File.read("#{Rails.root}/test/fixtures/mock_view_performance_showtimes2.json")).merge(format: :json)
+  #   test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/company/mock_company_create.json")).merge(format: :json)
+  #   test_input2 = JSON.parse(File.read("#{Rails.root}/test/fixtures/performance/mock_view_performance_showtimes2.json")).merge(format: :json)
   #   num_shows = ShowTime.count
   #   post :create, test_input
   #   test_input.performances << test_input2

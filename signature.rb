@@ -6,8 +6,8 @@ policy_document = '{"expiration": "2019-01-01T00:00:00Z",
  "conditions": [
    {"bucket": "thescenery"},
    ["starts-with", "$key", "uploads/"],
-   {"acl": "private"},
-   {"success_action_redirect": "https://the-scenery.com/#/userprofile"},
+   {"acl": "public-read"},
+   
    ["starts-with", "$Content-Type", ""]
  ]
 }'

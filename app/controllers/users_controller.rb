@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.email = user_params[:email].downcase
     if @user.save
       @success = true
       @user.login_token = SecureRandom.urlsafe_base64(32)
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find_by(email: user_params[:email])
+    @user = User.find_by(email: user_params[:email].downcase)
     if @user && @user.authenticate(user_params[:password])
       @success = true
       @user.login_token = SecureRandom.urlsafe_base64(32)
