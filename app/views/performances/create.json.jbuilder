@@ -18,7 +18,7 @@ if @success
     end
     json.show_times @performance.show_times.each do |s|
       json.id s.id
-      json.begin_time s.begin_time.localtime.strftime("%I:%M")
+      json.begin_time s.begin_time.localtime.strftime("%l:%M")
       json.venue_id s.venue_id
       json.address s.address
       json.city s.city
