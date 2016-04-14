@@ -12,5 +12,4 @@ class ShowTime < ActiveRecord::Base
   accepts_nested_attributes_for :cast_members,
       reject_if: :all_blank,
       allow_destroy: true
-
 end
