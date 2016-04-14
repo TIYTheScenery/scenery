@@ -12,6 +12,7 @@ if @success
     json.trailer_link @performance.trailer_link
     json.ticket_link @performance.ticket_link
     json.genre_id @performance.genre_performances.each do |g|
+      json.id g.id
       json.category g.genre.category
       json.genre_id g.genre_id
     end
