@@ -35,7 +35,7 @@ three:
   first_name: Jim
   last_name: MyString
   description: MyText
-  is_professional: true
+  is_professional: false
   display_name: User
   login_token: "ibeauser"
   facebook_link:
