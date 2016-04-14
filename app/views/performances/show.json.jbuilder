@@ -21,7 +21,7 @@ json.performance do
     json.city s.city
     json.state s.state
     json.zip_code s.zip_code
-    json.show_date s.show_date
+    json.show_date s.show_date.to_date.strftime("%m/%d/%Y")
   end
   json.reviews @performance.reviews.each do |r|
     json.id r.id
