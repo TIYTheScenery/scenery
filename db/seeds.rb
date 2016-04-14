@@ -32,6 +32,7 @@ show3.genres << g
 show4.genres << g
 show5.genres << g
 show6.genres << g
+show7.genres << g
 st1= ShowTime.create!(begin_time: Time.now, show_date: DateTime.new(2016,4,21), address: "33 south st.", city: "Durham", state: "NC", zip_code: "27703")
 st2= ShowTime.create!(begin_time: Time.now, show_date: DateTime.new(2016,4,22), address: "33 south st.", city: "Durham", state: "NC", zip_code: "27703")
 st3= ShowTime.create!(begin_time: Time.now, show_date: DateTime.new(2016,4,23), address: "33 north Ave.", city: "Raliegh", state: "NC", zip_code: "27703")

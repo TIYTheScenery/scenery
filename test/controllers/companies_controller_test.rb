@@ -49,16 +49,15 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_equal "Burning Coal", Company.last.name
   end
 
-  # test "users can view a company's past performances" do
-  #   test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/company/mock_company_create.json")).merge(format: :json)
-  #   test_input2 = JSON.parse(File.read("#{Rails.root}/test/fixtures/performance/mock_view_performance_showtimes2.json")).merge(format: :json)
-  #   num_shows = ShowTime.count
-  #   post :create, test_input
-  #   test_input.performances << test_input2
-  #   get :show, id: 1
-  #   response = JSON.parse(@response.body)
-  #   assert_equal num_shows + 2, ShowTime.count
-  # end
+  test "users can view a company's past performances" do
+    test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/company/mock_company_create.json")).merge(format: :json)
+    test_input2 = JSON.parse(File.read("#{Rails.root}/test/fixtures/performance/mock_view_performance_showtimes2.json")).merge(format: :json)
+    num_shows = ShowTime.count
+    post :create, test_input
+    get :show, id: 1
+    response = JSON.parse(@response.body)
+    assert_equal num_shows + 2, ShowTime.count
+  end
 
 
 end

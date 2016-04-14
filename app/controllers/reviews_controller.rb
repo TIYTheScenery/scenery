@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user, only: [:create, :edit, :update, :delete]
-
+  before_action :review_authorized_user, only: [:update, :delete]
+  
   def create
     @review = Review.new(review_params)
     @success = @review.save
