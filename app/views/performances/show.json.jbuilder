@@ -19,14 +19,13 @@ json.performance do
     json.id s.id
     json.event_id s.event_id
     json.event_type s.event_type
-    json.begin_time s.begin_time
-    json.end_time s.end_time
+    json.begin_time s.begin_time.localtime.strftime("%I:%M")
     json.venue_id s.venue_id
     json.address s.address
     json.city s.city
     json.state s.state
     json.zip_code s.zip_code
-    json.show_date s.show_date
+    json.show_date s.show_date.to_date.strftime("%m/%d/%Y")
     json.cast_members s.cast_members.each do |cm|
       json.id cm.id
       json.name cm.name
