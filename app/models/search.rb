@@ -37,7 +37,7 @@ end
   end
 
   def self.wildcard_param(value)
-    if value == nil or value == ""
+    if value == nil || value == "" || value == "null"
       nil
     else
       "%" + value + "%"
