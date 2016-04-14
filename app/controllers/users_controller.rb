@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   include Omniauth
-  before_action :authenticate_user, only: [:logout, :update]
+  before_action :authenticate_user, only: [:logout, :update, :delete]
 
   def show
     @user = User.find_by(id: params[:id])
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user_info).permit(:id, :email, :password, :first_name, :last_name, :description, :is_professional, :display_name, :login_token, :facebook_link, :twitter_link, :instagram_link, :youtube_link,
+      params.require(:user_info).permit(:id, :email, :password, :first_name, :last_name, :description, :is_professional, :display_name, :login_token, :facebook_link, :twitter_link, :instagram_link, :youtube_link, :image_url,
       titles_attributes: [:id, :title, :_destroy])
     end
 

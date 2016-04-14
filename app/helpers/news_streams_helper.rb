@@ -1,0 +1,2 @@
+module NewsStreamsHelper
+end

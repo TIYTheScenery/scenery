@@ -4,7 +4,6 @@ class CreateShowTimes < ActiveRecord::Migration
       t.integer :event_id
       t.string :event_type
       t.time :begin_time
-      t.time :end_time
       t.integer :venue_id
       t.string :address
       t.string :city

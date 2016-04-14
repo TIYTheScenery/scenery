@@ -1,0 +1,14 @@
+{
+  "lesson": {
+    "owner_id": "1",
+    "company_id": "1",
+    "name": "",
+    "description": "Tired of the eye-rolls received when you break out your awful Christopher Walken impression at cocktail parties? This class will cover the vocal techniques involved in mimicking accents or a particular person.",
+    "number_of_seats": "25",
+    "ticket_link": "www.eventbrite.com"
+  },
+  "user_info": {
+    "login_token": "igotagoldenticket"
+  }
+
+}

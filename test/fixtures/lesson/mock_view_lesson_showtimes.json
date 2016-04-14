@@ -1,0 +1,32 @@
+{
+  "performance": {
+    "owner_id": "1",
+    "company_id": "1",
+    "name": "Being John Malkovich: Beginner Class on Vocal Techniques for Impressions",
+    "description": "Tired of the eye-rolls received when you break out your awful Christopher Walken impression at cocktail parties? This class will cover the vocal techniques involved in mimicking accents or a particular person.",
+    "number_of_seats": "20",
+    "ticket_link": "www.eventbrite.com",
+    "show_times_attributes": [
+      {
+        "begin_time": "2016-04-04T18:01:02.567Z",
+        "address": "114 south st",
+        "city": "Durham",
+        "state": "NC",
+        "zip_code": "27703",
+        "show_date": "2016-04-04"
+      },
+      {
+        "begin_time": "2016-04-05T18:01:02.567Z",
+        "address": "114 south st",
+        "city": "Durham",
+        "state": "NC",
+        "zip_code": "27703",
+        "show_date": "2016-04-05"
+      }
+    ]
+  },
+    "user_info": {
+      "login_token": "igotagoldenticket"
+
+  }
+}
