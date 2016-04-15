@@ -36,6 +36,5 @@ class ReviewsControllerTest < ActionController::TestCase
     get :show, id: 2
     response = JSON.parse(@response.body)
     assert_equal "Merde!", Review.last.opinion
-  end
-
+  end    
 end

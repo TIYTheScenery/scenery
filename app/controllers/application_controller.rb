@@ -22,6 +22,11 @@ class ApplicationController < ActionController::Base
     render json: File.read("#{Rails.root}/public/user_not_authorized_performance.json") unless Performance.find_by(company_id: performance_params[:company_id]) && Performance.find_by(owner_id: user.id)
   end
 
+  def review_authorized_user
+    user = User.find_by(login_token: params[:user_info][:login_token])
+    render json: File.read("#{Rails.root}/public/user_not_authorized_review.json") unless Review.find_by(user_id: user.id)
+  end
+
   before_filter :set_format
 
   def set_format
