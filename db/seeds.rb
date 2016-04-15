@@ -7,7 +7,7 @@ u = User.create!(email: "littlegreenpig@gmail.com", display_name: "Jay Oberski",
 u1 = User.create!(email: "burningcoal@gmail.com", display_name: "Jerome Davis", password: "monkey", is_professional: true, facebook_link: "www.facebook.com", twitter_link: "www.twitter.com", first_name: "Jerome", last_name: "Davis", youtube_link: "www.youtube.com", description: "Creates stuff at Burning Coal")
 
 company = Company.create!(user_id: 1, name: "Little Green Pig", description: "We create stuff", youtube_link: "youtube@link", facebook_link: "facebook_link", instagram_link: "instagram_link", twitter_link: "twitter_link", address: "", city: "Durham", state: "NC", zip_code: "")
-company1 = Company.create!(user_id: 2, name: "Burning Coal", description: "What do we do at Burning Coal? Produce literate, visceral, affecting theatre that is experienced, not simply seen. We emphasize  works that are felt and experienced viscerally, unlike more traditional, linear plays where audiences are most often asked to observe without participating.", address: "224 Polk St", twitter_link: "https://twitter.com/burningcoaltc", address: "224 Polk St", hero_image_url: "", address: "224 Polk St", city: "Raliegh", state: "NC", zip_code: "27604")
+company1 = Company.create!(user_id: 2, name: "Burning Coal", description: "What do we do at Burning Coal? Produce literate, visceral, affecting theatre that is experienced, not simply seen. We emphasize  works that are felt and experienced viscerally, unlike more traditional, linear plays where audiences are most often asked to observe without participating.", twitter_link: "https://twitter.com/burningcoaltc", address: "224 Polk St", address: "224 Polk St", city: "Raliegh", state: "NC", zip_code: "27604")
 
 
 show1 = Performance.create!(owner_id: 1, name: "THE PIANO HAS BEEN DRINKING: A TOM WAITS CABARET", description: "A benefit fundraiser for Little Green Pig. Two nights only, $20 suggested donation at the door. Featuring Germain Choffart, Hugh Crumley, Jessica Flemming, Trevor Johnson, Jessi Knight, Louis Landry, Anastasia Maddox, Dana Marks, Bart Matthews, Jaybird O'Berski, Liam O'Neill, Madeleine Pabis, Samantha Rahn, Rob Sharer & Tim Smith)")
@@ -25,6 +25,7 @@ company.performances << show3
 company1.performances << show4
 company1.performances << show5
 company1.performances << show6
+company1.performances << show7
 
 show1.genres << g
 show2.genres << g

@@ -12,6 +12,7 @@ class Company < ActiveRecord::Base
   accepts_nested_attributes_for :reviews,
     allow_destroy: true
 
+
   def upcoming_performances
     upcoming = performances.joins("JOIN show_times ON show_times.event_id = performances.id AND show_times.event_type = 'Performance'").
         where("show_times.show_date >= ? ", DateTime.now )
