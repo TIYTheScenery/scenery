@@ -5,5 +5,9 @@ one:
   title_id: 1
 
 two:
+  user_id: 2
+  title_id: 2
+
+three:
   user_id: 1
-  title_id: 1
+  title_id: 3
