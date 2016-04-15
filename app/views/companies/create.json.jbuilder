@@ -16,6 +16,8 @@ if @success
     json.city @company.city
     json.state @company.state
     json.zip_code @company.zip_code
+    json.profile_image_url @company.profile_image_url
+    json.hero_image_url @company.hero_image_url
     json.reviews @company.reviews.each do |s|
       json.id s.id
       json.opinion s.opinion
