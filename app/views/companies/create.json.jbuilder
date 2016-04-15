@@ -45,6 +45,9 @@ if @success
       json.description up.description
       json.trailer_link up.trailer_link
       json.ticket_link up.ticket_link
+      json.production_image_url up.production_image_url
+      json.profile_image_url up.profile_image_url
+      json.hero_image_url up.hero_image_url
     end
     json.past_performances @past_performances do |pp|
       json.id pp.id
@@ -54,6 +57,9 @@ if @success
       json.description pp.description
       json.trailer_link pp.trailer_link
       json.ticket_link pp.ticket_link
+      json.production_image_url up.production_image_url
+      json.profile_image_url up.profile_image_url
+      json.hero_image_url up.hero_image_url
     end
   end
 else

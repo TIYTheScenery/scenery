@@ -12,6 +12,7 @@ json.users @users.each do |c|
   json.twitter_link c.twitter_link
   json.instagram_link c.instagram_link
   json.youtube_link c.youtube_link
+  json.image_url c.image_url
   json.created_at c.created_at.to_date.strftime("%m/%d/%Y")
 
 end

@@ -14,6 +14,7 @@ if @success
     json.twitter_link @user.twitter_link
     json.instagram_link @user.instagram_link
     json.youtube_link @user.youtube_link
+    json.image_url @user.image_url
     json.created_at @user.created_at.to_date.strftime("%m/%d/%Y")
     if @user.is_professional == true
       json.titles @user.titles.each do |u|
