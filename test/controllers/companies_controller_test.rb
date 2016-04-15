@@ -58,6 +58,4 @@ class CompaniesControllerTest < ActionController::TestCase
     response = JSON.parse(@response.body)
     assert_equal num_shows + 2, ShowTime.count
   end
-
-
 end
