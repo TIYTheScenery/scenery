@@ -3,6 +3,7 @@ class Search
     results = Performance.joins("JOIN genre_performances on genre_performances.performance_id = performances.id").
         where("genre_performances.genre_id = ? ", params[:genre_id]).
         joins("LEFT JOIN show_times ON performances.id = show_times.event_id").
+        where("show_times.show_date <= ? ", DateTime.now ).
         where("show_times.event_type = 'Performance' AND " +
             "(LOWER(performances.name) LIKE COALESCE(?, '%') OR LOWER(performances.description) LIKE COALESCE(?, '%'))",
             wildcard_param(params[:search_term]), wildcard_param(params[:search_term]))
