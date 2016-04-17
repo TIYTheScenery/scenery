@@ -17,7 +17,6 @@ json.company do
   json.hero_image_url @company.hero_image_url
   json.reviews @company.reviews.each do |s|
     json.id s.id
-    json.image_url s.user.image_url
     json.opinion s.opinion
     json.rating s.rating
     json.user_id s.user_id
