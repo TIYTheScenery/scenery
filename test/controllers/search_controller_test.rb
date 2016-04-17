@@ -96,7 +96,7 @@ class SearchControllerTest < ActionController::TestCase
       temp.genres << genres(:one)
       temp.show_times << show_times(:one)
       temp1 = performances(:two)
-      temp1.genres << genres(:two)
+      temp1.genres << genres(:one)
       temp1.show_times << show_times(:four)
       get :index, format: :json, city: "durham", state: "NC", genre_id: 1, type: "1"
       response = JSON.parse(@response.body)
