@@ -34,6 +34,7 @@ json.performance do
   end
   json.reviews @performance.reviews.each do |r|
     json.id r.id
+    json.image_url r.user.image_url
     json.opinion r.opinion
     json.rating r.rating
     json.user_id r.user_id
