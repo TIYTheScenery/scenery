@@ -1,6 +1,7 @@
 json.company do
   json.id @company.id
   json.user_id @company.user_id
+  json.user_image_url @company.user.image_url
   json.name @company.name
   json.description @company.description
   json.website_link @company.website_link
