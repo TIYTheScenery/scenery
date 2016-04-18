@@ -37,8 +37,8 @@ json.performance do
     json.id r.id
     json.opinion r.opinion
     json.rating r.rating
-    json.image_url s.user.image_url
-    json.reviewee_name s.reviewee.name
+    json.image_url r.user.image_url
+    json.reviewee_name r.reviewee.name
     json.user_id r.user_id
     json.reviewee_id r.reviewee_id
     json.reviewee_type r.reviewee_type
