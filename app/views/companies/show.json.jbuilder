@@ -18,6 +18,8 @@ json.company do
   json.reviews @company.reviews.each do |s|
     json.id s.id
     json.opinion s.opinion
+    json.image_url s.user.image_url
+    json.reviewee_name s.reviewee.name
     json.rating s.rating
     json.user_id s.user_id
     json.reviewee_id s.reviewee_id
