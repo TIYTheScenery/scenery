@@ -9,7 +9,7 @@ one:
   city: "Durham"
   state: "NC"
   zip_code: "27703"
-  show_date: 2016-04-04
+  show_date: Tue, 18 Apr 2017 13:01:38 -0400
 
 two:
   event_id: 1
@@ -20,7 +20,7 @@ two:
   city: "Chapel Hill"
   state: "NC"
   zip_code: "27703"
-  show_date: 2016-04-04
+  show_date: Tue, 18 Apr 2017 13:01:38 -0400
 
 three:
   event_id: 2
@@ -31,7 +31,7 @@ three:
   city: "Durham"
   state: "NC"
   zip_code: "27713"
-  show_date: 2016-04-04
+  show_date: Tue, 18 Apr 2017 13:01:38 -0400
 
 four:
   event_id: 2
@@ -42,4 +42,4 @@ four:
   city: "Chapel Hill"
   state: "NC"
   zip_code: "27713"
-  show_date: 2017-04-04
+  show_date: Tue, 18 Apr 2017 13:01:38 -0400
