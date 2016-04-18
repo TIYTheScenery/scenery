@@ -18,17 +18,17 @@ json.user_info do
     json.id u.id
     json.title u.title
   end
-
-  if @user.is_professional == true
-    json.reviews @user.reviews.each do |r|
-      json.id r.id
-      json.opinion r.opinion
-      json.rating r.rating
-      json.user_id r.user_id
-      json.reviewee_id r.reviewee_id
-      json.reviewee_type r.reviewee_type
-    end
+  json.reviews @user.reviews.each do |r|
+    json.id r.id
+    json.opinion r.opinion
+    json.rating r.rating
+    json.user_id r.user_id
+    json.reviewee_id r.reviewee_id
+    json.reviewee_type r.reviewee_type
+    json.reviewee_name r.reviewee.name
+    json.created_at r.created_at.to_date.strftime("%m/%d/%Y")
   end
+
   if @user.is_professional == true
     json.companies @companies.each do |c|
       json.id c.id
