@@ -5,7 +5,7 @@ class ReviewsControllerTest < ActionController::TestCase
     test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/review/mock_review_create.json")).merge(format: :json)
     post :create, test_input
     response = JSON.parse(@response.body)
-    assert_equal Review.last.opinion, "It rocked!"
+    assert_equal "It rocked!", Review.last.opinion
   end
 
   test "create will return errors if review creation fails" do
@@ -36,5 +36,6 @@ class ReviewsControllerTest < ActionController::TestCase
     get :show, id: 2
     response = JSON.parse(@response.body)
     assert_equal "Merde!", Review.last.opinion
-  end    
+  end
+
 end
