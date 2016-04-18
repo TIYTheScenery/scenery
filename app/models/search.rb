@@ -14,7 +14,7 @@ class Search
       results = results.where("LOWER(show_times.city) LIKE COALESCE(?, '%') AND LOWER(show_times.state) LIKE COALESCE(? , '%')",wildcard_param(params[:city]),wildcard_param(params[:state]))
     end
 
-    results.distinct(:performance_id).order("show_date ASC").limit(100)
+    results.distinct(:performance_id)
 end
 
   def self.professionals(params)
