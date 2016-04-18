@@ -15,7 +15,7 @@ class Company < ActiveRecord::Base
 
   def upcoming_performances
     upcoming = performances.joins("JOIN show_times ON show_times.event_id = performances.id AND show_times.event_type = 'Performance'").
-        where("show_times.show_date >= ? AND show_times.begin_time >= clock_timestamp()", Date.today)
+        where("show_times.show_date >= ? AND show_times.begin_time >= now()::timestamp", Date.today)
       # select {|per| per.show_times.last.show_date >= DateTime.now }
   end
 
