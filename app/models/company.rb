@@ -11,6 +11,12 @@ class Company < ActiveRecord::Base
 
   accepts_nested_attributes_for :reviews,
     allow_destroy: true
+    
+  has_attached_file :profile_image
+  validates_attachment_content_type :profile_image, content_type: /\Aimage\/.*\Z/
+
+  has_attached_file :hero_image
+  validates_attachment_content_type :hero_image, content_type: /\Aimage\/.*\Z/
 
 
   def upcoming_performances

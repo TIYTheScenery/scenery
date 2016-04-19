@@ -13,8 +13,8 @@ json.company do
   json.city @company.city
   json.state @company.state
   json.zip_code @company.zip_code
-  json.profile_image_url @company.profile_image_url
-  json.hero_image_url @company.hero_image_url
+  json.profile_image_url @company.profile_image.url
+  json.hero_image_url @company.hero_image.url 
   json.reviews @company.reviews.each do |s|
     json.id s.id
     json.opinion s.opinion

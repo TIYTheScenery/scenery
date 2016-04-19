@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419160905) do
+ActiveRecord::Schema.define(version: 20160419165957) do
 
   create_table "cast_members", force: :cascade do |t|
     t.string   "name"
@@ -36,10 +36,18 @@ ActiveRecord::Schema.define(version: 20160419160905) do
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "profile_image_url"
     t.string   "hero_image_url"
+    t.string   "profile_image_file_name"
+    t.string   "profile_image_content_type"
+    t.integer  "profile_image_file_size"
+    t.datetime "profile_image_updated_at"
+    t.string   "hero_image_file_name"
+    t.string   "hero_image_content_type"
+    t.integer  "hero_image_file_size"
+    t.datetime "hero_image_updated_at"
   end
 
   add_index "companies", ["user_id"], name: "index_companies_on_user_id"
@@ -113,11 +121,15 @@ ActiveRecord::Schema.define(version: 20160419160905) do
     t.text     "description"
     t.string   "trailer_link"
     t.string   "ticket_link"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "production_image_url"
     t.string   "profile_image_url"
     t.string   "hero_image_url"
+    t.string   "hero_image_file_name"
+    t.string   "hero_image_content_type"
+    t.integer  "hero_image_file_size"
+    t.datetime "hero_image_updated_at"
   end
 
   add_index "performances", ["company_id"], name: "index_performances_on_company_id"

@@ -7,13 +7,12 @@ json.user_info do
   json.description @user.description
   json.is_professional @user.is_professional
   json.display_name @user.display_name
-  json.image_url @user.image_url
+  json.image_url @user.profile_image.url
   json.login_token @user.login_token
   json.facebook_link @user.facebook_link
   json.twitter_link @user.twitter_link
   json.instagram_link @user.instagram_link
   json.youtube_link @user.youtube_link
-  json.profile_image @user.profile_image.url
   json.created_at @user.created_at.to_date.strftime("%m/%d/%Y")
   json.titles @user.titles.each do |u|
     json.id u.id

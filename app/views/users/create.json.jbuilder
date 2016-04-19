@@ -8,9 +8,8 @@ if @success
     json.description @user.description
     json.is_professional @user.is_professional
     json.display_name @user.display_name
-    json.image_url @user.image_url
+    json.image_url @user.profile_image.url
     json.login_token @user.login_token
-    json.image_url @user.image_url
     json.created_at @user.created_at.to_date.strftime("%m/%d/%Y")
     json.titles @user.titles.each do |u|
       json.title u.title
