@@ -20,7 +20,6 @@ json.performance do
     json.id s.id
     json.event_id s.event_id
     json.event_type s.event_type
-    json.begin_time s.begin_time.localtime.strftime("%l:%M")
     json.venue_id s.venue_id
     json.address s.address
     json.city s.city

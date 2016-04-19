@@ -1,5 +1,4 @@
 class ShowTime < ActiveRecord::Base
-  validates :begin_time, presence: true
   validates :show_date, presence: true
   validates :address, presence: true
   validates :city, presence: true
