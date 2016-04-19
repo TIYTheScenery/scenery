@@ -5,8 +5,6 @@ if @success
     json.user_id @company.user_id
     json.name @company.name
     json.description @company.description
-    json.hero_image_url @company.hero_image_url
-    json.profile_image_url @company.profile_image_url
     json.website_link @company.website_link
     json.facebook_link @company.facebook_link
     json.twitter_link @company.twitter_link
@@ -16,8 +14,8 @@ if @success
     json.city @company.city
     json.state @company.state
     json.zip_code @company.zip_code
-    json.profile_image_url @company.profile_image_url
-    json.hero_image_url @company.hero_image_url
+    json.profile_image_url @company.profile_image.url
+    json.hero_image_url @company.hero_image.url
     json.reviews @company.reviews.each do |s|
       json.id s.id
       json.opinion s.opinion
@@ -45,9 +43,7 @@ if @success
       json.description up.description
       json.trailer_link up.trailer_link
       json.ticket_link up.ticket_link
-      json.production_image_url up.production_image_url
-      json.profile_image_url up.profile_image_url
-      json.hero_image_url up.hero_image_url
+      json.hero_image_url up.hero_image.url
     end
     json.past_performances @past_performances do |pp|
       json.id pp.id
@@ -57,9 +53,7 @@ if @success
       json.description pp.description
       json.trailer_link pp.trailer_link
       json.ticket_link pp.ticket_link
-      json.production_image_url up.production_image_url
-      json.profile_image_url up.profile_image_url
-      json.hero_image_url up.hero_image_url
+      json.hero_image_url pp.hero_image.url
     end
   end
 else

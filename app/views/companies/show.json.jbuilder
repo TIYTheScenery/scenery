@@ -1,7 +1,7 @@
 json.company do
   json.id @company.id
   json.user_id @company.user_id
-  json.user_image_url @company.user.image_url
+  json.user_image_url @company.user.profile_image.url
   json.name @company.name
   json.description @company.description
   json.website_link @company.website_link
@@ -13,12 +13,12 @@ json.company do
   json.city @company.city
   json.state @company.state
   json.zip_code @company.zip_code
-  json.profile_image_url @company.profile_image_url
-  json.hero_image_url @company.hero_image_url
+  json.profile_image_url @company.profile_image.url
+  json.hero_image_url @company.hero_image.url
   json.reviews @company.reviews.each do |s|
     json.id s.id
     json.opinion s.opinion
-    json.image_url s.user.image_url
+    json.image_url s.user.profile_image.url
     json.reviewee_name s.reviewee.name
     json.rating s.rating
     json.user_id s.user_id
@@ -44,9 +44,7 @@ json.company do
     json.description up.description
     json.trailer_link up.trailer_link
     json.ticket_link up.ticket_link
-    json.production_image_url up.production_image_url
-    json.profile_image_url up.profile_image_url
-    json.hero_image_url up.hero_image_url
+    json.hero_image_url up.hero_image.url
   end
   json.past_performances @past_performances do |pp|
     json.id pp.id
@@ -56,8 +54,6 @@ json.company do
     json.description pp.description
     json.trailer_link pp.trailer_link
     json.ticket_link pp.ticket_link
-    json.production_image_url pp.production_image_url
-    json.profile_image_url pp.profile_image_url
-    json.hero_image_url pp.hero_image_url
+    json.hero_image_url pp.hero_image.url
   end
 end

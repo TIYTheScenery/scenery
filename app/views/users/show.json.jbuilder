@@ -7,7 +7,7 @@ json.user_info do
   json.description @user.description
   json.is_professional @user.is_professional
   json.display_name @user.display_name
-  json.image_url @user.image_url
+  json.image_url @user.profile_image.url
   json.login_token @user.login_token
   json.facebook_link @user.facebook_link
   json.twitter_link @user.twitter_link
@@ -44,8 +44,8 @@ json.user_info do
       json.city c.city
       json.state c.state
       json.zip_code c.zip_code
-      json.profile_image_url c.profile_image_url
-      json.hero_image_url c.hero_image_url
+      json.profile_image_url c.profile_image.url
+      json.hero_image_url c.hero_image.url
       json.created_at c.created_at.to_date.strftime("%m/%d/%Y")
     end
   end

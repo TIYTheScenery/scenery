@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :titles,
     allow_destroy: true
 
+  has_attached_file :profile_image
+  validates_attachment_content_type :profile_image, content_type: /\Aimage\/.*\Z/
+
   validates :email, presence: true, uniqueness: true
   validates :display_name, presence: true, uniqueness: true
 end
