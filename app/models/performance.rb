@@ -17,6 +17,7 @@ class Performance < ActiveRecord::Base
     allow_destroy: true
 
   has_attached_file :hero_image
-  validates_attachment_content_type :hero_image, content_type: /\Aimage\/.*\Z/
+  validates_attachment :hero_image,
+    content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
 end
