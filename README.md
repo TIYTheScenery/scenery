@@ -43,7 +43,7 @@ The Scenery allows everyone to have the performing arts at their fingertips. Ber
       2. Has the Performance's description, ticketing link, trailer link, tags to refine the show's genre, reviews on the show, and all of the show's performance times.
 # How does it work?
   The Ruby on Rails backend communicates with the AngularJS frontend by means of exchanging JSON. So for example, when a user wants to login to our website the Angular JS passes us a JSON file that looks like this:
-    ```
+    `
     {
       "user_info": {
         "email": "username@user.com",
@@ -51,10 +51,10 @@ The Scenery allows everyone to have the performing arts at their fingertips. Ber
 
       }   
     }
-    ```
+    `
 The database responds with the user's complete information after checking the database to see if that user exists and that their password is correct:
 
-    ```
+    `
     {
       "success": true,
       "user_info": {
@@ -110,7 +110,7 @@ The database responds with the user's complete information after checking the da
         ]
       }
     }
-    ```
+    `
 
 And this is the information that populates the user's profile page.
 
@@ -118,7 +118,7 @@ Once a user is logged in, the login_token is what authenticates that user and en
 
 When a user is browsing around our webpage and navigates to a performance this is the JSON that the back-end passes back to provide all the information associated with that performance:
 
-```
+`
 {
   "performance": {
     "id": 1,
@@ -171,9 +171,9 @@ When a user is browsing around our webpage and navigates to a performance this i
     ]
   }
 }
-```
+`
 In the same vein, this is what the JSON data looks like when they navigate to a company page:
-```
+`
 {
   "company": {
     "id": 1,
@@ -282,5 +282,5 @@ In the same vein, this is what the JSON data looks like when they navigate to a 
     "past_performances": []
   }
 }
-```
+`
 As you can see, all our information is passed to and from Ruby on Rails as JSON.
