@@ -44,8 +44,8 @@ json.user_info do
       json.city c.city
       json.state c.state
       json.zip_code c.zip_code
-      json.profile_image_url c.profile_image_url
-      json.hero_image_url c.hero_image_url
+      json.profile_image_url c.profile_image.url
+      json.hero_image_url c.hero_image.url
       json.created_at c.created_at.to_date.strftime("%m/%d/%Y")
     end
   end

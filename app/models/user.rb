@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
     allow_destroy: true
 
   has_attached_file :profile_image
-  validates_attachment_content_type :profile_image, content_type: /\Aimage\/.*\Z/
+  validates_attachment :profile_image,
+    content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
   validates :email, presence: true, uniqueness: true
   validates :display_name, presence: true, uniqueness: true

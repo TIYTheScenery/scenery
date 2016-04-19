@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419165957) do
+ActiveRecord::Schema.define(version: 20160419181632) do
 
   create_table "cast_members", force: :cascade do |t|
     t.string   "name"
@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(version: 20160419165957) do
     t.string   "zip_code"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.string   "profile_image_url"
-    t.string   "hero_image_url"
     t.string   "profile_image_file_name"
     t.string   "profile_image_content_type"
     t.integer  "profile_image_file_size"
@@ -123,9 +121,6 @@ ActiveRecord::Schema.define(version: 20160419165957) do
     t.string   "ticket_link"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.string   "production_image_url"
-    t.string   "profile_image_url"
-    t.string   "hero_image_url"
     t.string   "hero_image_file_name"
     t.string   "hero_image_content_type"
     t.integer  "hero_image_file_size"
@@ -196,7 +191,6 @@ ActiveRecord::Schema.define(version: 20160419165957) do
     t.string   "twitter_link"
     t.string   "instagram_link"
     t.string   "youtube_link"
-    t.string   "image_url"
     t.string   "profile_image_file_name"
     t.string   "profile_image_content_type"
     t.integer  "profile_image_file_size"
