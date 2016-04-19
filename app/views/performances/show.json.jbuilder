@@ -1,6 +1,7 @@
 json.performance do
   json.id @performance.id
   json.owner_id @performance.owner_id
+  json.image_url @performance.company.user.image_url
   json.company_id @performance.company_id
   json.company_name @performance.company.name
   json.name @performance.name
@@ -36,6 +37,8 @@ json.performance do
     json.id r.id
     json.opinion r.opinion
     json.rating r.rating
+    json.image_url r.user.image_url
+    json.reviewee_name r.reviewee.name
     json.user_id r.user_id
     json.reviewee_id r.reviewee_id
     json.reviewee_type r.reviewee_type

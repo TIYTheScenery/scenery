@@ -27,10 +27,10 @@ class ApplicationController < ActionController::Base
     render json: File.read("#{Rails.root}/public/user_not_authorized_review.json") unless Review.find_by(user_id: user.id)
   end
 
-  def review_authorized_creator
-    user = User.find_by(login_token: params[:user_info][:login_token])
-    render json: File.read("#{Rails.root}/public/user_can_not_review_self.json") if Performance.find_by(owner_id: user.id) || Company.find_by(user_id: user.id)
-  end
+  # def review_authorized_creator
+  #   user = User.find_by(login_token: params[:user_info][:login_token])
+  #   render json: File.read("#{Rails.root}/public/user_can_not_review_self.json") if Performance.find_by(owner_id: user.id) || Company.find_by(user_id: user.id)
+  # end
 
   before_filter :set_format
 

@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user, only: [:create, :edit, :update, :delete]
   before_action :review_authorized_user, only: [:update, :delete]
-  before_action :review_authorized_creator, only: [:create]
+  # before_action :review_authorized_creator, only: [:create]
 
   def create
     @review = Review.new(review_params)

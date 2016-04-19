@@ -1,6 +1,7 @@
 json.company do
   json.id @company.id
   json.user_id @company.user_id
+  json.user_image_url @company.user.image_url
   json.name @company.name
   json.description @company.description
   json.website_link @company.website_link
@@ -17,6 +18,8 @@ json.company do
   json.reviews @company.reviews.each do |s|
     json.id s.id
     json.opinion s.opinion
+    json.image_url s.user.image_url
+    json.reviewee_name s.reviewee.name
     json.rating s.rating
     json.user_id s.user_id
     json.reviewee_id s.reviewee_id
