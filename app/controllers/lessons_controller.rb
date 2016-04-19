@@ -27,7 +27,7 @@ class LessonsController < ApplicationController
   private
   def lesson_params
     params.require(:lesson).permit(:id, :owner_id, :name, :description, :poster, :company_id, :number_of_seats, :ticket_link,
-    show_times_attributes: [:id, :event_id, :begin_time, :venue_id, :address, :city, :state, :zip_code, :show_date, :_destroy],
+    show_times_attributes: [:id, :event_id, :venue_id, :address, :city, :state, :zip_code, :show_date, :_destroy],
     genre_lessons_attributes: [:id, :lesson_id, :genre_id],
     reviews_attributes: [:id, :opinion, :user_id, :rating, :reviewee_id, :reviewee_type, :_destroy])
   end

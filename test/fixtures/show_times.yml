@@ -3,7 +3,6 @@
 one:
   event_id: 1
   event_type: "Performance"
-  begin_time: 2016-04-04 16:19:32
   venue_id: 1
   address: "116 Ralph St."
   city: "Durham"
@@ -14,7 +13,6 @@ one:
 two:
   event_id: 1
   event_type: "Performance"
-  begin_time: 2016-04-04 16:19:32
   venue_id: 1
   address: "114 South st."
   city: "Chapel Hill"
@@ -25,7 +23,6 @@ two:
 three:
   event_id: 2
   event_type: "Performance"
-  begin_time: 2016-04-06 16:19:32
   venue_id: 1
   address: "114 South st."
   city: "Durham"
@@ -36,7 +33,6 @@ three:
 four:
   event_id: 2
   event_type: "Performance"
-  begin_time: 2016-04-07 16:19:32
   venue_id: 1
   address: "114 South st."
   city: "Chapel Hill"
