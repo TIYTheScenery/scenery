@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160418194546) do
 
   create_table "cast_members", force: :cascade do |t|
@@ -141,10 +140,6 @@ ActiveRecord::Schema.define(version: 20160418194546) do
   create_table "show_times", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "event_type"
-<<<<<<< HEAD
-=======
-    t.time     "begin_time"
->>>>>>> ae0d3614116a9d3b1cbc82e3d716c5a37eb61f09
     t.integer  "venue_id"
     t.string   "address"
     t.string   "city"
