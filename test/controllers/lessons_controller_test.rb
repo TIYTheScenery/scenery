@@ -56,15 +56,4 @@ class LessonsControllerTest < ActionController::TestCase
     assert_equal "Being John Malkovich: Beginner Class on Vocal Techniques for Impressions", Lesson.first.name
    end
 
-
-  # test "You have to be a professional to create a lesson" do
-  #   test_input = JSON.parse(File.read("#{Rails.root}/test/fixtures/lesson/mock_performer_create_lesson.json")).merge(format: :json)
-  #   test_input2 = JSON.parse(File.read("#{Rails.root}/test/fixtures/lesson/mock_user_create_lesson.json")).merge(format: :json)
-  #   post :create, test_input
-  #   response = JSON.parse(@response.body)
-  #   post :create, test_input2
-  #   response = JSON.parse(@response.body)
-  #   assert_equal "Macbeth", Lesson.last.name
-  #   refute_equal "Burber", Lesson.last.name
-  # end
 end

@@ -91,17 +91,17 @@ class SearchControllerTest < ActionController::TestCase
     assert_equal companies(:one).id, response["companies"][0]["id"]
   end
 
-  # test "only upcoming_performances show in performance search" do
-  #     temp = performances(:one)
-  #     temp.genres << genres(:one)
-  #     temp.show_times << show_times(:one)
-  #     temp1 = performances(:two)
-  #     temp1.genres << genres(:one)
-  #     temp1.show_times << show_times(:four)
-  #     get :index, format: :json, city: "durham", state: "NC", genre_id: 1, type: "1"
-  #     response = JSON.parse(@response.body)
-  #     assert_equal 1, response["performances"].length
-  #     assert true, temp.show_times.last.show_date <= DateTime.now
-  #     assert true, temp1.show_times.last.show_date >= DateTime.now
-  #   end
+  test "only upcoming_performances show in performance search" do
+      temp = performances(:one)
+      temp.genres << genres(:one)
+      temp.show_times << show_times(:one)
+      temp1 = performances(:two)
+      temp1.genres << genres(:one)
+      temp1.show_times << show_times(:four)
+      get :index, format: :json, city: "durham", state: "NC", genre_id: 1, type: "1"
+      response = JSON.parse(@response.body)
+      assert_equal 1, response["performances"].length
+      assert true, temp.show_times.last.show_date <= DateTime.now
+      assert true, temp1.show_times.last.show_date >= DateTime.now
+    end
 end
