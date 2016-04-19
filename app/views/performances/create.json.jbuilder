@@ -23,7 +23,7 @@ if @success
       json.city s.city
       json.state s.state
       json.zip_code s.zip_code
-      json.show_date s.show_date.to_date.strftime("%m/%d/%Y")
+      json.show_date s.show_date.strftime("%Y-%m-%d %l:%M")
       json.cast_members s.cast_members.each do |cm|
         json.id cm.id
         json.name cm.name
