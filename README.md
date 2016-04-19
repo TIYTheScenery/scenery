@@ -7,13 +7,14 @@ The Scenery utilizes some of the latest web technologies to bring live performan
 The Scenery allows everyone to have the performing arts at their fingertips. Bertolt Brecht once said, “The play isn’t finished until people are in the streets talking about it.” The street corner is now digital, and its bustling live at www.the-scenery.com.
 
 ## The Database
-
-### Ruby on Rails
+  All of the info is stored with Ruby on Rails in our PostgreSQL database which is best represented by this [ERD chart](http://i.imgur.com/euAnYR0.jpg).
 
 # What can it do?
   The application supplies a Rails database Api to support our front end Angular site.  It has a number of different subsets of use:
     * Search Feature
-      1. Keyword Search: Entering any word or phrase in the search text field will run through all Companies, Performances, and Professionals in the database to return any that have the word or phrase in their name, title, or description.
+      1. Keyword Search: Entering any word or phrase in the search text field will run through all Companies,
+       Performances, and Professionals in the database to return any that have the word or phrase in their name,
+       title, or description.
       2. Advanced Search options allow:
         * Search by Genre (Theatre, Improve, Dance, or Film)
         * Search by Type (Professionals, Companies, or Performances.)
@@ -51,7 +52,7 @@ The Scenery allows everyone to have the performing arts at their fingertips. Ber
       }   
     }
     ```
-and the backend responds with the user's information after checking the database to see if that user exists and that their password is correct:
+The database responds with the user's complete information after checking the database to see if that user exists and that their password is correct:
 
     ```
     {
@@ -64,7 +65,7 @@ and the backend responds with the user's information after checking the database
       "description": "check",
       "is_professional": true,
       "display_name": "John Doe",
-      "image_url": "https://s3.amazonaws.com/thescenery/uploads/User8",
+      "image_url": "photo_aws_url_demo",
       "login_token": "obscured_to_avoid_hackage",
       "facebook_link": "facebook.com/johndoe",
       "twitter_link": "twitter.com/johndoe",
@@ -113,20 +114,20 @@ and the backend responds with the user's information after checking the database
 
 And this is the information that populates the user's profile page.
 
-When a user is logged in, the login_token is what authenticates that user and enables them to create items on the-scenery.com. Users who are have not self-identified as professionals are limited to submitting reviews, whereas professionals can create companies, performances, showtimes related to that performance, and post opportunities.
+Once a user is logged in, the login_token is what authenticates that user and enables them to create items on the-scenery.com.
 
-When a user is browsing around our webpage and navigates to a performance. Here is the JSON that the back-end passes back to provide all the information associated with that performance:
+When a user is browsing around our webpage and navigates to a performance this is the JSON that the back-end passes back to provide all the information associated with that performance:
 
 ```
 {
   "performance": {
     "id": 1,
     "owner_id": 1,
-    "image_url": "https://s3.amazonaws.com/thescenery/uploads/User1",
+    "image_url": "photo_aws_url_demo",
     "company_id": 1,
-    "company_name": "Little Green Pig",
+    "company_name": "Little Company",
     "name": "THE PIANO HAS BEEN DRINKING: A TOM WAITS CABARET",
-    "description": "A benefit fundraiser for Little Green Pig. Two nights only, $20 suggested donation at the door. Featuring Germain Choffart, Hugh Crumley, Jessica Flemming, Trevor Johnson, Jessi Knight, Louis Landry, Anastasia Maddox, Dana Marks, Bart Matthews, Jaybird O'Berski, Liam O'Neill, Madeleine Pabis, Samantha Rahn, Rob Sharer & Tim Smith)",
+    "description": "A benefit fundraiser",
     "hero_image_url": null,
     "profile_image_url": null,
     "production_image_url": null,
@@ -159,28 +160,28 @@ When a user is browsing around our webpage and navigates to a performance. Here 
         "id": 18,
         "opinion": "I'm looking forward to it",
         "rating": null,
-        "image_url": "https://s3.amazonaws.com/thescenery/uploads/User7",
+        "image_url": "photo_aws_url_demo",
         "reviewee_name": "THE PIANO HAS BEEN DRINKING: A TOM WAITS CABARET",
         "user_id": 7,
         "reviewee_id": 1,
         "reviewee_type": "Performance",
         "created_at": "04/18/2016",
-        "display_name": "Steven Cooper"
+        "display_name": "Steven"
       }
     ]
   }
 }
 ```
-In the same vain, this is what the JSON data looks like when they navigate to a company page:
+In the same vein, this is what the JSON data looks like when they navigate to a company page:
 ```
 {
   "company": {
     "id": 1,
     "user_id": 1,
-    "user_image_url": "https://s3.amazonaws.com/thescenery/uploads/User1",
+    "user_image_url": "photo_aws_url_demo",
     "name": "Little Green Pig",
     "description": "We create stuff",
-    "website_link": "http://www.littlegreenpig.com/",
+    "website_link": "http://www.yourwebsite.com/",
     "facebook_link": "www.facebook.com",
     "twitter_link": "www.twitter.com",
     "instagram_link": "www.instagram.com",
@@ -195,38 +196,38 @@ In the same vain, this is what the JSON data looks like when they navigate to a 
       {
         "id": 8,
         "opinion": "new review",
-        "image_url": "https://s3.amazonaws.com/thescenery/uploads/User1",
-        "reviewee_name": "Little Green Pig",
+        "image_url": "photo_aws_url_demo",
+        "reviewee_name": "Little Company",
         "rating": null,
         "user_id": 1,
         "reviewee_id": 1,
         "reviewee_type": "Company",
         "created_at": "04/17/2016",
-        "display_name": "Jay Oberski"
+        "display_name": "Jay"
       },
       {
         "id": 9,
         "opinion": "ksjdak",
-        "image_url": "https://s3.amazonaws.com/thescenery/uploads/User7",
-        "reviewee_name": "Little Green Pig",
+        "image_url": "photo_aws_url_demo",
+        "reviewee_name": "Little Company",
         "rating": null,
         "user_id": 7,
         "reviewee_id": 1,
         "reviewee_type": "Company",
         "created_at": "04/17/2016",
-        "display_name": "Steven Cooper"
+        "display_name": "Steven"
       },
       {
         "id": 10,
         "opinion": "New Review!!!!",
-        "image_url": "https://s3.amazonaws.com/thescenery/uploads/User7",
-        "reviewee_name": "Little Green Pig",
+        "image_url": "photo_aws_url_demo",
+        "reviewee_name": "Little Company",
         "rating": null,
         "user_id": 7,
         "reviewee_id": 1,
         "reviewee_type": "Company",
         "created_at": "04/17/2016",
-        "display_name": "Steven Cooper"
+        "display_name": "Steven "
       }
     ],
     "opportunities": [
@@ -236,7 +237,7 @@ In the same vain, this is what the JSON data looks like when they navigate to a 
         "venue_id": null,
         "name": "Mew Opportunity",
         "description": "Play the role of hamlet",
-        "contact_info": "littlegreenpig@gmail.com",
+        "contact_info": "littlecompany@gmail.com",
         "created_at": "04/17/2016"
       }
     ],
@@ -246,7 +247,7 @@ In the same vain, this is what the JSON data looks like when they navigate to a 
         "company_id": 1,
         "owner_id": 1,
         "name": "THE PIANO HAS BEEN DRINKING: A TOM WAITS CABARET",
-        "description": "A benefit fundraiser for Little Green Pig. Two nights only, $20 suggested donation at the door. Featuring Germain Choffart, Hugh Crumley, Jessica Flemming, Trevor Johnson, Jessi Knight, Louis Landry, Anastasia Maddox, Dana Marks, Bart Matthews, Jaybird O'Berski, Liam O'Neill, Madeleine Pabis, Samantha Rahn, Rob Sharer & Tim Smith)",
+        "description": "A benefit fundraiser)",
         "trailer_link": null,
         "ticket_link": null,
         "production_image_url": null,
@@ -258,7 +259,7 @@ In the same vain, this is what the JSON data looks like when they navigate to a 
         "company_id": 1,
         "owner_id": 1,
         "name": "THE NEW COLOSSUS",
-        "description": "An original adaption of Anton Chekhov’s The Sea Gull by Tamara Kissane",
+        "description": "An original adaption of Anton Chekhov’s The Sea Gull",
         "trailer_link": null,
         "ticket_link": null,
         "production_image_url": null,
@@ -270,7 +271,7 @@ In the same vain, this is what the JSON data looks like when they navigate to a 
         "company_id": 1,
         "owner_id": 1,
         "name": "Grounded, by George Brant",
-        "description": "From the award-winning playwright of Elephant's Graveyard, George Brant, comes the story of an ace fighter pilot whose career in the sky is ended early due to an unexpected pregnancy. Reassigned to operate military drones from a windowless trailer outside Las Vegas, she hunts terrorists by day and returns to her family each night. As the pressure to track a high-profile target mounts, the boundaries begin to blur between the desert in which she lives and the one she patrols half a world away.",
+        "description": "From the award-winning playwright of Elephant's Graveyard, George Brant",
         "trailer_link": null,
         "ticket_link": null,
         "production_image_url": null,
@@ -283,5 +284,3 @@ In the same vain, this is what the JSON data looks like when they navigate to a 
 }
 ```
 As you can see, all our information is passed to and from Ruby on Rails as JSON.
-
-All of the info is stored in our PostgreSQL database which is best represented by this ERD chart: [Imgur](http://i.imgur.com/euAnYR0.jpg).
