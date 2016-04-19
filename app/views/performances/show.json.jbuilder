@@ -1,7 +1,7 @@
 json.performance do
   json.id @performance.id
   json.owner_id @performance.owner_id
-  json.image_url @performance.company.user.image_url
+  json.image_url @performance.company.user.profile_image.url
   json.company_id @performance.company_id
   json.company_name @performance.company.name
   json.name @performance.name

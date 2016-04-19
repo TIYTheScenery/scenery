@@ -8,13 +8,13 @@ if @success
     json.description @user.description
     json.is_professional @user.is_professional
     json.display_name @user.display_name
-    json.image_url @user.image_url
+    json.image_url @user.profile_image.url
     json.login_token @user.login_token
     json.facebook_link @user.facebook_link
     json.twitter_link @user.twitter_link
     json.instagram_link @user.instagram_link
     json.youtube_link @user.youtube_link
-    json.image_url @user.image_url
+    json.image_url @user.profile_image.url
     json.created_at @user.created_at.to_date.strftime("%m/%d/%Y")
     if @user.is_professional == true
       json.titles @user.titles.each do |u|
@@ -34,8 +34,8 @@ if @success
       json.id c.id
       json.user_id c.user_id
       json.name c.name
-      json.hero_image_url c.hero_image_url
-      json.profile_image_url c.profile_image_url
+      json.hero_image_url c.hero_image.url
+      json.profile_image_url c.profile_image.url
       json.description c.description
       json.website_link c.website_link
       json.facebook_link c.facebook_link
