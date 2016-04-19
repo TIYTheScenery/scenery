@@ -3,6 +3,7 @@ json.performances @performances.each do |per|
   json.id per.id
   json.owner_id per.owner_id
   json.company_id per.company_id
+  json.company_name per.company.name
   json.name per.name
   json.description per.description
   json.hero_image_url per.hero_image_url
@@ -10,6 +11,7 @@ json.performances @performances.each do |per|
   json.production_image_url per.production_image_url
   json.trailer_link per.trailer_link
   json.ticket_link per.ticket_link
+  json.created_at per.created_at.to_date.strftime("%m/%d/%Y")
 end
 json.professionals @professionals.each do |pro|
   json.id pro.id
