@@ -25,7 +25,7 @@ json.performance do
     json.city s.city
     json.state s.state
     json.zip_code s.zip_code
-    json.show_date s.show_date.strftime("%Y-%m-%d %l:%M%p")
+    json.show_date s.show_date.strftime("%Y-%-m-%d %l:%M %P")
     json.cast_members s.cast_members.each do |cm|
       json.id cm.id
       json.name cm.name
