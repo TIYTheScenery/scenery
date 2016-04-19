@@ -42,6 +42,7 @@ The Scenery allows everyone to have the performing arts at their fingertips. Ber
   * Performance Page
     * Displays your Company's name and the Performance name.
     * Has the Performance's description, ticketing link, trailer link, tags to refine the show's genre, reviews on the show, and all of the show's performance times.
+    
 ## How does it work?
   The Ruby on Rails backend communicates with the AngularJS front end by means of exchanging JSON. So for example, when a user wants to login to our website the Angular JS passes us a JSON file that looks like this:
 
