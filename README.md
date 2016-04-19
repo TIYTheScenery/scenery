@@ -41,3 +41,247 @@ The Scenery allows everyone to have the performing arts at their fingertips. Ber
       1. Displays your Company's name and the Performance name.
       2. Has the Performance's description, ticketing link, trailer link, tags to refine the show's genre, reviews on the show, and all of the show's performance times.
 # How does it work?
+  The Ruby on Rails backend communicates with the AngularJS frontend by means of exchanging JSON. So for example, when a user wants to login to our website the Angular JS passes us a JSON file that looks like this:
+    ```
+    {
+      "user_info": {
+        "email": "username@user.com",
+        "password": "password"
+
+      }   
+    }
+    ```
+and the backend responds with the user's information after checking the database to see if that user exists and that their password is correct:
+
+    ```
+    {
+      "success": true,
+      "user_info": {
+      "id": 8,
+      "email": "username@user.com",
+      "first_name": "John",
+      "last_name": "Doe",
+      "description": "check",
+      "is_professional": true,
+      "display_name": "John Doe",
+      "image_url": "https://s3.amazonaws.com/thescenery/uploads/User8",
+      "login_token": "obscured_to_avoid_hackage",
+      "facebook_link": "facebook.com/johndoe",
+      "twitter_link": "twitter.com/johndoe",
+      "instagram_link": "instagram.com/johndoe",
+      "youtube_link": "youtube.com/johndoe",
+      "created_at": "04/16/2016",
+      "titles": [
+        {
+          "id": 5,
+          "title": "Lighting Director: XYZ Company"
+        }
+      ],
+      "reviews": [
+        {
+          "id": 13,
+          "opinion": "I had a great experience at Burning Coal.",
+          "rating": null,
+          "user_id": 8,
+          "reviewee_id": 16,
+          "reviewee_type": "Company"
+        }
+      ],
+      "companies": [
+        {
+          "id": 16,
+          "user_id": 8,
+          "name": "XYZ Company",
+          "hero_image_url": null,
+          "profile_image_url": null,
+          "description": "XYZ Company is a theatre company located in Durham, NC.",
+          "website_link": "xyzcompany.com",
+          "facebook_link": "facebook.com/xyzcompany",
+          "twitter_link": "twitter.com/xyzcompany",
+          "instagram_link": "instagram.com/xyzcompany",
+          "youtube_link": "youtube.com/xyzcompany",
+          "address": "123 Sesame St",
+          "city": "Durham",
+          "state": "NC",
+          "zip_code": "27703",
+          "created_at": "04/17/2016"
+        }
+        ]
+      }
+    }
+    ```
+
+And this is the information that populates the user's profile page.
+
+When a user is logged in, the login_token is what authenticates that user and enables them to create items on the-scenery.com. Users who are have not self-identified as professionals are limited to submitting reviews, whereas professionals can create companies, performances, showtimes related to that performance, and post opportunities.
+
+When a user is browsing around our webpage and navigates to a performance. Here is the JSON that the back-end passes back to provide all the information associated with that performance:
+
+```
+{
+  "performance": {
+    "id": 1,
+    "owner_id": 1,
+    "image_url": "https://s3.amazonaws.com/thescenery/uploads/User1",
+    "company_id": 1,
+    "company_name": "Little Green Pig",
+    "name": "THE PIANO HAS BEEN DRINKING: A TOM WAITS CABARET",
+    "description": "A benefit fundraiser for Little Green Pig. Two nights only, $20 suggested donation at the door. Featuring Germain Choffart, Hugh Crumley, Jessica Flemming, Trevor Johnson, Jessi Knight, Louis Landry, Anastasia Maddox, Dana Marks, Bart Matthews, Jaybird O'Berski, Liam O'Neill, Madeleine Pabis, Samantha Rahn, Rob Sharer & Tim Smith)",
+    "hero_image_url": null,
+    "profile_image_url": null,
+    "production_image_url": null,
+    "trailer_link": null,
+    "ticket_link": null,
+    "genre_id": [
+      {
+        "id": 1,
+        "category": "Theatre",
+        "genre_id": 1
+      }
+    ],
+    "show_times": [
+      {
+        "id": 1,
+        "event_id": 1,
+        "event_type": "Performance",
+        "begin_time": " 3:33",
+        "venue_id": null,
+        "address": "33 south st.",
+        "city": "Durham",
+        "state": "NC",
+        "zip_code": "27703",
+        "show_date": "04/21/2016",
+        "cast_members": []
+      }
+    ],
+    "reviews": [
+      {
+        "id": 18,
+        "opinion": "I'm looking forward to it",
+        "rating": null,
+        "image_url": "https://s3.amazonaws.com/thescenery/uploads/User7",
+        "reviewee_name": "THE PIANO HAS BEEN DRINKING: A TOM WAITS CABARET",
+        "user_id": 7,
+        "reviewee_id": 1,
+        "reviewee_type": "Performance",
+        "created_at": "04/18/2016",
+        "display_name": "Steven Cooper"
+      }
+    ]
+  }
+}
+```
+In the same vain, this is what the JSON data looks like when they navigate to a company page:
+```
+{
+  "company": {
+    "id": 1,
+    "user_id": 1,
+    "user_image_url": "https://s3.amazonaws.com/thescenery/uploads/User1",
+    "name": "Little Green Pig",
+    "description": "We create stuff",
+    "website_link": "http://www.littlegreenpig.com/",
+    "facebook_link": "www.facebook.com",
+    "twitter_link": "www.twitter.com",
+    "instagram_link": "www.instagram.com",
+    "youtube_link": "www.youtube.com",
+    "address": "",
+    "city": "Durham",
+    "state": "NC",
+    "zip_code": "",
+    "profile_image_url": null,
+    "hero_image_url": null,
+    "reviews": [
+      {
+        "id": 8,
+        "opinion": "new review",
+        "image_url": "https://s3.amazonaws.com/thescenery/uploads/User1",
+        "reviewee_name": "Little Green Pig",
+        "rating": null,
+        "user_id": 1,
+        "reviewee_id": 1,
+        "reviewee_type": "Company",
+        "created_at": "04/17/2016",
+        "display_name": "Jay Oberski"
+      },
+      {
+        "id": 9,
+        "opinion": "ksjdak",
+        "image_url": "https://s3.amazonaws.com/thescenery/uploads/User7",
+        "reviewee_name": "Little Green Pig",
+        "rating": null,
+        "user_id": 7,
+        "reviewee_id": 1,
+        "reviewee_type": "Company",
+        "created_at": "04/17/2016",
+        "display_name": "Steven Cooper"
+      },
+      {
+        "id": 10,
+        "opinion": "New Review!!!!",
+        "image_url": "https://s3.amazonaws.com/thescenery/uploads/User7",
+        "reviewee_name": "Little Green Pig",
+        "rating": null,
+        "user_id": 7,
+        "reviewee_id": 1,
+        "reviewee_type": "Company",
+        "created_at": "04/17/2016",
+        "display_name": "Steven Cooper"
+      }
+    ],
+    "opportunities": [
+      {
+        "id": 1,
+        "company_id": 1,
+        "venue_id": null,
+        "name": "Mew Opportunity",
+        "description": "Play the role of hamlet",
+        "contact_info": "littlegreenpig@gmail.com",
+        "created_at": "04/17/2016"
+      }
+    ],
+    "upcoming_performances": [
+      {
+        "id": 1,
+        "company_id": 1,
+        "owner_id": 1,
+        "name": "THE PIANO HAS BEEN DRINKING: A TOM WAITS CABARET",
+        "description": "A benefit fundraiser for Little Green Pig. Two nights only, $20 suggested donation at the door. Featuring Germain Choffart, Hugh Crumley, Jessica Flemming, Trevor Johnson, Jessi Knight, Louis Landry, Anastasia Maddox, Dana Marks, Bart Matthews, Jaybird O'Berski, Liam O'Neill, Madeleine Pabis, Samantha Rahn, Rob Sharer & Tim Smith)",
+        "trailer_link": null,
+        "ticket_link": null,
+        "production_image_url": null,
+        "profile_image_url": null,
+        "hero_image_url": null
+      },
+      {
+        "id": 2,
+        "company_id": 1,
+        "owner_id": 1,
+        "name": "THE NEW COLOSSUS",
+        "description": "An original adaption of Anton Chekhov’s The Sea Gull by Tamara Kissane",
+        "trailer_link": null,
+        "ticket_link": null,
+        "production_image_url": null,
+        "profile_image_url": null,
+        "hero_image_url": null
+      },
+      {
+        "id": 3,
+        "company_id": 1,
+        "owner_id": 1,
+        "name": "Grounded, by George Brant",
+        "description": "From the award-winning playwright of Elephant's Graveyard, George Brant, comes the story of an ace fighter pilot whose career in the sky is ended early due to an unexpected pregnancy. Reassigned to operate military drones from a windowless trailer outside Las Vegas, she hunts terrorists by day and returns to her family each night. As the pressure to track a high-profile target mounts, the boundaries begin to blur between the desert in which she lives and the one she patrols half a world away.",
+        "trailer_link": null,
+        "ticket_link": null,
+        "production_image_url": null,
+        "profile_image_url": null,
+        "hero_image_url": null
+      }
+    ],
+    "past_performances": []
+  }
+}
+```
+As you can see, all our information is passed to and from Ruby on Rails as JSON.
+
+All of the info is stored in our PostgreSQL database which is best represented by this ERD chart: [Imgur](http://i.imgur.com/euAnYR0.jpg).
