@@ -88,7 +88,7 @@ if @success
       end
 
       if @user.is_professional == true
-        json.companies @companies.each do |c|
+        json.companies @user.companies.each do |c|
           json.id c.id
           json.user_id c.user_id
           json.name c.name
@@ -109,7 +109,6 @@ if @success
       end
     end
   end
-end
 else
   json.errors @company.errors.full_messages
 end

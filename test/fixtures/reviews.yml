@@ -13,7 +13,7 @@ two:
   id: 2
   opinion: "Merde!"
   rating: "0"
-  user_id: "2"
-  reviewee_id: "3"
+  user_id: 2
+  reviewee_id: 2
   reviewee_type: "Performance"
   display_name: "Boss"

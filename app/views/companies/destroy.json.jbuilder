@@ -31,7 +31,7 @@ if @success
         json.created_at r.created_at.to_date.strftime("%m/%d/%Y")
       end
       if @user.is_professional == true
-        json.companies @companies.each do |c|
+        json.companies @user.companies.each do |c|
           json.id c.id
           json.user_id c.user_id
           json.name c.name
