@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :titles,
     allow_destroy: true
 
-  has_attached_file :profile_image
+  has_attached_file :profile_image,
+    :default_url => "/assets/images/generic_user.jpg"
+
   validates_attachment :profile_image,
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 

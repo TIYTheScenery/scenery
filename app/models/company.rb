@@ -12,11 +12,13 @@ class Company < ActiveRecord::Base
   accepts_nested_attributes_for :reviews,
     allow_destroy: true
 
-  has_attached_file :profile_image
+  has_attached_file :profile_image,
+    :default_url => "/assets/images/companyDefaultProfile.jpg"
   validates_attachment :profile_image,
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
-  has_attached_file :hero_image
+  has_attached_file :hero_image,
+    :default_url => "/assets/images/companyDefaultSplash.jpg"
   validates_attachment :hero_image,
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
