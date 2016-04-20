@@ -48,6 +48,7 @@ if @success
         json.hero_image_url c.hero_image.url
         json.created_at c.created_at.to_date.strftime("%m/%d/%Y")
       end
+    end
   end
 else
   json.errors @user.errors.full_messages
