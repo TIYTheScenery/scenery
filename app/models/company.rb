@@ -13,7 +13,7 @@ class Company < ActiveRecord::Base
     allow_destroy: true
 
   has_attached_file :profile_image,
-    :default_url => "/assets/images/companyDefaultProfile.jpg"
+    :default_url => "/assets/images/companyDefaultProfile.png"
   validates_attachment :profile_image,
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
