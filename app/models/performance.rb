@@ -17,8 +17,8 @@ class Performance < ActiveRecord::Base
     allow_destroy: true
 
   has_attached_file :hero_image,
-    :default_url => "/assets/images/performanceDefaultmg.jpg"
-    
+    :default_url => "/assets/images/performanceDefaultImg.jpg"
+
   validates_attachment :hero_image,
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
