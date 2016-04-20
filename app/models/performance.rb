@@ -16,7 +16,9 @@ class Performance < ActiveRecord::Base
   accepts_nested_attributes_for :reviews,
     allow_destroy: true
 
-  has_attached_file :hero_image
+  has_attached_file :hero_image,
+    :default_url => "/assets/images/performanceDefaultmg.jpg"
+    
   validates_attachment :hero_image,
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
