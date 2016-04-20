@@ -31,7 +31,7 @@ class Company < ActiveRecord::Base
   end
 
   def past_performances
-    past = performances.joins("JOIN show_times ON show_times.event_id = performances.id AND show_times.event_type = 'Performance'").
+    past = performances.joins("JOIN show_times ON show_times.event_id = performances.id AND show_times.event_type = 'Performance' AND show_times.show_date = (SELECT MAX(show_times.show_date) FROM show_times WHERE show_times.event_id = performances.id AND show_times.event_type = 'Performance')").
         where("show_times.show_date < ? ", DateTime.now).
         distinct(:performance_id)
       # select {|per| per.show_times.last.show_date < DateTime.now }
