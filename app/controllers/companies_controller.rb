@@ -6,6 +6,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     @success = @company.save
+    @user = User.find_by(login_token: params[:user_info][:login_token])
   end
 
   def show
@@ -22,6 +23,7 @@ class CompaniesController < ApplicationController
   def destroy
     @company = Company.find(params[:id])
     @success = @company.destroy
+    @user = User.find_by(login_token: params[:user_info][:login_token])
   end
 
   private
